@@ -1,0 +1,54 @@
+# This Taskfile helps generate binst installation scripts for different software
+version: '3'
+
+vars:
+  CONFIG_DIR: ./config
+  SCRIPT_DIR: ./scripts
+
+tasks:
+  init:
+    desc: Initialize binst configuration for a GitHub project.
+    summary: |
+      Initialize a binst configuration for a GitHub project.
+      
+      The config file will be saved to {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}.
+
+      By default, the output file is named BINARY.binstaller.yml where BINARY is the
+      repository name (like trufflehog) extracted from the repo input.
+
+      Invoke this task like:
+        task init REPO=trufflesecurity/trufflehog
+    vars:
+      BINARY: "{{.REPO | base}}"
+      OUTPUT_FILE: "{{.BINARY}}.binstaller.yml"
+    cmd: |
+      binst init --source=github --repo {{.REPO}} -o {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}
+    requires:
+      vars: ["REPO"]
+
+  embed-checksums:
+    desc: Embed checksums into a binst configuration file.
+    summary: |
+      Embed checksums into a binst configuration file for a specific version.
+      
+      Invoke this task like:
+        task embed-checksums BINARY=trufflehog VERSION=v3.92.4
+    cmd: |
+      binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode download
+    requires:
+      vars: ["BINARY", "VERSION"]
+
+  gen:
+    desc: Generate installation script from binst configuration.
+    summary: |
+      Generate an installation script from a binst configuration file.
+      
+      The generated script will be saved to {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh.
+
+      Invoke this task like:
+        task gen BINARY=trufflehog
+    cmd: |
+      binst gen --config={{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml -o {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh
+    requires:
+      vars: ["BINARY"]
+
