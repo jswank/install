@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: eksctl-io/eksctl
+asset:
+  template: eksctl_${OS}_${ARCH}${EXT}
+  default_extension: .tar.gz
+  rules:
+  - when:
+      os: darwin
+    os: Darwin
+  - when:
+      os: linux
+    os: Linux
+  - when:
+      os: windows
+    os: Windows
+  - when:
+      os: windows
+    ext: .zip
+checksums:
+  algorithm: sha256
+  template: eksctl_checksums.txt
+  embedded_checksums:
+    v0.221.0:
+    - filename: eksctl_Darwin_amd64.tar.gz
+      hash: 9a5a3370ed79ffa646e25a0115aa7ee7fa203b284dffe058135b353be1542752
+    - filename: eksctl_Darwin_arm64.tar.gz
+      hash: 80a5f4ec7c58aad8884665318f448e88f1861a9e0eb2a467e0b879161d90bcc2
+    - filename: eksctl_Linux_amd64.tar.gz
+      hash: 9c04d16e5a0be350f9c383088ed99eac2cf1af830d25360c34588854e9e06cda
+    - filename: eksctl_Linux_arm64.tar.gz
+      hash: 3c8cfe3954c1a88a49d7f09cc03f69dceab689b1d396b9d0bcba80228d12978e
+    - filename: eksctl_Windows_amd64.zip
+      hash: c247283dc064ac55e44222191d71800f189a16b438b42cb520fb1489d1b80513
+    - filename: eksctl_Windows_arm64.zip
+      hash: f1dbc8383281c0c318e4ee99eb688438f1d7a19dbbe2b2a03e93863740dc0f73
