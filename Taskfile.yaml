@@ -15,11 +15,11 @@ tasks:
       determined by the latest-release task, will be used unless a specific version is
       provided.
 
-      Invoke this task like:
+      Invoke this task like: 
         task default REPO=trufflesecurity/trufflehog 
     vars:
       BINARY: "{{.REPO | base}}"
-      OUTPUT_FILE: "{{.BINARY}}.binstaller.yml"
+      VERSION: '{{.VERSION | default "latest"}}'
     cmds:
       - task: init
         vars:
@@ -27,12 +27,10 @@ tasks:
       - task: embed-checksums
         vars:
           BINARY: "{{.BINARY}}"
-          # use 'latest' as version unless VERIS
-          VERSION:
+          VERSION: "{{.VERSION }}"
       - task: gen
         vars:
           BINARY: "{{.BINARY}}" 
-
     requires:
       vars: ["REPO"]
 
@@ -105,3 +103,14 @@ tasks:
     requires:
       vars: ["BINARY"]
 
+  install-*:
+    desc: Install a binary using its installation script.
+    summary: |
+      Install a binary using its installation script located in the scripts directory.
+
+      Invoke this task like:
+        task install-trufflehog
+    cmd: |
+      bash {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh
+    vars:
+      BINARY: "{{index .MATCH 0}}"

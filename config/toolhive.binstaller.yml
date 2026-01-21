@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: stacklok/toolhive
+asset:
+  template: toolhive_${VERSION}_${OS}_${ARCH}${EXT}
+  default_extension: .tar.gz
+  binaries:
+    - name: thv
+      path: thv
+  rules:
+  - when:
+      os: windows
+    ext: .zip
+checksums:
+  algorithm: sha256
+  template: toolhive_${VERSION}_checksums.txt
+  embedded_checksums:
+    v0.7.2:
+    - filename: toolhive_0.7.2_darwin_amd64.tar.gz
+      hash: a32b18485d33acefc0d69641a8f99e43c9d91ed45c6279cf158f220763840ef5
+    - filename: toolhive_0.7.2_darwin_arm64.tar.gz
+      hash: 20b3fd98df6abdbd4898c6aa1f2fa7d01f58901055f85c374cccf110a014be1d
+    - filename: toolhive_0.7.2_linux_amd64.tar.gz
+      hash: 84a89a735f3c5d7eaa4fe0f4cba164eb2a04b83f2525c9709dc60dc86fc9dab1
+    - filename: toolhive_0.7.2_linux_arm64.tar.gz
+      hash: 821fb80c672701b62bf3efcb4c744c685fbbde80845b6256d2116a4fe561ac21
+    - filename: toolhive_0.7.2_windows_amd64.zip
+      hash: d6d639453938383a3399888bbe0a60449ae1a5aa196b9cd2187a1ef089b4beb6
+    - filename: toolhive_0.7.2_windows_arm64.zip
+      hash: d291feff936764db8a02868461431bd54a840ecac7a78b303e30956609c54631
