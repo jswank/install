@@ -22,10 +22,10 @@ $ scripts/task-install.sh
 
 ## Workflows
 
-Common workflows for the creation, maintantenance, usage of the installation scripts are encapsulated in [Task](https://taskfile.dev) tasks. 
+Common workflows for the creation, maintenance, usage of the installation scripts are encapsulated in [Task](https://taskfile.dev) tasks. 
 
-```
-# list availale tasks
+```bash
+# list available tasks
 $ task --list
 
 task: Available tasks for this project:
@@ -46,7 +46,7 @@ The default task creates a new installation script for a binary from its GitHub
 repository. This is often the only step needed to add a new installation script
 to the collection.
 
-```
+```bash
 # create a new installation script by providing the GitHub repository as an argument:
 $ task REPO=owner/repo-name
 
