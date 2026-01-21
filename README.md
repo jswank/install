@@ -42,15 +42,21 @@ $ task install-trufflehog
 
 ### Creating New Installation Scripts
 
-The default task creates a new installation script for a binary from its GitHub
-repository. This is often the only step needed to add a new installation script
-to the collection.
+The default task uses binstaller to creates a new installation script for a binary from
+its GitHub repository. This is often the only step needed to add a new installation
+script to the collection.
 
+To install binstaller, run:
+```bash
+$ scripts/binstaller-install.sh
+```
+
+To create a new installation script:
 ```bash
 # create a new installation script by providing the GitHub repository as an argument:
 $ task REPO=owner/repo-name
 
-# summarize the default task
+# detailes summary
 $ task --summary
 task: default
 
@@ -59,7 +65,8 @@ embedding checksums, and generating the installation script. The latest release,
 determined by the latest-release task, will be used unless a specific version is
 provided.
 
-Invoke this task like:  task default REPO=trufflesecurity/trufflehog
+Invoke this task like:
+  task default REPO=trufflesecurity/trufflehog
 
 vars:
   CONFIG_DIR: "./config"
