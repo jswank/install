@@ -6,6 +6,34 @@ vars:
   SCRIPT_DIR: ./scripts
 
 tasks:
+
+  default:
+    desc: Create a new installation script for a binary
+    summary: |
+      Create a new installation script for a binary by initializing a binst config,
+      embedding checksums, and generating the installation script. The latest release, as
+      determined by the latest-release task, will be used unless a specific version is
+      provided.
+
+      Invoke this task like:  task default REPO=trufflesecurity/trufflehog 
+    vars:
+      BINARY: "{{.REPO | base}}"
+      VERSION: '{{.VERSION | default "latest"}}'
+    cmds:
+      - task: init
+        vars:
+          REPO: "{{.REPO}}"
+      - task: embed-checksums
+        vars:
+          BINARY: "{{.BINARY}}"
+          # use 'latest' as version unless VERSION is explicitly provided
+          VERSION: "{{.VERSION }}"
+      - task: gen
+        vars:
+          BINARY: "{{.BINARY}}" 
+    requires:
+      vars: ["REPO"]
+
   init:
     desc: Initialize binst configuration for a GitHub project.
     summary: |
@@ -26,17 +54,40 @@ tasks:
     requires:
       vars: ["REPO"]
 
+  latest-release:
+    desc: Determine the latest release available for a given repo.
+    summary: |
+      Determine the latest release available for a given GitHub repository.
+      
+      Invoke this task like:
+        task latest-release REPO=trufflesecurity/trufflehog
+    cmd: |
+      gh release view -R {{.REPO}} --json tagName --jq .tagName
+    requires:
+      vars: ["REPO"]
+
   embed-checksums:
     desc: Embed checksums into a binst configuration file.
     summary: |
       Embed checksums into a binst configuration file for a specific version.
-      
+    
+      If VERSION is not specified, the latest release ("latest") will be used.
+
       Invoke this task like:
         task embed-checksums BINARY=trufflehog VERSION=v3.92.4
+
+      If --mode download fails, fallbac to --mode calculate
     cmd: |
-      binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode download
+        set +o errexit
+        binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode download
+        if [ $? -ne 0 ]; then
+          binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode calculate
+        fi
+
+    vars:
+      VERSION: "latest"
     requires:
-      vars: ["BINARY", "VERSION"]
+      vars: ["BINARY"]
 
   gen:
     desc: Generate installation script from binst configuration.
@@ -52,3 +103,14 @@ tasks:
     requires:
       vars: ["BINARY"]
 
+  install-*:
+    desc: Install a binary using its installation script.
+    summary: |
+      Install a binary using its installation script located in the scripts directory.
+
+      Invoke this task like:
+        task install-trufflehog
+    cmd: |
+      bash {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh
+    vars:
+      BINARY: "{{index .MATCH 0}}"

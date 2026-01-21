@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: sigoden/aichat
+asset:
+  template: aichat-${TAG}-${ARCH}-${OS}${EXT}
+  default_extension: .tar.gz
+  rules:
+  - when:
+      arch: amd64
+    arch: x86_64
+  - when:
+      arch: arm64
+    arch: aarch64
+  - when:
+      os: darwin
+    os: apple-darwin
+  - when:
+      os: linux
+    os: unknown-linux-musl
+  - when:
+      os: windows
+    os: pc-windows-msvc
+  - when:
+      os: windows
+    ext: .zip
