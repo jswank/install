@@ -2,6 +2,12 @@
 
 A collection of installation scripts for binary tools, generated using [binstaller](https://github.com/binary-install/binstaller).  These scripts are portable POSIX shell scripts that work across Linux, macOS, and Windows (Git Bash/WSL) and are designed to be a simple, secure way to install self-contained binaries from GitHub releases.
 
+* [Quick Start](#quick-start)
+* [Workflows](#workflows)
+    * [Creating New Installation Scripts](#creating-new-installation-scripts)
+* [Notes](#notes)
+    * [Binary Names](#binary-names)
+
 ## Quick Start
 
 Install any binary using its generated script:
@@ -86,3 +92,6 @@ binaries:
   - name: thv
     path: thv
 ```
+
+## License
+MIT. See [LICENSE](LICENSE) for details.
