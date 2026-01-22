@@ -8,32 +8,32 @@ checksums:
   algorithm: sha256
   template: tofu_${VERSION}_SHA256SUMS
   embedded_checksums:
-    v1.11.3:
-    - filename: tofu_1.11.3_darwin_amd64.tar.gz
-      hash: c895c837af131f91ec6a493e5ab29e702bf38500ebccb5c3bf31e2ae823ab5c4
-    - filename: tofu_1.11.3_darwin_arm64.tar.gz
-      hash: ed13cc2c919a0e3532eeb71fd5cd275d44d9552d8e57f18e5867917149146490
-    - filename: tofu_1.11.3_freebsd_386.tar.gz
-      hash: 9e94e9d4c1c0c6371069e55e7d85b9b80e31fb7651bdf6d86d6f6fd3c33d078e
-    - filename: tofu_1.11.3_freebsd_amd64.tar.gz
-      hash: 8ce117bd91d28608369e7f057b7ea10c638bef1625d55eb8bbc6d0ab1a57382d
-    - filename: tofu_1.11.3_freebsd_arm.tar.gz
-      hash: 6d60c289445d11f51bff7a828a8eaa3eeed6db1209e88eadd436c49852932775
-    - filename: tofu_1.11.3_linux_386.tar.gz
-      hash: 15f5721d928af1c53a11a2cbcca700a16c3d81ddd0b1b6d205d662d3d8f6b320
-    - filename: tofu_1.11.3_linux_amd64.tar.gz
-      hash: 46b567512d4cfa631551b936f3616c02277954fece29d91a52d264537399ad03
-    - filename: tofu_1.11.3_linux_arm.tar.gz
-      hash: f670ddb67a1c187735bfe4d9e4642a1f35903e3f3548a5604fe15c0c4f3b0fb8
-    - filename: tofu_1.11.3_linux_arm64.tar.gz
-      hash: abb19fdbb4516a30f303f0686cd156f2ff768b34c8d1e433ce5e6f1d81399425
-    - filename: tofu_1.11.3_openbsd_386.tar.gz
-      hash: e2b74b05a5e3faf5f957361382b47129a411840b68be07cce216b6ce723af7aa
-    - filename: tofu_1.11.3_openbsd_amd64.tar.gz
-      hash: e4e21e05db28441c41d94267495d65ae098f791df365c6fcd2924e65d0f946d2
-    - filename: tofu_1.11.3_solaris_amd64.tar.gz
-      hash: a4a88ee5bdbd0afa47488d8dabc463733a3efd5a28be57199ead6b04fdd5bd9b
-    - filename: tofu_1.11.3_windows_386.tar.gz
-      hash: dad3090337bebc23bbb0d645c86a36316827d743ae26b5ecc925c33d2d454868
-    - filename: tofu_1.11.3_windows_amd64.tar.gz
-      hash: 5e97b41ee5d9387f1e4532b6e2de6ae244e93f70c9d48fb46ec606c7cacb7a07
+    v1.11.4:
+    - filename: tofu_1.11.4_darwin_amd64.tar.gz
+      hash: 46abdd10b826e864f6daf2013a6f0dbc079d8c6e0f79b529138b7da50bea502f
+    - filename: tofu_1.11.4_darwin_arm64.tar.gz
+      hash: 2e52b9baccf925a1516ae850112b6eddce35d96e9b59fa954d191d6e8ef3af5f
+    - filename: tofu_1.11.4_freebsd_386.tar.gz
+      hash: ebeda7898c60c75869f60a57d1ff5e3f87bc8093cab117ff86b096943afb2922
+    - filename: tofu_1.11.4_freebsd_amd64.tar.gz
+      hash: 9759b92fe9b6daa8f95ce85ef6c766da2208fdea709a3e0409d13feb0f26b5dc
+    - filename: tofu_1.11.4_freebsd_arm.tar.gz
+      hash: 2710a3cb6ec913dcfa734312aade5a9f617cb9c1c0f1362f3c68b4c50ebb3a3c
+    - filename: tofu_1.11.4_linux_386.tar.gz
+      hash: 6e81bfbfc8cab3aff03da8bf74b42861682686c224a97d50a47ac3caa3a086bf
+    - filename: tofu_1.11.4_linux_amd64.tar.gz
+      hash: 0d744081951095c3e54fd4f0af5c48491ec03116ab02f1ad5ca4ed60d3b60efd
+    - filename: tofu_1.11.4_linux_arm.tar.gz
+      hash: 50a59e671c2d9a7119376547c02c6b94478b5bb57fb74555867a6757216eea36
+    - filename: tofu_1.11.4_linux_arm64.tar.gz
+      hash: 6b81ff00501737fd3459fef6cee9c06ce2b08683f6b7af110b2616468d024228
+    - filename: tofu_1.11.4_openbsd_386.tar.gz
+      hash: 8fc71eab3a1bf6765fbe5987e0e74115e3303d15819b0b87e8e81849076f0187
+    - filename: tofu_1.11.4_openbsd_amd64.tar.gz
+      hash: ae52722b8b8bd8bf3198e7f70adea1a21a4bfffe9c4093001e7c891e718f22af
+    - filename: tofu_1.11.4_solaris_amd64.tar.gz
+      hash: 6e8405c4e2854b06b3c55cf6147f6947925db5ca2f1950b92b1f0d59e9cbf3dd
+    - filename: tofu_1.11.4_windows_386.tar.gz
+      hash: 2b84afcae1060913697000546f65df794dd9f066ec614449559114e624803d8c
+    - filename: tofu_1.11.4_windows_amd64.tar.gz
+      hash: 2cf504355d9c0d4bdf9fbb209b81c5fc4b441cc32af23b26f0220fe08c56529f

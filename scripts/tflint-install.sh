@@ -13,7 +13,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -q turns on quiet mode (errors only)
   -n turns on dry run mode
    [tag] is a tag from
-   https://github.com/opentofu/opentofu/releases
+   https://github.com/terraform-linters/tflint/releases
    If tag is missing, then latest will be used.
 
 Environment variables:
@@ -410,20 +410,14 @@ github_release() {
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
 EMBEDDED_CHECKSUMS="
-1.11.4:tofu_1.11.4_darwin_amd64.tar.gz:46abdd10b826e864f6daf2013a6f0dbc079d8c6e0f79b529138b7da50bea502f
-1.11.4:tofu_1.11.4_darwin_arm64.tar.gz:2e52b9baccf925a1516ae850112b6eddce35d96e9b59fa954d191d6e8ef3af5f
-1.11.4:tofu_1.11.4_freebsd_386.tar.gz:ebeda7898c60c75869f60a57d1ff5e3f87bc8093cab117ff86b096943afb2922
-1.11.4:tofu_1.11.4_freebsd_amd64.tar.gz:9759b92fe9b6daa8f95ce85ef6c766da2208fdea709a3e0409d13feb0f26b5dc
-1.11.4:tofu_1.11.4_freebsd_arm.tar.gz:2710a3cb6ec913dcfa734312aade5a9f617cb9c1c0f1362f3c68b4c50ebb3a3c
-1.11.4:tofu_1.11.4_linux_386.tar.gz:6e81bfbfc8cab3aff03da8bf74b42861682686c224a97d50a47ac3caa3a086bf
-1.11.4:tofu_1.11.4_linux_amd64.tar.gz:0d744081951095c3e54fd4f0af5c48491ec03116ab02f1ad5ca4ed60d3b60efd
-1.11.4:tofu_1.11.4_linux_arm.tar.gz:50a59e671c2d9a7119376547c02c6b94478b5bb57fb74555867a6757216eea36
-1.11.4:tofu_1.11.4_linux_arm64.tar.gz:6b81ff00501737fd3459fef6cee9c06ce2b08683f6b7af110b2616468d024228
-1.11.4:tofu_1.11.4_openbsd_386.tar.gz:8fc71eab3a1bf6765fbe5987e0e74115e3303d15819b0b87e8e81849076f0187
-1.11.4:tofu_1.11.4_openbsd_amd64.tar.gz:ae52722b8b8bd8bf3198e7f70adea1a21a4bfffe9c4093001e7c891e718f22af
-1.11.4:tofu_1.11.4_solaris_amd64.tar.gz:6e8405c4e2854b06b3c55cf6147f6947925db5ca2f1950b92b1f0d59e9cbf3dd
-1.11.4:tofu_1.11.4_windows_386.tar.gz:2b84afcae1060913697000546f65df794dd9f066ec614449559114e624803d8c
-1.11.4:tofu_1.11.4_windows_amd64.tar.gz:2cf504355d9c0d4bdf9fbb209b81c5fc4b441cc32af23b26f0220fe08c56529f"
+0.60.0:tflint_darwin_amd64.zip:256f70ad2c9963690bccc31ffda6be0159f1c5f857b46773b70d01d56b711280
+0.60.0:tflint_darwin_arm64.zip:753a392b70e37b2970732bdaf0c9ad98b0f8ecb96026b21e91261e4e967c7f5e
+0.60.0:tflint_linux_386.zip:b25d41922b6dd4e30be74876d4691695b0d8de6f5b4cd93ddfd3706c3d285262
+0.60.0:tflint_linux_amd64.zip:3476ceedcf0c4f9f2bed35e92988e1411bec2caa543c9387bffaa720df9efaf7
+0.60.0:tflint_linux_arm.zip:59b6c1acf15f4faee2e28074a27214c78970b5427dff7ab16b9478f9d57fc2a8
+0.60.0:tflint_linux_arm64.zip:8f01d273e58f44f6ed10e198fa1f5d0a8080b01869de64658528275e943ef47a
+0.60.0:tflint_windows_386.zip:561a7c633009f4dcba82769742d7b1d14b64a5795a0868db5d3311ef19514998
+0.60.0:tflint_windows_amd64.zip:a6e08412ec6bf9041325d75a0b88846f8e3b8fb24e5dda105574fa7565235f4c"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -475,7 +469,7 @@ resolve_asset_filename() {
   # --- Apply Rules ---
   ASSET_FILENAME=""
   if [ -z "${ASSET_FILENAME}" ]; then
-    ASSET_FILENAME="tofu_${VERSION}_${OS}_${ARCH}${EXT}"
+    ASSET_FILENAME="tflint_${OS}_${ARCH}${EXT}"
   fi
 }
 # Cleanup function to remove temporary files and stop progress
@@ -491,7 +485,7 @@ cleanup() {
 
 execute() {
   STRIP_COMPONENTS=0
-  CHECKSUM_FILENAME="tofu_${VERSION}_SHA256SUMS"
+  CHECKSUM_FILENAME="checksums.txt"
 
   # --- Construct URLs ---
   GITHUB_DOWNLOAD="https://github.com/${REPO}/releases/download"
@@ -540,11 +534,11 @@ execute() {
     log_info "Extracting ${ASSET_FILENAME}..."
     (cd "${TMPDIR}" && untar "${ASSET_FILENAME}" "${STRIP_COMPONENTS}")
   fi
-  BINARY_NAME='opentofu'
+  BINARY_NAME='tflint'
   if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
-    BINARY_PATH="${TMPDIR}/opentofu"
+    BINARY_PATH="${TMPDIR}/tflint"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
@@ -578,9 +572,9 @@ execute() {
 }
 
 # --- Configuration  ---
-NAME='opentofu'
-REPO='opentofu/opentofu'
-EXT='.tar.gz'
+NAME='tflint'
+REPO='terraform-linters/tflint'
+EXT='.zip'
 
 # use in logging routines
 log_prefix() {

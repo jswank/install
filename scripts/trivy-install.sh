@@ -13,7 +13,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -q turns on quiet mode (errors only)
   -n turns on dry run mode
    [tag] is a tag from
-   https://github.com/opentofu/opentofu/releases
+   https://github.com/aquasecurity/trivy/releases
    If tag is missing, then latest will be used.
 
 Environment variables:
@@ -410,20 +410,12 @@ github_release() {
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
 EMBEDDED_CHECKSUMS="
-1.11.4:tofu_1.11.4_darwin_amd64.tar.gz:46abdd10b826e864f6daf2013a6f0dbc079d8c6e0f79b529138b7da50bea502f
-1.11.4:tofu_1.11.4_darwin_arm64.tar.gz:2e52b9baccf925a1516ae850112b6eddce35d96e9b59fa954d191d6e8ef3af5f
-1.11.4:tofu_1.11.4_freebsd_386.tar.gz:ebeda7898c60c75869f60a57d1ff5e3f87bc8093cab117ff86b096943afb2922
-1.11.4:tofu_1.11.4_freebsd_amd64.tar.gz:9759b92fe9b6daa8f95ce85ef6c766da2208fdea709a3e0409d13feb0f26b5dc
-1.11.4:tofu_1.11.4_freebsd_arm.tar.gz:2710a3cb6ec913dcfa734312aade5a9f617cb9c1c0f1362f3c68b4c50ebb3a3c
-1.11.4:tofu_1.11.4_linux_386.tar.gz:6e81bfbfc8cab3aff03da8bf74b42861682686c224a97d50a47ac3caa3a086bf
-1.11.4:tofu_1.11.4_linux_amd64.tar.gz:0d744081951095c3e54fd4f0af5c48491ec03116ab02f1ad5ca4ed60d3b60efd
-1.11.4:tofu_1.11.4_linux_arm.tar.gz:50a59e671c2d9a7119376547c02c6b94478b5bb57fb74555867a6757216eea36
-1.11.4:tofu_1.11.4_linux_arm64.tar.gz:6b81ff00501737fd3459fef6cee9c06ce2b08683f6b7af110b2616468d024228
-1.11.4:tofu_1.11.4_openbsd_386.tar.gz:8fc71eab3a1bf6765fbe5987e0e74115e3303d15819b0b87e8e81849076f0187
-1.11.4:tofu_1.11.4_openbsd_amd64.tar.gz:ae52722b8b8bd8bf3198e7f70adea1a21a4bfffe9c4093001e7c891e718f22af
-1.11.4:tofu_1.11.4_solaris_amd64.tar.gz:6e8405c4e2854b06b3c55cf6147f6947925db5ca2f1950b92b1f0d59e9cbf3dd
-1.11.4:tofu_1.11.4_windows_386.tar.gz:2b84afcae1060913697000546f65df794dd9f066ec614449559114e624803d8c
-1.11.4:tofu_1.11.4_windows_amd64.tar.gz:2cf504355d9c0d4bdf9fbb209b81c5fc4b441cc32af23b26f0220fe08c56529f"
+0.68.2:trivy_0.68.2_Linux-64bit.tar.gz:3d933bbc3685f95ec15280f620583d05d97ee3affb66944d14481d5d6d567064
+0.68.2:trivy_0.68.2_Linux-ARM64.tar.gz:33c87995fd0c3d1559086c3e18fd3148051296dfd0ca2a67583eb64f89998c91
+0.68.2:trivy_0.68.2_Linux-s390x.tar.gz:fd45fc808622ecb11393f4c27d1fbd20e1d78838148a282b1129624964dd0628
+0.68.2:trivy_0.68.2_macOS-64bit.tar.gz:c0790530cd717b6bdd02ed437be0710f5c7043078fafaf6841be7c865bf251ce
+0.68.2:trivy_0.68.2_macOS-ARM64.tar.gz:dfbe15ffe47426dad9fd3e0d52aeacf3dbbb25ca5dbc66049f5920834435988d
+0.68.2:trivy_0.68.2_windows-64bit.zip:2aaa0ce06f9f2221a6bb21e1fc0e0ecc6aeb56362bc5c9463e9fd7b06983c3c3"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -474,8 +466,28 @@ resolve_asset_filename() {
 
   # --- Apply Rules ---
   ASSET_FILENAME=""
+  if [ "${UNAME_ARCH}" = 'amd64' ] && true
+  then
+    ARCH='64bit'
+  fi
+  if [ "${UNAME_ARCH}" = 'arm64' ] && true
+  then
+    ARCH='ARM64'
+  fi
+  if [ "${UNAME_OS}" = 'darwin' ] && true
+  then
+    OS='macOS'
+  fi
+  if [ "${UNAME_OS}" = 'linux' ] && true
+  then
+    OS='Linux'
+  fi
+  if [ "${UNAME_OS}" = 'windows' ] && true
+  then
+    EXT='.zip'
+  fi
   if [ -z "${ASSET_FILENAME}" ]; then
-    ASSET_FILENAME="tofu_${VERSION}_${OS}_${ARCH}${EXT}"
+    ASSET_FILENAME="trivy_${VERSION}_${OS}-${ARCH}${EXT}"
   fi
 }
 # Cleanup function to remove temporary files and stop progress
@@ -491,7 +503,7 @@ cleanup() {
 
 execute() {
   STRIP_COMPONENTS=0
-  CHECKSUM_FILENAME="tofu_${VERSION}_SHA256SUMS"
+  CHECKSUM_FILENAME="trivy_${VERSION}_checksums.txt"
 
   # --- Construct URLs ---
   GITHUB_DOWNLOAD="https://github.com/${REPO}/releases/download"
@@ -540,11 +552,11 @@ execute() {
     log_info "Extracting ${ASSET_FILENAME}..."
     (cd "${TMPDIR}" && untar "${ASSET_FILENAME}" "${STRIP_COMPONENTS}")
   fi
-  BINARY_NAME='opentofu'
+  BINARY_NAME='trivy'
   if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
-    BINARY_PATH="${TMPDIR}/opentofu"
+    BINARY_PATH="${TMPDIR}/trivy"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
@@ -578,8 +590,8 @@ execute() {
 }
 
 # --- Configuration  ---
-NAME='opentofu'
-REPO='opentofu/opentofu'
+NAME='trivy'
+REPO='aquasecurity/trivy'
 EXT='.tar.gz'
 
 # use in logging routines
@@ -597,7 +609,7 @@ OS="${BINSTALLER_OS:-$(uname_os)}"
 UNAME_OS="${OS}"
 
 ARCH="${BINSTALLER_ARCH:-$(uname_arch)}"
-
+UNAME_ARCH="${ARCH}"
 log_info "Detected Platform: ${OS}/${ARCH}"
 
 # --- Validate platform ---
