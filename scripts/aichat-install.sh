@@ -409,7 +409,13 @@ github_release() {
 }
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
-EMBEDDED_CHECKSUMS=""
+EMBEDDED_CHECKSUMS="
+0.30.0:aichat-v0.30.0-aarch64-apple-darwin.tar.gz:680d36ed7f7ba8a2c2490a099df26c9da54495903c27956109a89c87eeb9edb3
+0.30.0:aichat-v0.30.0-aarch64-pc-windows-msvc.zip:2f381e70ddaf0831df7e0181a1d25d700bb0d7e53287393a47fd435c253d6091
+0.30.0:aichat-v0.30.0-aarch64-unknown-linux-musl.tar.gz:eb1cd0948569404c5d9d01c10b32b902e11f8231073315456454dec246bdf26e
+0.30.0:aichat-v0.30.0-x86_64-apple-darwin.tar.gz:94aa09315773929e027bcb399f78661c2ddffd887b65348bae446601989d9ddd
+0.30.0:aichat-v0.30.0-x86_64-pc-windows-msvc.zip:89df8c4ccd6dad310ac713eb5d550494ae7fa14722cde346588fab38ff4afd8f
+0.30.0:aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz:6b0cc08c5ceb551dc52bfac2221752f82215be5908c70605d655e9b91ab1557c"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {

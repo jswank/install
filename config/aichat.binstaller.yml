@@ -5,21 +5,37 @@ asset:
   template: aichat-${TAG}-${ARCH}-${OS}${EXT}
   default_extension: .tar.gz
   rules:
-  - when:
-      arch: amd64
-    arch: x86_64
-  - when:
-      arch: arm64
-    arch: aarch64
-  - when:
-      os: darwin
-    os: apple-darwin
-  - when:
-      os: linux
-    os: unknown-linux-musl
-  - when:
-      os: windows
-    os: pc-windows-msvc
-  - when:
-      os: windows
-    ext: .zip
+    - when:
+        arch: amd64
+      arch: x86_64
+    - when:
+        arch: arm64
+      arch: aarch64
+    - when:
+        os: darwin
+      os: apple-darwin
+    - when:
+        os: linux
+      os: unknown-linux-musl
+    - when:
+        os: windows
+      os: pc-windows-msvc
+    - when:
+        os: windows
+      ext: .zip
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v0.30.0:
+      - filename: aichat-v0.30.0-aarch64-apple-darwin.tar.gz
+        hash: 680d36ed7f7ba8a2c2490a099df26c9da54495903c27956109a89c87eeb9edb3
+      - filename: aichat-v0.30.0-aarch64-pc-windows-msvc.zip
+        hash: 2f381e70ddaf0831df7e0181a1d25d700bb0d7e53287393a47fd435c253d6091
+      - filename: aichat-v0.30.0-aarch64-unknown-linux-musl.tar.gz
+        hash: eb1cd0948569404c5d9d01c10b32b902e11f8231073315456454dec246bdf26e
+      - filename: aichat-v0.30.0-x86_64-apple-darwin.tar.gz
+        hash: 94aa09315773929e027bcb399f78661c2ddffd887b65348bae446601989d9ddd
+      - filename: aichat-v0.30.0-x86_64-pc-windows-msvc.zip
+        hash: 89df8c4ccd6dad310ac713eb5d550494ae7fa14722cde346588fab38ff4afd8f
+      - filename: aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz
+        hash: 6b0cc08c5ceb551dc52bfac2221752f82215be5908c70605d655e9b91ab1557c
