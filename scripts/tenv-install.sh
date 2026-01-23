@@ -558,7 +558,7 @@ execute() {
   if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
-    BINARY_PATH="${TMPDIR}/atmo"
+    BINARY_PATH="${TMPDIR}/atmos"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
