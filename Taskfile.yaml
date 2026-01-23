@@ -54,18 +54,6 @@ tasks:
     requires:
       vars: ["REPO"]
 
-  latest-release:
-    desc: Determine the latest release available for a given repo.
-    summary: |
-      Determine the latest release available for a given GitHub repository.
-      
-      Invoke this task like:
-        task latest-release REPO=trufflesecurity/trufflehog
-    cmd: |
-      gh release view -R {{.REPO}} --json tagName --jq .tagName
-    requires:
-      vars: ["REPO"]
-
   embed-checksums:
     desc: Embed checksums into a binst configuration file.
     summary: |
@@ -81,7 +69,15 @@ tasks:
         set +o errexit
         binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode download
         if [ $? -ne 0 ]; then
-          binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode calculate
+          # this is tougher than it should be...
+          # without this, checksums aren't written to the file at all
+          printf 'checksums:\n' >> {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
+          binst embed-checksums \
+            --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml \
+            --version latest \
+            --mode calculate
+          # then the formatting is weird, so in-place edit using yq
+          yq -i {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
         fi
 
     vars:
@@ -102,6 +98,19 @@ tasks:
       binst gen --config={{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml -o {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh
     requires:
       vars: ["BINARY"]
+
+  latest-release:
+    desc: Determine the latest release available for a given repo.
+    summary: |
+      Determine the latest release available for a given GitHub repository.
+      
+      Invoke this task like:
+        task latest-release REPO=trufflesecurity/trufflehog
+    cmd: |
+      gh release view -R {{.REPO}} --json tagName --jq .tagName
+    requires:
+      vars: ["REPO"]
+
 
   install-*:
     desc: Install a binary using its installation script.
