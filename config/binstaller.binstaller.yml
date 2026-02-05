@@ -4,19 +4,38 @@ repo: binary-install/binstaller
 asset:
   template: binst_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
+  binaries:
+    - name: binst
+      path: binst
   rules:
-  - when:
-      arch: amd64
-    arch: x86_64
-  - when:
-      os: darwin
-    os: Darwin
-  - when:
-      os: linux
-    os: Linux
-  - when:
-      os: windows
-    os: Windows
-  - when:
-      os: windows
-    ext: .zip
+    - when:
+        arch: amd64
+      arch: x86_64
+    - when:
+        os: darwin
+      os: Darwin
+    - when:
+        os: linux
+      os: Linux
+    - when:
+        os: windows
+      os: Windows
+    - when:
+        os: windows
+      ext: .zip
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v0.12.0:
+      - filename: binst_Darwin_arm64.tar.gz
+        hash: 2c3a8cf9b8f95edb5d97b905ccb0204800b25f1a9bc2b4ad704596e756e41eb9
+      - filename: binst_Darwin_x86_64.tar.gz
+        hash: bd9eae149f5735671bf1f32204f5ba9f10de269a290755f21f93bf1bb5d09b03
+      - filename: binst_Linux_arm64.tar.gz
+        hash: 76bca4884ee3fa229d915473ddd53ab4d04c34c9e4b5a1eda36d9751763af916
+      - filename: binst_Linux_x86_64.tar.gz
+        hash: af36ebb92c01ad4b9867a79eb45d1a130efbce20930896ec7578b3746416ee41
+      - filename: binst_Windows_arm64.zip
+        hash: 133784089efd57f5a0164b84ac74c4924c299342c88eb40be65155193ca37761
+      - filename: binst_Windows_x86_64.zip
+        hash: afcc9eab78de6bfa1ce360aebbf1a48738c519cdbe6a9560e6979ec3a4fcb4ef

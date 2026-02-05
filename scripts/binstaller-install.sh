@@ -503,7 +503,7 @@ cleanup() {
 
 execute() {
   STRIP_COMPONENTS=0
-  CHECKSUM_FILENAME="checksums.txt"
+  CHECKSUM_FILENAME=""
 
   # --- Construct URLs ---
   GITHUB_DOWNLOAD="https://github.com/${REPO}/releases/download"
@@ -552,11 +552,11 @@ execute() {
     log_info "Extracting ${ASSET_FILENAME}..."
     (cd "${TMPDIR}" && untar "${ASSET_FILENAME}" "${STRIP_COMPONENTS}")
   fi
-  BINARY_NAME='binstaller'
+  BINARY_NAME='binst'
   if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
-    BINARY_PATH="${TMPDIR}/binstaller"
+    BINARY_PATH="${TMPDIR}/binst"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
