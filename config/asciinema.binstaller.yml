@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: asciinema/asciinema
+asset:
+  template: asciinema-${ARCH}-${OS}${EXT}
+  rules:
+    - when:
+        arch: amd64
+      arch: x86_64
+    - when:
+        arch: arm64
+      arch: aarch64
+    - when:
+        os: darwin
+      os: apple-darwin
+    - when:
+        os: linux
+        arch: amd64
+      os: unknown-linux-musl
+    - when:
+        os: linux
+        arch: arm64
+      os: unknown-linux-gnu
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v3.1.0:
+      - filename: asciinema-aarch64-apple-darwin
+        hash: c354d4abcbeae94c592df0d70417d6fca8400546c3b4b5b666761fa8b1a9bca8
+      - filename: asciinema-aarch64-unknown-linux-gnu
+        hash: dd6a08eed98d200b0a00d6756b564c10d95f7b6de940c8bac52098a55221f300
+      - filename: asciinema-x86_64-apple-darwin
+        hash: 5f0531ada539ce32224e2c680d8022b77ee82fd7b4fd24569f78f1772d38750c
+      - filename: asciinema-x86_64-unknown-linux-musl
+        hash: 7c5dc9172a9a9202dd8f558b9df2220785e9b4ce2763091fc22e9f9a458a161b
