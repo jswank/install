@@ -421,7 +421,13 @@ EMBEDDED_CHECKSUMS="
 0.8.0:toolhive_0.8.0_linux_amd64.tar.gz:2f4216bdefdc37bda46ee5c896c54920d65e18013a0627855ce1a16eb2c44726
 0.8.0:toolhive_0.8.0_linux_arm64.tar.gz:3b806cf7b857b0dce819610b4ef48709d35ee10a73865dfca4fcc791bff80416
 0.8.0:toolhive_0.8.0_windows_amd64.zip:192bb1f0f9f257cad232e0148d81c3e31e644b888e61c22b46fa15b6b760547e
-0.8.0:toolhive_0.8.0_windows_arm64.zip:313931641136da7479f02caf351c955c2d1d9bbc7204dff5f7f9d61ca1fd9242"
+0.8.0:toolhive_0.8.0_windows_arm64.zip:313931641136da7479f02caf351c955c2d1d9bbc7204dff5f7f9d61ca1fd9242
+0.9.2:toolhive_0.9.2_darwin_amd64.tar.gz:f8e45af89346a93678ed628552e68dae19a04f0b7402e1e545e5a53dd68ddb38
+0.9.2:toolhive_0.9.2_darwin_arm64.tar.gz:29595e175cf60c3b8419754a5e384c530a84d63b506dd240372e55ba07290434
+0.9.2:toolhive_0.9.2_linux_amd64.tar.gz:70be3936c37f98f5582aabc5b455e9f89ec797146cd69485484129e95f607185
+0.9.2:toolhive_0.9.2_linux_arm64.tar.gz:a9bdac8893adbfbd3b1491155b54f825cb82e084a837422e12a1de72dcd574ba
+0.9.2:toolhive_0.9.2_windows_amd64.zip:e8c73681a2ccf55396497d5b6066811f2e059776e2444ec35daa3a0a74267e66
+0.9.2:toolhive_0.9.2_windows_arm64.zip:d42f5149287fd0b37f517724272421b14d4732e036d35e0a908deece836f7500"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
