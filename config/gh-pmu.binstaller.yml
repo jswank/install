@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: rubrical-studios/gh-pmu
+asset:
+  template: ${OS}-${ARCH}${EXT}
+checksums:
+  algorithm: sha256
+  template: checksums.txt
+  embedded_checksums:
+    v0.14.3:
+    - filename: darwin-amd64
+      hash: 0a07dea041d1a76683884ae82fd9c4ecf8569c01d5bc03168b5dd15da471637a
+    - filename: darwin-arm64
+      hash: 4401d839d0e15511ec478a0008e66338e9fa407437bf7aee52ec003f2b99e38c
+    - filename: linux-amd64
+      hash: 3519a08f7f82e635acb5df755855b6cfd754f73603d59a5958ded2be7dac14fb
+    - filename: linux-arm64
+      hash: be4f3e9e4691bffe121a40240e94359b5b00f7fad844a29e497fb7b01d89b1b3
