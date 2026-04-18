@@ -41,15 +41,19 @@ jobs:
           echo "Changed binaries: ${changed}"
 
           for binary in ${changed}; do
-            version=$(grep -A 1 'embedded_checksums:' "config/${binary}.binstaller.yml" \
+            config="config/${binary}.binstaller.yml"
+            version=$(grep -A 1 'embedded_checksums:' "${config}" \
               | tail -1 | grep -oP 'v[\d.]+')
-            echo "Regenerating ${binary} at ${version}"
+            repo=$(grep -m 1 '^repo:' "${config}" | awk '{print $2}')
+            echo "Regenerating ${binary} at ${version} (repo: ${repo})"
             binst embed-checksums \
-              --config "config/${binary}.binstaller.yml" \
+              --config "${config}" \
               --version "${version}" \
               --mode download
+            # restore renovate comment stripped by embed-checksums
+            sed -i "s|^\(\s*${version}:\)\s*$|\1 # renovate: datasource=github-releases depName=${repo}|" "${config}"
             binst gen \
-              --config "config/${binary}.binstaller.yml" \
+              --config "${config}" \
               -o "scripts/${binary}-install.sh"
           done
 
