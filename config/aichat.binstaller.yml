@@ -26,7 +26,7 @@ asset:
 checksums:
   algorithm: sha256
   embedded_checksums:
-    v0.30.0:
+    v0.30.0: # renovate: datasource=github-releases depName=sigoden/aichat
       - filename: aichat-v0.30.0-aarch64-apple-darwin.tar.gz
         hash: 680d36ed7f7ba8a2c2490a099df26c9da54495903c27956109a89c87eeb9edb3
       - filename: aichat-v0.30.0-aarch64-pc-windows-msvc.zip

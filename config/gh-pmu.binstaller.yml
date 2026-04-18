@@ -7,7 +7,7 @@ checksums:
   algorithm: sha256
   template: checksums.txt
   embedded_checksums:
-    v0.14.3:
+    v0.14.3: # renovate: datasource=github-releases depName=rubrical-studios/gh-pmu
     - filename: darwin-amd64
       hash: 0a07dea041d1a76683884ae82fd9c4ecf8569c01d5bc03168b5dd15da471637a
     - filename: darwin-arm64

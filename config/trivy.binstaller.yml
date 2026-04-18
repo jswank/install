@@ -24,7 +24,7 @@ checksums:
   algorithm: sha256
   template: trivy_${VERSION}_checksums.txt
   embedded_checksums:
-    v0.68.2:
+    v0.68.2: # renovate: datasource=github-releases depName=aquasecurity/trivy
     - filename: trivy_0.68.2_Linux-64bit.tar.gz
       hash: 3d933bbc3685f95ec15280f620583d05d97ee3affb66944d14481d5d6d567064
     - filename: trivy_0.68.2_Linux-ARM64.tar.gz

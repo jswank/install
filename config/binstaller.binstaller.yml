@@ -26,7 +26,7 @@ asset:
 checksums:
   algorithm: sha256
   embedded_checksums:
-    v0.12.0:
+    v0.12.0: # renovate: datasource=github-releases depName=binary-install/binstaller
       - filename: binst_Darwin_arm64.tar.gz
         hash: 2c3a8cf9b8f95edb5d97b905ccb0204800b25f1a9bc2b4ad704596e756e41eb9
       - filename: binst_Darwin_x86_64.tar.gz

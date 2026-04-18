@@ -12,7 +12,7 @@ checksums:
   algorithm: sha256
   template: task_checksums.txt
   embedded_checksums:
-    v3.46.4:
+    v3.46.4: # renovate: datasource=github-releases depName=go-task/task
     - filename: task_darwin_amd64.tar.gz
       hash: 6e3d1bf5fcc03e50b2c02c92335923b715d3f61e27fef5b3048b59ed97a18721
     - filename: task_darwin_arm64.tar.gz

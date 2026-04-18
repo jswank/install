@@ -21,7 +21,7 @@ checksums:
   algorithm: sha256
   template: eksctl_checksums.txt
   embedded_checksums:
-    v0.221.0:
+    v0.221.0: # renovate: datasource=github-releases depName=eksctl-io/eksctl
     - filename: eksctl_Darwin_amd64.tar.gz
       hash: 9a5a3370ed79ffa646e25a0115aa7ee7fa203b284dffe058135b353be1542752
     - filename: eksctl_Darwin_arm64.tar.gz

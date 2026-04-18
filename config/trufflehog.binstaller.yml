@@ -8,7 +8,7 @@ checksums:
   algorithm: sha256
   template: trufflehog_${VERSION}_checksums.txt
   embedded_checksums:
-    v3.92.4:
+    v3.92.4: # renovate: datasource=github-releases depName=trufflesecurity/trufflehog
     - filename: trufflehog_3.92.4_darwin_amd64.tar.gz
       hash: 7599e25b2d9c8eea30aac873114bad54cb254a3dbc4b01cac52b28ef9f013f0e
     - filename: trufflehog_3.92.4_darwin_arm64.tar.gz

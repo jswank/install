@@ -8,7 +8,7 @@ checksums:
   algorithm: sha256
   template: checksums.txt
   embedded_checksums:
-    v0.60.0:
+    v0.60.0: # renovate: datasource=github-releases depName=terraform-linters/tflint
     - filename: tflint_darwin_amd64.zip
       hash: 256f70ad2c9963690bccc31ffda6be0159f1c5f857b46773b70d01d56b711280
     - filename: tflint_darwin_arm64.zip
