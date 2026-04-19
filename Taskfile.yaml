@@ -1,4 +1,3 @@
-# This Taskfile helps generate binst installation scripts for different software
 version: '3'
 
 vars:
@@ -7,19 +6,34 @@ vars:
 
 tasks:
 
-  default:
-    desc: Create a new installation script for a binary
+  update:
+    desc: Re-embed checksums and regenerate script for an existing binary.
     summary: |
-      Create a new installation script for a binary by initializing a binst config,
-      embedding checksums, and generating the installation script. The latest release, as
-      determined by the latest-release task, will be used unless a specific version is
-      provided.
+      Re-embeds checksums (using the default_version in the config) and
+      regenerates the install script for an existing binary.
 
-      Invoke this task like: 
-        task default REPO=trufflesecurity/trufflehog 
+      Invoke this task like:
+        task update BINARY=opentofu
+    cmds:
+      - task: embed-checksums
+        vars:
+          BINARY: "{{.BINARY}}"
+      - task: gen
+        vars:
+          BINARY: "{{.BINARY}}"
+    requires:
+      vars: ["BINARY"]
+
+  new:
+    desc: Add a new binary — init config, embed checksums, generate script.
+    summary: |
+      Initialize a binst config for a new GitHub project, embed checksums,
+      and generate the install script.
+
+      Invoke this task like:
+        task new REPO=trufflesecurity/trufflehog
     vars:
       BINARY: "{{.REPO | base}}"
-      VERSION: '{{.VERSION | default "latest"}}'
     cmds:
       - task: init
         vars:
@@ -27,10 +41,9 @@ tasks:
       - task: embed-checksums
         vars:
           BINARY: "{{.BINARY}}"
-          VERSION: "{{.VERSION }}"
       - task: gen
         vars:
-          BINARY: "{{.BINARY}}" 
+          BINARY: "{{.BINARY}}"
     requires:
       vars: ["REPO"]
 
@@ -38,59 +51,38 @@ tasks:
     desc: Initialize binst configuration for a GitHub project.
     summary: |
       Initialize a binst configuration for a GitHub project.
-      
-      The config file will be saved to {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}.
-
-      By default, the output file is named BINARY.binstaller.yml where BINARY is the
-      repository name (like trufflehog) extracted from the repo input.
+      Output is saved to {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml.
 
       Invoke this task like:
         task init REPO=trufflesecurity/trufflehog
     vars:
       BINARY: "{{.REPO | base}}"
-      OUTPUT_FILE: "{{.BINARY}}.binstaller.yml"
     cmd: |
-      binst init --source=github --repo {{.REPO}} -o {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}
+      binst init --source=github --repo {{.REPO}} -o {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
     requires:
       vars: ["REPO"]
 
   embed-checksums:
     desc: Embed checksums into a binst configuration file.
     summary: |
-      Embed checksums into a binst configuration file for a specific version.
-    
-      If VERSION is not specified, the latest release ("latest") will be used.
+      Embed checksums for the default_version defined in the config file.
+      If default_version is set, passes --version to binst; otherwise omits it.
 
       Invoke this task like:
-        task embed-checksums BINARY=trufflehog VERSION=v3.92.4
-
-      If --mode download fails, fallbac to --mode calculate
+        task embed-checksums BINARY=trufflehog
     cmd: |
-        set +o errexit
-        binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml --version {{.VERSION}} --mode download
-        if [ $? -ne 0 ]; then
-          # this is tougher than it should be...
-          # without this, checksums aren't written to the file at all
-          printf 'checksums:\n' >> {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
-          binst embed-checksums \
-            --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml \
-            --version latest \
-            --mode calculate
-          # then the formatting is weird, so in-place edit using yq
-          yq -i {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
-        fi
-
-    vars:
-      VERSION: "latest"
+      CONFIG={{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
+      VERSION=$(yq .default_version "$CONFIG")
+      VERSION_FLAG=$([ "$VERSION" != "null" ] && echo "--version $VERSION" || echo "")
+      binst embed-checksums --config "$CONFIG" $VERSION_FLAG --mode download
     requires:
       vars: ["BINARY"]
 
   gen:
     desc: Generate installation script from binst configuration.
     summary: |
-      Generate an installation script from a binst configuration file.
-      
-      The generated script will be saved to {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh.
+      Generate an install script from a binst config file.
+      Output is saved to {{.SCRIPT_DIR}}/{{.BINARY}}-install.sh.
 
       Invoke this task like:
         task gen BINARY=trufflehog
@@ -100,10 +92,8 @@ tasks:
       vars: ["BINARY"]
 
   latest-release:
-    desc: Determine the latest release available for a given repo.
+    desc: Show the latest release tag for a GitHub repo.
     summary: |
-      Determine the latest release available for a given GitHub repository.
-      
       Invoke this task like:
         task latest-release REPO=trufflesecurity/trufflehog
     cmd: |
@@ -111,12 +101,9 @@ tasks:
     requires:
       vars: ["REPO"]
 
-
   install-*:
-    desc: Install a binary using its installation script.
+    desc: Install a binary using its generated script.
     summary: |
-      Install a binary using its installation script located in the scripts directory.
-
       Invoke this task like:
         task install-trufflehog
     cmd: |
