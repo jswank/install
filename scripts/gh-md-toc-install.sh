@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/ekalinin/github-markdown-toc.go/releases
-   If tag is missing, then latest will be used.
+   If tag is missing, then v2.0.1 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -417,7 +417,14 @@ EMBEDDED_CHECKSUMS="
 2.0.0:gh-md-toc_2.0.0_linux_armv6.tar.gz:c715d4432e95dda4a06232c9b3c01e945e07ec00a11355b5f1d4804f36794bcb
 2.0.0:gh-md-toc_2.0.0_windows_amd64.tar.gz:d06b047b3314c875034f8e29f07a1c8498e3bfaab3b01cbfa06f7d37e013d222
 2.0.0:gh-md-toc_2.0.0_windows_arm64.tar.gz:22d045c736b3fedc90e42467c92dbb43bef3d8a625f05587070f6ca0b2d4f1d1
-2.0.0:gh-md-toc_2.0.0_windows_armv6.tar.gz:24c85ede2c0d897993174d5df9905ee6d9f78d95a0f5d36a1324ab55e0dac735"
+2.0.0:gh-md-toc_2.0.0_windows_armv6.tar.gz:24c85ede2c0d897993174d5df9905ee6d9f78d95a0f5d36a1324ab55e0dac735
+2.0.1:gh-md-toc_2.0.1_darwin_amd64.tar.gz:8382c6cd17cc4af50692755422d0574dbefae97ccaf9af560716de60242169a3
+2.0.1:gh-md-toc_2.0.1_darwin_arm64.tar.gz:2ad9d60133c1eb5c243919717c8b3605d20e39b926ba46b3dd875f7bcb14175b
+2.0.1:gh-md-toc_2.0.1_linux_amd64.tar.gz:c477940752b189d70c4eab535e1474a599a6d796b5428a28386e17c837dec62a
+2.0.1:gh-md-toc_2.0.1_linux_arm64.tar.gz:aef2dc99905aead04ff2c1df35784621c792884f969dc0d083067117520d9e4e
+2.0.1:gh-md-toc_2.0.1_linux_armv6.tar.gz:6e851769da5f2278d03f0b0c63af3c73551b7b9b43cd8d6f4edfe3b849519ad1
+2.0.1:gh-md-toc_2.0.1_windows_amd64.tar.gz:047891943be98750dd94d3392f4ae82412fe2e815221d9d16878a0118b49d150
+2.0.1:gh-md-toc_2.0.1_windows_arm64.tar.gz:9ea019a23c6a1acc414626633ed0db4ca929a8fab37f7d5f27908c5a29064896"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -439,7 +446,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-latest}"
+  TAG="${1:-v2.0.1}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
