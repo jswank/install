@@ -1,15 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "labels": ["renovate", "dependencies"],
   "schedule": ["before 9am on monday"],
   "prConcurrentLimit": 5,
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^config/[^/]+\\.binstaller\\.yml$"],
-      "matchStrings": [
-        "\\s+(?<currentValue>v[\\d.]+):\\s+#\\s+renovate:\\s+datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"
-      ],
+      "customType": "regex",
+      "managerFilePatterns": ["/^config/[^/]+\\.binstaller\\.yml$/"],
+      "matchStrings": ["\\s+(?<currentValue>v[\\d.]+):\\s+#\\s+renovate:\\s+datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"],
       "datasourceTemplate": "{{datasource}}",
       "depNameTemplate": "{{depName}}"
     }
