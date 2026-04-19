@@ -410,12 +410,12 @@ github_release() {
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
 EMBEDDED_CHECKSUMS="
-0.68.2:trivy_0.68.2_Linux-64bit.tar.gz:3d933bbc3685f95ec15280f620583d05d97ee3affb66944d14481d5d6d567064
-0.68.2:trivy_0.68.2_Linux-ARM64.tar.gz:33c87995fd0c3d1559086c3e18fd3148051296dfd0ca2a67583eb64f89998c91
-0.68.2:trivy_0.68.2_Linux-s390x.tar.gz:fd45fc808622ecb11393f4c27d1fbd20e1d78838148a282b1129624964dd0628
-0.68.2:trivy_0.68.2_macOS-64bit.tar.gz:c0790530cd717b6bdd02ed437be0710f5c7043078fafaf6841be7c865bf251ce
-0.68.2:trivy_0.68.2_macOS-ARM64.tar.gz:dfbe15ffe47426dad9fd3e0d52aeacf3dbbb25ca5dbc66049f5920834435988d
-0.68.2:trivy_0.68.2_windows-64bit.zip:2aaa0ce06f9f2221a6bb21e1fc0e0ecc6aeb56362bc5c9463e9fd7b06983c3c3"
+0.70.0:trivy_0.70.0_Linux-64bit.tar.gz:8b4376d5d6befe5c24d503f10ff136d9e0c49f9127a4279fd110b727929a5aa9
+0.70.0:trivy_0.70.0_Linux-ARM64.tar.gz:2f6bb988b553a1bbac6bdd1ce890f5e412439564e17522b88a4541b4f364fc8d
+0.70.0:trivy_0.70.0_Linux-s390x.tar.gz:92ec9caffdcc32d43b76d21d4ecd6ea2975a2b37e050d5f79e17651c490b1753
+0.70.0:trivy_0.70.0_macOS-64bit.tar.gz:52d531452b19e7593da29366007d02a810e1e0080d02f9cf6a1afb46c35aaa93
+0.70.0:trivy_0.70.0_macOS-ARM64.tar.gz:68e543c51dcc96e1c344053a4fde9660cf602c25565d9f09dc17dd41e13b838a
+0.70.0:trivy_0.70.0_windows-64bit.zip:eea5442eab86f9e26cd718d7618d43899e72a83767619e8bee47911bddbfb825"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
