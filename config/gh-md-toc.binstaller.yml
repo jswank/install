@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: ekalinin/github-markdown-toc.go
+default_version: v2.0.0 # renovate: datasource=github-releases depName=ekalinin/github-markdown-toc.go
 asset:
   template: gh-md-toc_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
@@ -11,7 +12,7 @@ checksums:
   algorithm: sha256
   template: checksums.txt
   embedded_checksums:
-    v2.0.0: # renovate: datasource=github-releases depName=ekalinin/github-markdown-toc.go
+    v2.0.0:
     - filename: gh-md-toc_2.0.0_darwin_amd64.tar.gz
       hash: 622626f7880f6b604e93c06638e948500f4b458703d4066e91bae5b857934666
     - filename: gh-md-toc_2.0.0_darwin_arm64.tar.gz

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: opentofu/opentofu
+asset:
+  template: tofu_${VERSION}_${OS}_${ARCH}${EXT}
+  default_extension: .tar.gz
+checksums:
+  algorithm: sha256
+  template: tofu_${VERSION}_SHA256SUMS
+  embedded_checksums:
+    v1.11.4: # renovate: datasource=github-releases depName=opentofu/opentofu
+    - filename: tofu_1.11.4_darwin_amd64.tar.gz
+      hash: 46abdd10b826e864f6daf2013a6f0dbc079d8c6e0f79b529138b7da50bea502f
+    - filename: tofu_1.11.4_darwin_arm64.tar.gz
+      hash: 2e52b9baccf925a1516ae850112b6eddce35d96e9b59fa954d191d6e8ef3af5f
+    - filename: tofu_1.11.4_freebsd_386.tar.gz
+      hash: ebeda7898c60c75869f60a57d1ff5e3f87bc8093cab117ff86b096943afb2922
+    - filename: tofu_1.11.4_freebsd_amd64.tar.gz
+      hash: 9759b92fe9b6daa8f95ce85ef6c766da2208fdea709a3e0409d13feb0f26b5dc
+    - filename: tofu_1.11.4_freebsd_arm.tar.gz
+      hash: 2710a3cb6ec913dcfa734312aade5a9f617cb9c1c0f1362f3c68b4c50ebb3a3c
+    - filename: tofu_1.11.4_linux_386.tar.gz
+      hash: 6e81bfbfc8cab3aff03da8bf74b42861682686c224a97d50a47ac3caa3a086bf
+    - filename: tofu_1.11.4_linux_amd64.tar.gz
+      hash: 0d744081951095c3e54fd4f0af5c48491ec03116ab02f1ad5ca4ed60d3b60efd
+    - filename: tofu_1.11.4_linux_arm.tar.gz
+      hash: 50a59e671c2d9a7119376547c02c6b94478b5bb57fb74555867a6757216eea36
+    - filename: tofu_1.11.4_linux_arm64.tar.gz
+      hash: 6b81ff00501737fd3459fef6cee9c06ce2b08683f6b7af110b2616468d024228
+    - filename: tofu_1.11.4_openbsd_386.tar.gz
+      hash: 8fc71eab3a1bf6765fbe5987e0e74115e3303d15819b0b87e8e81849076f0187
+    - filename: tofu_1.11.4_openbsd_amd64.tar.gz
+      hash: ae52722b8b8bd8bf3198e7f70adea1a21a4bfffe9c4093001e7c891e718f22af
+    - filename: tofu_1.11.4_solaris_amd64.tar.gz
+      hash: 6e8405c4e2854b06b3c55cf6147f6947925db5ca2f1950b92b1f0d59e9cbf3dd
+    - filename: tofu_1.11.4_windows_386.tar.gz
+      hash: 2b84afcae1060913697000546f65df794dd9f066ec614449559114e624803d8c
+    - filename: tofu_1.11.4_windows_amd64.tar.gz
+      hash: 2cf504355d9c0d4bdf9fbb209b81c5fc4b441cc32af23b26f0220fe08c56529f

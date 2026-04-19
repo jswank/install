@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: go-task/task
+default_version: v3.46.4 # renovate: datasource=github-releases depName=go-task/task
 asset:
   template: task_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
@@ -12,7 +13,7 @@ checksums:
   algorithm: sha256
   template: task_checksums.txt
   embedded_checksums:
-    v3.46.4: # renovate: datasource=github-releases depName=go-task/task
+    v3.46.4:
     - filename: task_darwin_amd64.tar.gz
       hash: 6e3d1bf5fcc03e50b2c02c92335923b715d3f61e27fef5b3048b59ed97a18721
     - filename: task_darwin_arm64.tar.gz
