@@ -39,7 +39,7 @@ checksums:
   algorithm: sha256
   template: tenv_${TAG}_checksums.txt
   embedded_checksums:
-    v4.9.0: # renovate: datasource=github-releases depName=tofuutils/tenv
+    v4.10.1: # renovate: datasource=github-releases depName=tofuutils/tenv
     - filename: tenv_v4.9.0_Darwin_arm64.tar.gz
       hash: 9fe1bea568d89c877198caa3af8cdf78c44263aedd6117feb783be4f242bf09b
     - filename: tenv_v4.9.0_Darwin_x86_64.tar.gz
