@@ -13,19 +13,34 @@ checksums:
   template: checksums.txt
   embedded_checksums:
     v2.0.0:
-    - filename: gh-md-toc_2.0.0_darwin_amd64.tar.gz
-      hash: 622626f7880f6b604e93c06638e948500f4b458703d4066e91bae5b857934666
-    - filename: gh-md-toc_2.0.0_darwin_arm64.tar.gz
-      hash: 6a610cfe0e30e46ba49027da8eef3869fd2b98be9403b9d231df8c619bb59659
-    - filename: gh-md-toc_2.0.0_linux_amd64.tar.gz
-      hash: 7546a6e1146ba53d23a657cd6e93f2ed6ed0cc06bcf882c8f2983116f758adf5
-    - filename: gh-md-toc_2.0.0_linux_arm64.tar.gz
-      hash: 30487683256f1a0a923433b97730b74110552e857506e3fee5cc2d11ee7366ed
-    - filename: gh-md-toc_2.0.0_linux_armv6.tar.gz
-      hash: c715d4432e95dda4a06232c9b3c01e945e07ec00a11355b5f1d4804f36794bcb
-    - filename: gh-md-toc_2.0.0_windows_amd64.tar.gz
-      hash: d06b047b3314c875034f8e29f07a1c8498e3bfaab3b01cbfa06f7d37e013d222
-    - filename: gh-md-toc_2.0.0_windows_arm64.tar.gz
-      hash: 22d045c736b3fedc90e42467c92dbb43bef3d8a625f05587070f6ca0b2d4f1d1
-    - filename: gh-md-toc_2.0.0_windows_armv6.tar.gz
-      hash: 24c85ede2c0d897993174d5df9905ee6d9f78d95a0f5d36a1324ab55e0dac735
+      - filename: gh-md-toc_2.0.0_darwin_amd64.tar.gz
+        hash: 622626f7880f6b604e93c06638e948500f4b458703d4066e91bae5b857934666
+      - filename: gh-md-toc_2.0.0_darwin_arm64.tar.gz
+        hash: 6a610cfe0e30e46ba49027da8eef3869fd2b98be9403b9d231df8c619bb59659
+      - filename: gh-md-toc_2.0.0_linux_amd64.tar.gz
+        hash: 7546a6e1146ba53d23a657cd6e93f2ed6ed0cc06bcf882c8f2983116f758adf5
+      - filename: gh-md-toc_2.0.0_linux_arm64.tar.gz
+        hash: 30487683256f1a0a923433b97730b74110552e857506e3fee5cc2d11ee7366ed
+      - filename: gh-md-toc_2.0.0_linux_armv6.tar.gz
+        hash: c715d4432e95dda4a06232c9b3c01e945e07ec00a11355b5f1d4804f36794bcb
+      - filename: gh-md-toc_2.0.0_windows_amd64.tar.gz
+        hash: d06b047b3314c875034f8e29f07a1c8498e3bfaab3b01cbfa06f7d37e013d222
+      - filename: gh-md-toc_2.0.0_windows_arm64.tar.gz
+        hash: 22d045c736b3fedc90e42467c92dbb43bef3d8a625f05587070f6ca0b2d4f1d1
+      - filename: gh-md-toc_2.0.0_windows_armv6.tar.gz
+        hash: 24c85ede2c0d897993174d5df9905ee6d9f78d95a0f5d36a1324ab55e0dac735
+    v2.0.1:
+      - filename: gh-md-toc_2.0.1_darwin_amd64.tar.gz
+        hash: 8382c6cd17cc4af50692755422d0574dbefae97ccaf9af560716de60242169a3
+      - filename: gh-md-toc_2.0.1_darwin_arm64.tar.gz
+        hash: 2ad9d60133c1eb5c243919717c8b3605d20e39b926ba46b3dd875f7bcb14175b
+      - filename: gh-md-toc_2.0.1_linux_amd64.tar.gz
+        hash: c477940752b189d70c4eab535e1474a599a6d796b5428a28386e17c837dec62a
+      - filename: gh-md-toc_2.0.1_linux_arm64.tar.gz
+        hash: aef2dc99905aead04ff2c1df35784621c792884f969dc0d083067117520d9e4e
+      - filename: gh-md-toc_2.0.1_linux_armv6.tar.gz
+        hash: 6e851769da5f2278d03f0b0c63af3c73551b7b9b43cd8d6f4edfe3b849519ad1
+      - filename: gh-md-toc_2.0.1_windows_amd64.tar.gz
+        hash: 047891943be98750dd94d3392f4ae82412fe2e815221d9d16878a0118b49d150
+      - filename: gh-md-toc_2.0.1_windows_arm64.tar.gz
+        hash: 9ea019a23c6a1acc414626633ed0db4ca929a8fab37f7d5f27908c5a29064896
