@@ -38,17 +38,22 @@ tasks:
     desc: Initialize binst configuration for a GitHub project.
     summary: |
       Initialize a binst configuration for a GitHub project.
-      
+
       The config file will be saved to {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}.
 
       By default, the output file is named BINARY.binstaller.yml where BINARY is the
       repository name (like trufflehog) extracted from the repo input.
+
+      Skipped if the config file already exists (to preserve embedded checksums for
+      previous versions). Delete the config file manually to re-initialize.
 
       Invoke this task like:
         task init REPO=trufflesecurity/trufflehog
     vars:
       BINARY: "{{.REPO | base}}"
       OUTPUT_FILE: "{{.BINARY}}.binstaller.yml"
+    status:
+      - test -f {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}
     cmd: |
       binst init --source=github --repo {{.REPO}} -o {{.CONFIG_DIR}}/{{.OUTPUT_FILE}}
     requires:
