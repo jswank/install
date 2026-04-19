@@ -4,7 +4,7 @@ repo: opentofu/opentofu
 asset:
   template: tofu_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
-default_version: v1.11.4 # renovate: datasource=github-releases depName=tofuutils/tenv
+default_version: v1.11.19 # renovate: datasource=github-releases depName=tofuutils/tenv
 checksums:
   algorithm: sha256
   template: tofu_${VERSION}_SHA256SUMS
