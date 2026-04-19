@@ -1,176 +1,133 @@
-# binst
+# install
 
-A curated collection of portable installation scripts for binary tools, powered by [binstaller](https://github.com/binary-install/binstaller).
+Portable installation scripts for binary tools, powered by [binstaller](https://github.com/binary-install/binstaller).
 
-## Overview
-
-This repository provides POSIX-compliant shell scripts that simplify the installation of popular binary tools from GitHub releases. Each script is:
-
-- **Portable**: Works across Linux, macOS, and Windows (Git Bash/WSL)
-- **Secure**: Includes checksum verification for downloaded binaries
-- **Simple**: Single command installation with no dependencies
-- **Self-contained**: No package manager or runtime required
-
-## Table of Contents
-
-- [Quick Start](#quick-start)
-- [Available Tools](#available-tools)
-- [Usage](#usage)
-  - [Installing Binaries](#installing-binaries)
-  - [Using Task Commands](#using-task-commands)
-- [Creating New Scripts](#creating-new-scripts)
-  - [Prerequisites](#prerequisites)
-  - [Automatic Generation](#automatic-generation)
-  - [Manual Configuration](#manual-configuration)
-- [Configuration](#configuration)
-  - [Binary Names](#binary-names)
-- [Contributing](#contributing)
-- [License](#license)
+Each script is a self-contained POSIX shell script that detects your platform, downloads the correct release from GitHub, verifies checksums, and installs the binary to `~/.local/bin`.
 
 ## Quick Start
 
-Install any binary directly using its installation script:
+Install any tool via a stable URL (no repo clone required):
 
 ```bash
-# Install trufflehog
-./scripts/trufflehog-install.sh
-
-# Install task
-./scripts/task-install.sh
-
-# Install checkov
-./scripts/checkov-install.sh
+curl -sSL https://jswank.github.io/install/trufflehog-install.sh | bash
 ```
 
-Binaries are installed to `~/.local/bin` by default (customizable via environment variables).
+Scripts accept flags: `-b` (bindir), `-d` (debug), `-q` (quiet), `-n` (dry-run). Pass a tag argument to install a specific version:
+
+```bash
+curl -sSL https://jswank.github.io/install/trufflehog-install.sh | bash -s -- v3.94.3
+```
+
+Power users can also run scripts directly from a clone:
+
+```bash
+bash scripts/trufflehog-install.sh
+
+# Or with Task
+task install-trufflehog
+```
 
 ## Available Tools
 
-Installation scripts are located in the `scripts/` directory. Run `ls scripts/` to see all available tools, or browse the directory on GitHub.
+| Tool | Repo | Install |
+|------|------|---------|
+| [aichat](https://github.com/sigoden/aichat) | sigoden/aichat | `curl -sSL https://jswank.github.io/install/aichat-install.sh \| bash` |
+| [binstaller](https://github.com/binary-install/binstaller) | binary-install/binstaller | `curl -sSL https://jswank.github.io/install/binstaller-install.sh \| bash` |
+| [checkov](https://github.com/bridgecrewio/checkov) | — | `curl -sSL https://jswank.github.io/install/checkov-install.sh \| bash` |
+| [claude](https://claude.ai) | — | `curl -sSL https://jswank.github.io/install/claude-install.sh \| bash` |
+| [eksctl](https://github.com/eksctl-io/eksctl) | eksctl-io/eksctl | `curl -sSL https://jswank.github.io/install/eksctl-install.sh \| bash` |
+| [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go) | ekalinin/github-markdown-toc.go | `curl -sSL https://jswank.github.io/install/gh-md-toc-install.sh \| bash` |
+| [gh-pmu](https://github.com/rubrical-studios/gh-pmu) | rubrical-studios/gh-pmu | `curl -sSL https://jswank.github.io/install/gh-pmu-install.sh \| bash` |
+| [opentofu](https://github.com/opentofu/opentofu) | opentofu/opentofu | `curl -sSL https://jswank.github.io/install/opentofu-install.sh \| bash` |
+| [task](https://github.com/go-task/task) | go-task/task | `curl -sSL https://jswank.github.io/install/task-install.sh \| bash` |
+| [tenv](https://github.com/tofuutils/tenv) | tofuutils/tenv | `curl -sSL https://jswank.github.io/install/tenv-install.sh \| bash` |
+| [tflint](https://github.com/terraform-linters/tflint) | terraform-linters/tflint | `curl -sSL https://jswank.github.io/install/tflint-install.sh \| bash` |
+| [toolhive](https://github.com/stacklok/toolhive) | stacklok/toolhive | `curl -sSL https://jswank.github.io/install/toolhive-install.sh \| bash` |
+| [trivy](https://github.com/aquasecurity/trivy) | aquasecurity/trivy | `curl -sSL https://jswank.github.io/install/trivy-install.sh \| bash` |
+| [trufflehog](https://github.com/trufflesecurity/trufflehog) | trufflesecurity/trufflehog | `curl -sSL https://jswank.github.io/install/trufflehog-install.sh \| bash` |
+| [zk](https://github.com/zk-org/zk) | zk-org/zk | `curl -sSL https://jswank.github.io/install/zk-install.sh \| bash` |
 
-## Usage
+Tools without a repo listed (checkov, claude) have hand-written install scripts that don't use the binstaller pipeline.
 
-### Installing Binaries
+## Taskfile Commands
 
-Run any installation script directly:
+All automation uses [Task](https://taskfile.dev). Run `task --list` for a summary.
+
+### Update an existing tool (most common)
+
+After bumping `default_version` in a config file:
 
 ```bash
-./scripts/<tool-name>-install.sh
+task update BINARY=opentofu
 ```
 
-The script will:
-1. Detect your OS and architecture
-2. Download the latest release from GitHub
-3. Verify checksums
-4. Install the binary to your PATH
+This re-embeds checksums for the pinned version and regenerates the install script.
 
-### Using Task Commands
-
-This repository includes [Taskfile](https://taskfile.dev) automation for common workflows:
+### Add a new tool
 
 ```bash
-# List all available tasks
-task --list
-
-# Install a specific binary via Task
-task install-trufflehog
-task install-aichat
-task install-checkov
+task new REPO=owner/repo-name
 ```
 
-Available tasks:
-- `task` - Create a new installation script (requires `REPO` variable)
-- `task install-*` - Install a binary using its script
-- `task init` - Initialize binstaller configuration for a GitHub project
-- `task embed-checksums` - Embed checksums into a configuration file
-- `task gen` - Generate installation script from configuration
-- `task latest-release` - Check the latest release version
+This initializes a binstaller config, embeds checksums, and generates the install script in one step.
 
-## Creating New Scripts
+### Individual steps
+
+```bash
+task init REPO=owner/repo-name               # create config
+task embed-checksums BINARY=trufflehog        # embed checksums (uses default_version from config)
+task embed-checksums BINARY=trufflehog VERSION=v3.94.3  # or specify a version
+task gen BINARY=trufflehog                    # generate install script
+task latest-release REPO=owner/repo-name      # show latest upstream release tag
+task install-trufflehog                       # run the install script
+```
 
 ### Prerequisites
 
-First, install binstaller:
+- `binst` — install via `bash scripts/binstaller-install.sh`
+- `task` — install via `bash scripts/task-install.sh`
+- `gh` — GitHub CLI (needed for `latest-release`)
+- `yq` — YAML processor (needed for `embed-checksums` version detection)
 
-```bash
-./scripts/binstaller-install.sh
-```
+## Version Pinning and Updates
 
-### Automatic Generation
+Each config file in `config/` pins a `default_version` with embedded checksums for that version. [Renovate](https://docs.renovatebot.com/) watches these files and opens PRs when new upstream releases are available. A CI workflow automatically re-embeds checksums and regenerates install scripts on Renovate PRs.
 
-The easiest way to add a new installation script is using the default Task workflow:
+The update cycle:
 
-```bash
-# Create script for a GitHub repository
-task REPO=owner/repo-name
-
-# Example: Add installation script for trufflehog
-task REPO=trufflesecurity/trufflehog
-```
-
-This command will:
-1. Initialize a binstaller configuration file
-2. Fetch and embed checksums from the latest release
-3. Generate the installation script
-
-For more details on the default task:
-
-```bash
-task --summary
-```
-
-### Manual Configuration
-
-For advanced use cases, you can manually create or edit configuration files:
-
-1. **Initialize configuration**:
-   ```bash
-   task init REPO=owner/repo-name
-   ```
-
-2. **Edit the configuration** in `config/repo-name.binstaller.yml` as needed
-
-3. **Embed checksums**:
-   ```bash
-   task embed-checksums BINARY=repo-name
-   ```
-
-4. **Generate the script**:
-   ```bash
-   task gen BINARY=repo-name
-   ```
+1. Renovate detects a new release and opens a PR bumping `default_version`
+2. CI runs `task embed-checksums` and `task gen` for the affected tool
+3. A human reviews and merges
 
 ## Configuration
 
-### Binary Names
+Config files live in `config/<tool>.binstaller.yml` and follow the [binstaller schema](https://github.com/binary-install/binstaller). Key fields:
 
-In some cases, the binary executable name differs from the GitHub repository name. When this occurs, specify the actual binary name in the `asset.binaries` section of the configuration file.
+- `repo` — GitHub owner/name
+- `default_version` — pinned version with a `# renovate:` comment for automated updates
+- `asset.template` — release asset filename pattern
+- `checksums.embedded_checksums` — version-specific checksums baked into the config
 
-**Example**: The [stacklok/toolhive](https://github.com/stacklok/toolhive) repository releases a binary named `thv`. The [configuration file](config/toolhive.binstaller.yml) handles this:
+### Binary name mismatches
+
+When the binary executable name differs from the repo name, use `asset.binaries` to specify it. For example, [stacklok/toolhive](https://github.com/stacklok/toolhive) releases a binary named `thv`:
 
 ```yaml
-repo: stacklok/toolhive
 asset:
   binaries:
     - name: thv
       path: thv
 ```
 
-After generation, you may wish to rename the installation script from `thv-install.sh` to `toolhive-install.sh` for consistency.
+## Repository Structure
 
-## Contributing
-
-Contributions are welcome! To add a new binary installation script:
-
-1. Fork this repository
-2. Create a new script using `task REPO=owner/repo-name`
-3. Test the installation script
-4. Submit a pull request
-
-Please ensure:
-- The binary is a popular, well-maintained tool
-- The installation script works across all supported platforms
-- Checksums are embedded for security
+```
+config/              .binstaller.yml configs for each tool
+scripts/             generated (and hand-written) install scripts
+Taskfile.yaml        automation for init/update/gen workflows
+renovate.json        Renovate config for automated version bumps
+.github/workflows/   CI: regenerate scripts on Renovate PRs
+```
 
 ## License
 
