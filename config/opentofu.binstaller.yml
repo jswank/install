@@ -8,7 +8,7 @@ checksums:
   algorithm: sha256
   template: tofu_${VERSION}_SHA256SUMS
   embedded_checksums:
-    v1.11.4: # renovate: datasource=github-releases depName=opentofu/opentofu
+    v1.11.6: # renovate: datasource=github-releases depName=opentofu/opentofu
     - filename: tofu_1.11.4_darwin_amd64.tar.gz
       hash: 46abdd10b826e864f6daf2013a6f0dbc079d8c6e0f79b529138b7da50bea502f
     - filename: tofu_1.11.4_darwin_arm64.tar.gz
