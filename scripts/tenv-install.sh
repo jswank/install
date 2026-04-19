@@ -410,14 +410,13 @@ github_release() {
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
 EMBEDDED_CHECKSUMS="
-4.9.0:tenv_v4.9.0_Darwin_arm64.tar.gz:9fe1bea568d89c877198caa3af8cdf78c44263aedd6117feb783be4f242bf09b
-4.9.0:tenv_v4.9.0_Darwin_x86_64.tar.gz:d2b807d5885222745e64421911ffc35dcc15a3e9e77820fe73d0508a26cda726
-4.9.0:tenv_v4.9.0_Linux_arm64.tar.gz:7b1e3e46e946f6ae60fb5b8a307b6481771708b6a571d0ca42e106bb490cb062
-4.9.0:tenv_v4.9.0_Linux_armv6.tar.gz:86ca60fb1020d17d73217a0f94233a4931205e7225c11ebbfcbfb62f05d3ee85
-4.9.0:tenv_v4.9.0_Linux_x86_64.tar.gz:3aa5bbd0147405518d29eca0468c7ea9a93326a5fbef758799caece8428442a6
-4.9.0:tenv_v4.9.0_Windows_arm64.zip:360cba142fdd2a731ac895b87b32e62724e41bf5afc6aed0459bf1f9d4de6c63
-4.9.0:tenv_v4.9.0_Windows_armv6.zip:1d751bc4e0abdfb30bffed4bd2c8615ab149632ce595af471e971204b769391c
-4.9.0:tenv_v4.9.0_Windows_x86_64.zip:2b798e4155478425be2c07a8ec857dd31c66fe418f20f8fc9cac4b4a5cf91fe2"
+4.10.1:tenv_v4.10.1_Darwin_arm64.tar.gz:f71f0137c4fac4e9b99621fd9a7a3c2204ec1f421d16d75c93383eb14962574e
+4.10.1:tenv_v4.10.1_Darwin_x86_64.tar.gz:d5ab28ae9f264e47aea1b50391de693b4dad3ed74858f9152471c711a97fabfe
+4.10.1:tenv_v4.10.1_Linux_arm64.tar.gz:75c2d3bc7756328a96c75e1d1c269356d66ab5380a69b73b81aa17bceb40b772
+4.10.1:tenv_v4.10.1_Linux_armv6.tar.gz:51fcefab715631cc59dd08ab92910e11ce468b27227f661fb19f11486d7533af
+4.10.1:tenv_v4.10.1_Linux_x86_64.tar.gz:8c45d8d52a3f0469f9231d4d38e14acc753d608898b38765d728553dd2d9f7ed
+4.10.1:tenv_v4.10.1_Windows_arm64.zip:cde51c5246518bc7a685b272b020184fdb6dce1df7a783da3c2f7abc7527ce59
+4.10.1:tenv_v4.10.1_Windows_x86_64.zip:255431703c8655c7c52a92251c512619e0d2f90677ae514cfe642a568ac6d2ff"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
