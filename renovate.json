@@ -9,7 +9,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["/^config/[^/]+\\.binstaller\\.yml$/"],
-      "matchStrings": ["\\s+(?<currentValue>v[\\d.]+):\\s+#\\s+renovate:\\s+datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"],
+      "matchStrings": ["default_version:\\s+(?<currentValue>v[\\d.]+)\\s+#\\s+renovate:\\s+datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"],
       "datasourceTemplate": "{{datasource}}",
       "depNameTemplate": "{{depName}}"
     }
