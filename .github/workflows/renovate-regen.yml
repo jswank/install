@@ -19,6 +19,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Install task
         run: |
@@ -30,51 +31,36 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/jswank/install/main/scripts/binstaller-install.sh | bash
           echo "${HOME}/.local/bin" >> "$GITHUB_PATH"
 
-      - name: Install yq
-        run: |
-          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-          sudo chmod +x /usr/local/bin/yq
-
-      - name: Detect changed configs
-        id: changed
+      - name: Detect changed configs and regenerate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           changed=$(git diff --name-only origin/main...HEAD -- 'config/*.binstaller.yml' \
             | sed 's|config/||;s|\.binstaller\.yml||' \
             | tr '\n' ' ')
-          echo "binaries=${changed}" >> "$GITHUB_OUTPUT"
+          echo "Changed binaries: ${changed}"
 
-      - name: Extract new versions from changed configs
-        id: versions
-        run: |
-          for binary in ${{ steps.changed.outputs.binaries }}; do
-            version=$(grep -oP '(?<=embedded_checksums:\n\s{4})(v[\d.]+)' \
-              "config/${binary}.binstaller.yml" || \
-              grep -A 1 'embedded_checksums:' "config/${binary}.binstaller.yml" \
+          for binary in ${changed}; do
+            config="config/${binary}.binstaller.yml"
+            version=$(grep -A 1 'embedded_checksums:' "${config}" \
               | tail -1 | grep -oP 'v[\d.]+')
-            echo "${binary}=${version}" >> "$GITHUB_OUTPUT"
-          done
-
-      - name: Re-embed checksums and regenerate scripts
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          for binary in ${{ steps.changed.outputs.binaries }}; do
-            version=$(grep -A 1 'embedded_checksums:' "config/${binary}.binstaller.yml" \
-              | tail -1 | grep -oP 'v[\d.]+')
-            echo "Regenerating ${binary} at ${version}"
+            repo=$(grep -m 1 '^repo:' "${config}" | awk '{print $2}')
+            echo "Regenerating ${binary} at ${version} (repo: ${repo})"
             binst embed-checksums \
-              --config "config/${binary}.binstaller.yml" \
+              --config "${config}" \
               --version "${version}" \
               --mode download
+            # restore renovate comment stripped by embed-checksums
+            sed -i "s|^\(\s*${version}:\)\s*$|\1 # renovate: datasource=github-releases depName=${repo}|" "${config}"
             binst gen \
-              --config "config/${binary}.binstaller.yml" \
+              --config "${config}" \
               -o "scripts/${binary}-install.sh"
           done
 
-      - name: Commit regenerated scripts
+      - name: Commit regenerated artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scripts/
+          git add config/ scripts/
           git diff --cached --quiet || git commit -m "chore: regenerate install scripts"
           git push

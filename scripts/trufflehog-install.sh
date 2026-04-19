@@ -410,12 +410,12 @@ github_release() {
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
 EMBEDDED_CHECKSUMS="
-3.92.4:trufflehog_3.92.4_darwin_amd64.tar.gz:7599e25b2d9c8eea30aac873114bad54cb254a3dbc4b01cac52b28ef9f013f0e
-3.92.4:trufflehog_3.92.4_darwin_arm64.tar.gz:37df43ad0cda48931c4586fe78064d1dd33016c8253ec27339c735fc956264f8
-3.92.4:trufflehog_3.92.4_linux_amd64.tar.gz:98937dbfe048695bf1f34e8b76e6ef4caf75260760c0b5777dddf9bf34803052
-3.92.4:trufflehog_3.92.4_linux_arm64.tar.gz:85868c235ed8871e87191c252c3b8cb6b7da6942aba210f048848a583b964fa4
-3.92.4:trufflehog_3.92.4_windows_amd64.tar.gz:39357653008d4af2245e3e1c02e118a9dc80b203284f25f9a2b11a573d418938
-3.92.4:trufflehog_3.92.4_windows_arm64.tar.gz:613d4d0fd180e9f5be21568150e7a71cad0cfe53b71ef1fac970a68a5a06e411"
+3.94.3:trufflehog_3.94.3_darwin_amd64.tar.gz:afea2e94a1bb274bdad1758aadd6f033f875dd4c1c06cbcdc47076ed91cc62e5
+3.94.3:trufflehog_3.94.3_darwin_arm64.tar.gz:f2dca2e62f02027ef3f164068ec2632230764a816a336efe15e0facb70fe8731
+3.94.3:trufflehog_3.94.3_linux_amd64.tar.gz:7cc45010bfac7258a23731bc3ab4371abdbf20ffc705075066971e5aa8ebda7f
+3.94.3:trufflehog_3.94.3_linux_arm64.tar.gz:57699423c593b63d5baa690ca4105f13b61c80480177160c6fc4b31cbac3af56
+3.94.3:trufflehog_3.94.3_windows_amd64.tar.gz:6b8da3097cbeaded6d97d30d76c3ff7a54e94a256d3189e09deb9f715381d8da
+3.94.3:trufflehog_3.94.3_windows_arm64.tar.gz:8e730e35ad013a08612691212af44e333b1fdba694193a02521cca82065244ab"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
