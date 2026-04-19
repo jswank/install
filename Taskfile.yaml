@@ -65,16 +65,20 @@ tasks:
   embed-checksums:
     desc: Embed checksums into a binst configuration file.
     summary: |
-      Embed checksums for the default_version defined in the config file.
-      If default_version is set, passes --version to binst; otherwise omits it.
+      Embed checksums for a binary. VERSION is optional — if not provided,
+      default_version from the config file is used. If neither is set, --version
+      is omitted and binst uses its own default.
 
       Invoke this task like:
         task embed-checksums BINARY=trufflehog
+        task embed-checksums BINARY=trufflehog VERSION=v3.92.4
     cmd: |
-      CONFIG={{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml
-      VERSION=$(yq .default_version "$CONFIG")
-      VERSION_FLAG=$([ "$VERSION" != "null" ] && echo "--version $VERSION" || echo "")
-      binst embed-checksums --config "$CONFIG" $VERSION_FLAG --mode download
+      VERSION={{.VERSION}}
+      VERSION=${VERSION:-$(yq '.default_version // ""' {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml)}
+      # Conditionally include --version if VERSION is set. If VERSION is empty,
+      # VERSION_FLAG will be an empty string and won't affect the command.
+      VERSION_FLAG="${VERSION:+--version $VERSION}"
+      binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml $VERSION_FLAG --mode download
     requires:
       vars: ["BINARY"]
 

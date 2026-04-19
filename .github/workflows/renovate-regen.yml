@@ -42,19 +42,19 @@ jobs:
 
           for binary in ${changed}; do
             config="config/${binary}.binstaller.yml"
-            version=$(grep -A 1 'embedded_checksums:' "${config}" \
-              | tail -1 | grep -oP 'v[\d.]+')
-            repo=$(grep -m 1 '^repo:' "${config}" | awk '{print $2}')
-            echo "Regenerating ${binary} at ${version} (repo: ${repo})"
-            binst embed-checksums \
-              --config "${config}" \
-              --version "${version}" \
-              --mode download
+            repo=$(yq .repo "${config}")
+            version=$(yq .default_version "${config}")
+            renovate_comment=$(yq '.default_version | line_comment' "${config}")
+            echo "Regenerating ${binary} (repo: ${repo}, version: ${version})"
+
+            task embed-checksums BINARY="${binary}" VERSION="${version}"
+
             # restore renovate comment stripped by embed-checksums
-            sed -i "s|^\(\s*${version}:\)\s*$|\1 # renovate: datasource=github-releases depName=${repo}|" "${config}"
-            binst gen \
-              --config "${config}" \
-              -o "scripts/${binary}-install.sh"
+            if [ -n "${renovate_comment}" ]; then
+              yq -i ".default_version line_comment = \"${renovate_comment}\"" "${config}"
+            fi
+
+            task gen BINARY="${binary}"
           done
 
       - name: Commit regenerated artifacts
