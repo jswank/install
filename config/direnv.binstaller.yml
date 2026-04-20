@@ -4,4 +4,55 @@ repo: direnv/direnv
 default_version: v2.37.1 # renovate: datasource=github-releases depName=direnv/direnv
 asset:
   template: direnv.${OS}-${ARCH}${EXT}
-checksum:
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v2.37.1:
+    - filename: direnv.darwin-amd64
+      hash: 24fb9ce48b563d7e9fbdd3a4e3e836941654a31ce3e67eba9eaafc3dcd8ae73b
+    - filename: direnv.darwin-arm64
+      hash: 4f569f3a36732bfd8b8fea7bfcc6ad87a59745c109022164d0ca4832451d5369
+    - filename: direnv.freebsd-386
+      hash: 7eb4366fb3295b5087d075651b4c3b6eee7f973ae9c050aa2805df8f85cd4ddc
+    - filename: direnv.freebsd-amd64
+      hash: f6e39b0fa2a6ca9a0f3ec357678abce57747b8050a5c1540e986ef566b896f64
+    - filename: direnv.freebsd-arm
+      hash: 0e8cbbeabef7fa234517b74d4caa58aa45b095d90a81c293bd588b2e4989c6e0
+    - filename: direnv.linux-386
+      hash: daf4f85043b7073067847fe23b39f2ef3cd9ff9ebb791cd760ce5ce13ec2488d
+    - filename: direnv.linux-amd64
+      hash: 1f1b93dd6f38523fde26dfac96151ef9d31a374e3005cd3345fb93555ae0c9b5
+    - filename: direnv.linux-arm
+      hash: ab141dd906735c7f0b291bd5d0c569143056cfcbcfa6747ed800f368c4206908
+    - filename: direnv.linux-arm64
+      hash: 2a9cef8d73521d6a3ec3f2871c4b747b8c4cc038628c1b57a7efa42b393a2d82
+    - filename: direnv.linux-mips
+      hash: 16be9b430a8919232787ad627faf047c022fe0da6d84940ef94c92eb0b006c4c
+    - filename: direnv.linux-mips64
+      hash: ecb799f5664c62af283c3ac0132dd2ecfef85a90e3606dae22089179835ec088
+    - filename: direnv.linux-mips64le
+      hash: c2c07fb0ab4a41f49cf085971bd8be8e6e20a72cd31cb3c0af02de7a9dbe11b2
+    - filename: direnv.linux-mipsle
+      hash: 092d5d1a824ef7e0c96612c470c03742d312f85331916d069e2c5b7f97b88629
+    - filename: direnv.linux-ppc64
+      hash: d90f2a3cee7b184eea768f57402fb9c268cac3c5e1ff08982a5a3624ee0e2dfe
+    - filename: direnv.linux-ppc64le
+      hash: 8555ed5e6ac1e011108e27ad4466588d3fabf6b65c0c777329e5730aa0feeaf0
+    - filename: direnv.linux-s390x
+      hash: 176fb926fe1b4e909e9b594763c5a8c845a09fee658e9a6854d757acfffaafe9
+    - filename: direnv.netbsd-386
+      hash: 74088bf254536d5d13b2a4ac58bcc8da98e4b8cbf2bfbbf8e0ea51dac1035a43
+    - filename: direnv.netbsd-amd64
+      hash: c6fd590a3baa2cbf3e14bb6c558b7ca15099e05ae77e2f03c1e0064b227591a4
+    - filename: direnv.netbsd-arm
+      hash: ec38ddd9e0381298b9a3f85379e84ba690014136a02b90f63bbe756c045feb19
+    - filename: direnv.openbsd-386
+      hash: bc5d6e921bda00083fe8fcc66223737e14c131da61d47b7e5be7082e0d3e73f1
+    - filename: direnv.openbsd-amd64
+      hash: 0497a28852cc39a756ab71b9a9fff569a5671e0f3e092e6eaeed08d1bc466b05
+    - filename: direnv.windows-386
+      hash: 7d9e58681a6bdc6f63460631d2e337713f4bf86feea2e617a404d474ceba77d0
+    - filename: direnv.windows-amd64
+      hash: d96fc8b7cf020c2d4c1dbbc2ccec5fd1cab05b51c491f02c8527a7fa6c50a1cd
+    - filename: direnv.windows-arm64
+      hash: 6802f722f5ef12562d6e3e15c26f39e34b337e5be12ea22f17284552cd782298
