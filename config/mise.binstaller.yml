@@ -5,6 +5,9 @@ default_version: v2026.4.17  # renovate: datasource=github-releases depName=jdx/
 asset:
   template: mise-${TAG}-${OS}-${ARCH}-musl${EXT}
   default_extension: .tar.gz
+  binaries:
+    - name: mise
+      path: mise/bin/mise
   rules:
   - when:
       arch: amd64

@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/jdx/mise/releases
-   If tag is missing, then latest will be used.
+   If tag is missing, then v2026.4.17 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -431,7 +431,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-latest}"
+  TAG="${1:-v2026.4.17}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
@@ -546,7 +546,7 @@ execute() {
   if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
-    BINARY_PATH="${TMPDIR}/mise"
+    BINARY_PATH="${TMPDIR}/mise/bin/mise"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
