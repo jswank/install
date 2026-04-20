@@ -94,6 +94,42 @@ case "${OS}" in
     ;;
 esac
 
+# AWS does not publish a musl build of AWS CLI v2 — the bundled `aws` binary
+# is glibc-linked and will fail with "required file not found" on Alpine and
+# other musl distros (see https://github.com/aws/aws-cli/issues/4685).
+# Detect musl early and refuse rather than leaving a broken install behind.
+detect_libc() {
+  # Prefer a direct check for the musl dynamic linker.
+  for f in /lib/ld-musl-aarch64.so.1 /lib/ld-musl-x86_64.so.1 /lib/ld-musl-armhf.so.1; do
+    [ -e "$f" ] && { echo musl; return; }
+  done
+  # Fallback: ask ldd.
+  if ldd --version 2>&1 | grep -qi musl; then
+    echo musl
+    return
+  fi
+  echo glibc
+}
+
+LIBC=$(detect_libc)
+if [ "${LIBC}" = "musl" ]; then
+  log_err "AWS CLI v2 is not supported on musl libc (Alpine, etc.)."
+  log_err "AWS only ships a glibc-linked bundle; running it on musl fails with"
+  log_err "  'required file not found' (missing ELF interpreter)."
+  log_err "Workarounds:"
+  log_err "  * run inside a glibc-based container (debian/ubuntu/amazonlinux)"
+  log_err "  * use the 'aws-cli' Alpine community package: 'apk add aws-cli'"
+  log_err "  * install 'gcompat' and retry (unsupported by AWS)"
+  exit 1
+fi
+
+# AWS CLI v2 is glibc-linked; musl-based systems (Alpine, etc.) cannot run it.
+if ldd --version 2>&1 | grep -qi musl; then
+  log_err "AWS CLI requires glibc but this system uses musl libc."
+  log_err "On Alpine: 'apk add aws-cli'. On Debian/Ubuntu-based images: use a glibc image."
+  exit 1
+fi
+
 case "${MACHINE}" in
   x86_64|amd64)  AWS_ARCH="x86_64" ;;
   aarch64|arm64) AWS_ARCH="aarch64" ;;
@@ -160,4 +196,15 @@ fi
 log_info "running AWS installer"
 "${TMPDIR}/aws/install" -i "${INSTALLDIR}" -b "${BINDIR}" ${UPDATE_FLAG}
 
-log_info "installed: $(${BINDIR}/aws --version 2>&1)"
+# The AWS installer prints 'You can now run: ...' before it has verified the
+# binary is actually executable on this host. Verify ourselves and fail loudly
+# so a broken install does not look successful.
+if ! "${BINDIR}/aws" --version >/tmp/aws-cli-install.$$ 2>&1; then
+  log_err "post-install verification failed — '${BINDIR}/aws --version' did not run cleanly:"
+  sed 's/^/  /' /tmp/aws-cli-install.$$ 1>&2 || :
+  rm -f /tmp/aws-cli-install.$$
+  log_err "the binary was copied but cannot execute on this host (libc / arch mismatch?)."
+  exit 1
+fi
+log_info "installed: $(cat /tmp/aws-cli-install.$$)"
+rm -f /tmp/aws-cli-install.$$
