@@ -103,7 +103,7 @@ if [ "${DRY_RUN}" -eq 1 ]; then
 fi
 
 # --- prerequisites ---------------------------------------------------------
-for bin in curl tar python; do
+for bin in curl tar python3; do
   if ! command -v "${bin}" >/dev/null 2>&1; then
     log_err "required command '${bin}' not found in PATH."
     exit 1
