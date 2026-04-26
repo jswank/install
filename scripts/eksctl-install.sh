@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/eksctl-io/eksctl/releases
-   If tag is missing, then latest will be used.
+   If tag is missing, then v0.225.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -415,7 +415,13 @@ EMBEDDED_CHECKSUMS="
 0.221.0:eksctl_Linux_amd64.tar.gz:9c04d16e5a0be350f9c383088ed99eac2cf1af830d25360c34588854e9e06cda
 0.221.0:eksctl_Linux_arm64.tar.gz:3c8cfe3954c1a88a49d7f09cc03f69dceab689b1d396b9d0bcba80228d12978e
 0.221.0:eksctl_Windows_amd64.zip:c247283dc064ac55e44222191d71800f189a16b438b42cb520fb1489d1b80513
-0.221.0:eksctl_Windows_arm64.zip:f1dbc8383281c0c318e4ee99eb688438f1d7a19dbbe2b2a03e93863740dc0f73"
+0.221.0:eksctl_Windows_arm64.zip:f1dbc8383281c0c318e4ee99eb688438f1d7a19dbbe2b2a03e93863740dc0f73
+0.225.0:eksctl_Darwin_amd64.tar.gz:7728021e2965ff3ffbfc29bb014493f1f0de3f1b2c9cbbce8b9360a7cb815bbf
+0.225.0:eksctl_Darwin_arm64.tar.gz:ae9b70a1386ec848b374fe0e2d70ca8d0ba78d856035ab0f743ca053f4b77fb8
+0.225.0:eksctl_Linux_amd64.tar.gz:041ad321cafd82596b33562f1e95a8c1035a9e0b2e95e9f2bcd2ada7219def83
+0.225.0:eksctl_Linux_arm64.tar.gz:a136ac3756ab038123677aa5e88496bff1699273a6e1f866bac5369a55d2992b
+0.225.0:eksctl_Windows_amd64.zip:8b49bf887355b44a3a9df8f12e691f52ac9dd494b6220e1674ddb749e292216d
+0.225.0:eksctl_Windows_arm64.zip:fa4d02bfc5b54fe7d01cd88b599bcf22bb82128889851efb65ab8e0ddecf21f9"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -437,7 +443,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-latest}"
+  TAG="${1:-v0.225.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
