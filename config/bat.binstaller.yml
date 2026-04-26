@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: sharkdp/bat
+asset:
+  template: bat-${TAG}-${ARCH}-${OS}${EXT}
+  default_extension: .tar.gz
+  binaries:
+  - name: bat
+    path: bat-${TAG}-${ARCH}-${OS}/bat
+  rules:
+  - when:
+      arch: amd64
+    arch: x86_64
+  - when:
+      arch: arm64
+    arch: aarch64
+  - when:
+      os: darwin
+    os: apple-darwin
+  - when:
+      os: linux
+    os: unknown-linux-gnu
+  - when:
+      os: windows
+    os: pc-windows-msvc
+  - when:
+      os: windows
+    ext: .zip
