@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: sharkdp/bat
+default_version: v0.26.1 # renovate: datasource=github-releases depName=binary-install/sharkdp/bat
 asset:
   template: bat-${TAG}-${ARCH}-${OS}${EXT}
   default_extension: .tar.gz
@@ -26,3 +27,19 @@ asset:
   - when:
       os: windows
     ext: .zip
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v0.26.1:
+    - filename: bat-v0.26.1-aarch64-apple-darwin.tar.gz
+      hash: e30beff26779c9bf60bb541e1d79046250cb74378f2757f8eb250afddb19e114
+    - filename: bat-v0.26.1-aarch64-pc-windows-msvc.zip
+      hash: af07dd1939e99f7f5892d197fc5653cb8cb6c5999552731135ad156eca7e38a5
+    - filename: bat-v0.26.1-aarch64-unknown-linux-gnu.tar.gz
+      hash: 422eb73e11c854fddd99f5ca8461c2f1d6e6dce0a2a8c3d5daade5ffcb6564aa
+    - filename: bat-v0.26.1-x86_64-apple-darwin.tar.gz
+      hash: 830d63b0bba1fa040542ec569e3cf77f60d3356b9de75116a344b061e0894245
+    - filename: bat-v0.26.1-x86_64-pc-windows-msvc.zip
+      hash: 0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b
+    - filename: bat-v0.26.1-x86_64-unknown-linux-gnu.tar.gz
+      hash: 726f04c8f576a7fd18b7634f1bbf2f915c43494c1c0f013baa3287edb0d5a2a3

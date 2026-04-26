@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/sharkdp/bat/releases
-   If tag is missing, then latest will be used.
+   If tag is missing, then v0.26.1 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -409,7 +409,13 @@ github_release() {
 }
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
-EMBEDDED_CHECKSUMS=""
+EMBEDDED_CHECKSUMS="
+0.26.1:bat-v0.26.1-aarch64-apple-darwin.tar.gz:e30beff26779c9bf60bb541e1d79046250cb74378f2757f8eb250afddb19e114
+0.26.1:bat-v0.26.1-aarch64-pc-windows-msvc.zip:af07dd1939e99f7f5892d197fc5653cb8cb6c5999552731135ad156eca7e38a5
+0.26.1:bat-v0.26.1-aarch64-unknown-linux-gnu.tar.gz:422eb73e11c854fddd99f5ca8461c2f1d6e6dce0a2a8c3d5daade5ffcb6564aa
+0.26.1:bat-v0.26.1-x86_64-apple-darwin.tar.gz:830d63b0bba1fa040542ec569e3cf77f60d3356b9de75116a344b061e0894245
+0.26.1:bat-v0.26.1-x86_64-pc-windows-msvc.zip:0f729b4b6f5f28d395c641eacc2e9ff68d0096b85aa0eec344aa62425144b69b
+0.26.1:bat-v0.26.1-x86_64-unknown-linux-gnu.tar.gz:726f04c8f576a7fd18b7634f1bbf2f915c43494c1c0f013baa3287edb0d5a2a3"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -431,7 +437,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-latest}"
+  TAG="${1:-v0.26.1}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
