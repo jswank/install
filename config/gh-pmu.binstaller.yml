@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: rubrical-studios/gh-pmu
-default_version: v0.14.3 # renovate: datasource=github-releases depName=rubrical-studios/gh-pmu
+default_version: v1.4.6 # renovate: datasource=github-releases depName=rubrical-studios/gh-pmu
 asset:
   template: ${OS}-${ARCH}${EXT}
 checksums:
