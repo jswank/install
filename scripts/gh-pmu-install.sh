@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/rubrical-studios/gh-pmu/releases
-   If tag is missing, then latest will be used.
+   If tag is missing, then v1.4.6 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -413,7 +413,11 @@ EMBEDDED_CHECKSUMS="
 0.14.3:darwin-amd64:0a07dea041d1a76683884ae82fd9c4ecf8569c01d5bc03168b5dd15da471637a
 0.14.3:darwin-arm64:4401d839d0e15511ec478a0008e66338e9fa407437bf7aee52ec003f2b99e38c
 0.14.3:linux-amd64:3519a08f7f82e635acb5df755855b6cfd754f73603d59a5958ded2be7dac14fb
-0.14.3:linux-arm64:be4f3e9e4691bffe121a40240e94359b5b00f7fad844a29e497fb7b01d89b1b3"
+0.14.3:linux-arm64:be4f3e9e4691bffe121a40240e94359b5b00f7fad844a29e497fb7b01d89b1b3
+1.4.6:darwin-amd64:e9af460b4e0e80e154283aa4659db0e88a6da3e4dc03c3e761900420e9853620
+1.4.6:darwin-arm64:e0593390e1c0406fe099b525a616fe9b49c4a5c202eef05c32aa06011acfb811
+1.4.6:linux-amd64:9026438fc2d889c41d71bf1a3be9bb3a3f6e59211bc7d0cc8e49e449b818f9f3
+1.4.6:linux-arm64:dba0165b31786c5c05cac06f1d0b4b1fbc2971cd10b3ed39bd5936c33259d69a"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -435,7 +439,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-latest}"
+  TAG="${1:-v1.4.6}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
