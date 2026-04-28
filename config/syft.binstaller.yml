@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: anchore/syft
+default_version: v1.43.0 # renovate: datasource=github-releases depName=anchore/syft
+asset:
+  template: syft_${VERSION}_${OS}_${ARCH}${EXT}
+  default_extension: .tar.gz
+  rules:
+    - when:
+        os: windows
+      ext: .zip
+checksums:
+  algorithm: sha256
+  template: syft_${VERSION}_checksums.txt
+  # Run `task embed-checksums BINARY=syft && task gen BINARY=syft` to activate.
+  embedded_checksums:
+    v1.43.0:
+    - filename: syft_1.43.0_darwin_amd64.tar.gz
+      hash: 08fd18f55037f999f50b2c2256a9285f0146978a0b16cdc58662ecdc85d0e3c0
+    - filename: syft_1.43.0_darwin_arm64.tar.gz
+      hash: 3640e2181c8be7a56377f3c96e520d5380c924dbafd115ee3c8d45fcbc89cac2
+    - filename: syft_1.43.0_linux_amd64.tar.gz
+      hash: 7b98251d2d08926bb5d4639b56b1f0996a58ef6667c5830e3fe3cd3ad5f4214a
+    - filename: syft_1.43.0_linux_arm64.tar.gz
+      hash: afe92510c467f952a009b994f2d998ff8f9dd266dc26eca55d14a0dd46fec7f2
+    - filename: syft_1.43.0_linux_ppc64le.tar.gz
+      hash: 8f1b2c1a8e4356c17f86b779908bb5d2e7c8256fab4a09edf7826e2eb6798289
+    - filename: syft_1.43.0_linux_s390x.tar.gz
+      hash: f812b6f36e7478f8c1ffd78352a38153bc3205310401f0a717c0e633b7a47a5f
+    - filename: syft_1.43.0_windows_amd64.zip
+      hash: c51695d171c61460369dabdd5c71b8f350ef8618466818356a30808d7105c710
+    - filename: syft_1.43.0_windows_arm64.zip
+      hash: 4cba6630f4ae27aeb63d10e2961b7ff8212781a8c7d9fe92127fb09881b14c99
