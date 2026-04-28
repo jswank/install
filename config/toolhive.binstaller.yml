@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: stacklok/toolhive
-default_version: v0.9.2 # renovate: datasource=github-releases depName=stacklok/toolhive
+default_version: v0.21.0 # renovate: datasource=github-releases depName=stacklok/toolhive
 asset:
   template: toolhive_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
@@ -9,49 +9,62 @@ asset:
     - name: thv
       path: thv
   rules:
-  - when:
-      os: windows
-    ext: .zip
+    - when:
+        os: windows
+      ext: .zip
 checksums:
   algorithm: sha256
   template: toolhive_${VERSION}_checksums.txt
   embedded_checksums:
+    v0.21.0:
+      - filename: toolhive_0.21.0_darwin_amd64.tar.gz
+        hash: ffcf8caf1a33c7406d5fad36e3309fe9c161ef26a839fe67751efabf7ad08bea
+      - filename: toolhive_0.21.0_darwin_arm64.tar.gz
+        hash: e93ca6de3a3e992bd87cbec5e46b5a69f531e6947b0c50d8c8a36988c3b6f16b
+      - filename: toolhive_0.21.0_linux_amd64.tar.gz
+        hash: e2a802d30274629c8c80c13c698e7d6c0bcd77f34d2709f45d154315fc0efaf0
+      - filename: toolhive_0.21.0_linux_arm64.tar.gz
+        hash: 91efb493f4b0272eb8ba573bd25fc15df4d11821fa3c8c5db59b9a6f0eb5a219
+      - filename: toolhive_0.21.0_windows_amd64.zip
+        hash: 736af6c0eec4ab86b9f8893a146e88590276d459f43399a7aedd01409e3245dd
+      - filename: toolhive_0.21.0_windows_arm64.zip
+        hash: 80c6fc91c3ba97c76035c6b6bd66332cf9b1fef713b20afd7af33da2f51ca726
     v0.7.2:
-    - filename: toolhive_0.7.2_darwin_amd64.tar.gz
-      hash: a32b18485d33acefc0d69641a8f99e43c9d91ed45c6279cf158f220763840ef5
-    - filename: toolhive_0.7.2_darwin_arm64.tar.gz
-      hash: 20b3fd98df6abdbd4898c6aa1f2fa7d01f58901055f85c374cccf110a014be1d
-    - filename: toolhive_0.7.2_linux_amd64.tar.gz
-      hash: 84a89a735f3c5d7eaa4fe0f4cba164eb2a04b83f2525c9709dc60dc86fc9dab1
-    - filename: toolhive_0.7.2_linux_arm64.tar.gz
-      hash: 821fb80c672701b62bf3efcb4c744c685fbbde80845b6256d2116a4fe561ac21
-    - filename: toolhive_0.7.2_windows_amd64.zip
-      hash: d6d639453938383a3399888bbe0a60449ae1a5aa196b9cd2187a1ef089b4beb6
-    - filename: toolhive_0.7.2_windows_arm64.zip
-      hash: d291feff936764db8a02868461431bd54a840ecac7a78b303e30956609c54631
+      - filename: toolhive_0.7.2_darwin_amd64.tar.gz
+        hash: a32b18485d33acefc0d69641a8f99e43c9d91ed45c6279cf158f220763840ef5
+      - filename: toolhive_0.7.2_darwin_arm64.tar.gz
+        hash: 20b3fd98df6abdbd4898c6aa1f2fa7d01f58901055f85c374cccf110a014be1d
+      - filename: toolhive_0.7.2_linux_amd64.tar.gz
+        hash: 84a89a735f3c5d7eaa4fe0f4cba164eb2a04b83f2525c9709dc60dc86fc9dab1
+      - filename: toolhive_0.7.2_linux_arm64.tar.gz
+        hash: 821fb80c672701b62bf3efcb4c744c685fbbde80845b6256d2116a4fe561ac21
+      - filename: toolhive_0.7.2_windows_amd64.zip
+        hash: d6d639453938383a3399888bbe0a60449ae1a5aa196b9cd2187a1ef089b4beb6
+      - filename: toolhive_0.7.2_windows_arm64.zip
+        hash: d291feff936764db8a02868461431bd54a840ecac7a78b303e30956609c54631
     v0.8.0:
-    - filename: toolhive_0.8.0_darwin_amd64.tar.gz
-      hash: 0a1a7b6107645b71539c6d42569fedcae401b2360f035b4c7b08ffa4fa3e8934
-    - filename: toolhive_0.8.0_darwin_arm64.tar.gz
-      hash: e0754560741eeffd201df2ab88656e1d6cc1e7f20c0af0826db40a4d3c1a6b40
-    - filename: toolhive_0.8.0_linux_amd64.tar.gz
-      hash: 2f4216bdefdc37bda46ee5c896c54920d65e18013a0627855ce1a16eb2c44726
-    - filename: toolhive_0.8.0_linux_arm64.tar.gz
-      hash: 3b806cf7b857b0dce819610b4ef48709d35ee10a73865dfca4fcc791bff80416
-    - filename: toolhive_0.8.0_windows_amd64.zip
-      hash: 192bb1f0f9f257cad232e0148d81c3e31e644b888e61c22b46fa15b6b760547e
-    - filename: toolhive_0.8.0_windows_arm64.zip
-      hash: 313931641136da7479f02caf351c955c2d1d9bbc7204dff5f7f9d61ca1fd9242
+      - filename: toolhive_0.8.0_darwin_amd64.tar.gz
+        hash: 0a1a7b6107645b71539c6d42569fedcae401b2360f035b4c7b08ffa4fa3e8934
+      - filename: toolhive_0.8.0_darwin_arm64.tar.gz
+        hash: e0754560741eeffd201df2ab88656e1d6cc1e7f20c0af0826db40a4d3c1a6b40
+      - filename: toolhive_0.8.0_linux_amd64.tar.gz
+        hash: 2f4216bdefdc37bda46ee5c896c54920d65e18013a0627855ce1a16eb2c44726
+      - filename: toolhive_0.8.0_linux_arm64.tar.gz
+        hash: 3b806cf7b857b0dce819610b4ef48709d35ee10a73865dfca4fcc791bff80416
+      - filename: toolhive_0.8.0_windows_amd64.zip
+        hash: 192bb1f0f9f257cad232e0148d81c3e31e644b888e61c22b46fa15b6b760547e
+      - filename: toolhive_0.8.0_windows_arm64.zip
+        hash: 313931641136da7479f02caf351c955c2d1d9bbc7204dff5f7f9d61ca1fd9242
     v0.9.2:
-    - filename: toolhive_0.9.2_darwin_amd64.tar.gz
-      hash: f8e45af89346a93678ed628552e68dae19a04f0b7402e1e545e5a53dd68ddb38
-    - filename: toolhive_0.9.2_darwin_arm64.tar.gz
-      hash: 29595e175cf60c3b8419754a5e384c530a84d63b506dd240372e55ba07290434
-    - filename: toolhive_0.9.2_linux_amd64.tar.gz
-      hash: 70be3936c37f98f5582aabc5b455e9f89ec797146cd69485484129e95f607185
-    - filename: toolhive_0.9.2_linux_arm64.tar.gz
-      hash: a9bdac8893adbfbd3b1491155b54f825cb82e084a837422e12a1de72dcd574ba
-    - filename: toolhive_0.9.2_windows_amd64.zip
-      hash: e8c73681a2ccf55396497d5b6066811f2e059776e2444ec35daa3a0a74267e66
-    - filename: toolhive_0.9.2_windows_arm64.zip
-      hash: d42f5149287fd0b37f517724272421b14d4732e036d35e0a908deece836f7500
+      - filename: toolhive_0.9.2_darwin_amd64.tar.gz
+        hash: f8e45af89346a93678ed628552e68dae19a04f0b7402e1e545e5a53dd68ddb38
+      - filename: toolhive_0.9.2_darwin_arm64.tar.gz
+        hash: 29595e175cf60c3b8419754a5e384c530a84d63b506dd240372e55ba07290434
+      - filename: toolhive_0.9.2_linux_amd64.tar.gz
+        hash: 70be3936c37f98f5582aabc5b455e9f89ec797146cd69485484129e95f607185
+      - filename: toolhive_0.9.2_linux_arm64.tar.gz
+        hash: a9bdac8893adbfbd3b1491155b54f825cb82e084a837422e12a1de72dcd574ba
+      - filename: toolhive_0.9.2_windows_amd64.zip
+        hash: e8c73681a2ccf55396497d5b6066811f2e059776e2444ec35daa3a0a74267e66
+      - filename: toolhive_0.9.2_windows_arm64.zip
+        hash: d42f5149287fd0b37f517724272421b14d4732e036d35e0a908deece836f7500
