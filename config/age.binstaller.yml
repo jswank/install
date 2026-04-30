@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: filosottile/age
+asset:
+  template: age-${TAG}-${OS}-${ARCH}${EXT}
+  default_extension: .tar.gz
+  binaries:
+    - name: age
+      path: age/age
+    - name: age-inspect
+      path: age/age-inspect
+    - name: age-keygen
+      path: age/age-keygen
+    - name: age-plugin-batchpass
+      path: age/age-plugin-batchpass
+  rules:
+  - when:
+      os: windows
+    ext: .zip
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v1.3.1:
+    - filename: age-v1.3.1-darwin-amd64.tar.gz
+      hash: 2b233301ad21ab7b1eabd9ae1198a164005fa4928fcdd745d47c39f8593209d7
+    - filename: age-v1.3.1-darwin-arm64.tar.gz
+      hash: 01120ea2cbf0463d4c6bd767f99f3271bbed1cdc8a9aa718a76ba1fe4f01998b
+    - filename: age-v1.3.1-freebsd-amd64.tar.gz
+      hash: 3d597b093d6b21f78b465a55cef748cdd357bddc43128527d3aacec4649caa63
+    - filename: age-v1.3.1-linux-amd64.tar.gz
+      hash: bdc69c09cbdd6cf8b1f333d372a1f58247b3a33146406333e30c0f26e8f51377
+    - filename: age-v1.3.1-linux-arm.tar.gz
+      hash: 0af5d0dd1664d43dda955938280a668fdd298ad0df90058b409067dfdec74ba3
+    - filename: age-v1.3.1-linux-arm64.tar.gz
+      hash: c6878a324421b69e3e20b00ba17c04bc5c6dab0030cfe55bf8f68fa8d9e9093a
+    - filename: age-v1.3.1-windows-amd64.zip
+      hash: c56e8ce22f7e80cb85ad946cc82d198767b056366201d3e1a2b93d865be38154
