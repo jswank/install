@@ -21,37 +21,52 @@ asset:
     - name: tofu
       path: tofu
   rules:
-  - when:
-      arch: amd64
-    arch: x86_64
-  - when:
-      os: darwin
-    os: Darwin
-  - when:
-      os: linux
-    os: Linux
-  - when:
-      os: windows
-    os: Windows
-  - when:
-      os: windows
-    ext: .zip
+    - when:
+        arch: amd64
+      arch: x86_64
+    - when:
+        os: darwin
+      os: Darwin
+    - when:
+        os: linux
+      os: Linux
+    - when:
+        os: windows
+      os: Windows
+    - when:
+        os: windows
+      ext: .zip
 checksums:
   algorithm: sha256
   template: tenv_${TAG}_checksums.txt
   embedded_checksums:
     v4.10.1:
-    - filename: tenv_v4.10.1_Darwin_arm64.tar.gz
-      hash: f71f0137c4fac4e9b99621fd9a7a3c2204ec1f421d16d75c93383eb14962574e
-    - filename: tenv_v4.10.1_Darwin_x86_64.tar.gz
-      hash: d5ab28ae9f264e47aea1b50391de693b4dad3ed74858f9152471c711a97fabfe
-    - filename: tenv_v4.10.1_Linux_arm64.tar.gz
-      hash: 75c2d3bc7756328a96c75e1d1c269356d66ab5380a69b73b81aa17bceb40b772
-    - filename: tenv_v4.10.1_Linux_armv6.tar.gz
-      hash: 51fcefab715631cc59dd08ab92910e11ce468b27227f661fb19f11486d7533af
-    - filename: tenv_v4.10.1_Linux_x86_64.tar.gz
-      hash: 8c45d8d52a3f0469f9231d4d38e14acc753d608898b38765d728553dd2d9f7ed
-    - filename: tenv_v4.10.1_Windows_arm64.zip
-      hash: cde51c5246518bc7a685b272b020184fdb6dce1df7a783da3c2f7abc7527ce59
-    - filename: tenv_v4.10.1_Windows_x86_64.zip
-      hash: 255431703c8655c7c52a92251c512619e0d2f90677ae514cfe642a568ac6d2ff
+      - filename: tenv_v4.10.1_Darwin_arm64.tar.gz
+        hash: f71f0137c4fac4e9b99621fd9a7a3c2204ec1f421d16d75c93383eb14962574e
+      - filename: tenv_v4.10.1_Darwin_x86_64.tar.gz
+        hash: d5ab28ae9f264e47aea1b50391de693b4dad3ed74858f9152471c711a97fabfe
+      - filename: tenv_v4.10.1_Linux_arm64.tar.gz
+        hash: 75c2d3bc7756328a96c75e1d1c269356d66ab5380a69b73b81aa17bceb40b772
+      - filename: tenv_v4.10.1_Linux_armv6.tar.gz
+        hash: 51fcefab715631cc59dd08ab92910e11ce468b27227f661fb19f11486d7533af
+      - filename: tenv_v4.10.1_Linux_x86_64.tar.gz
+        hash: 8c45d8d52a3f0469f9231d4d38e14acc753d608898b38765d728553dd2d9f7ed
+      - filename: tenv_v4.10.1_Windows_arm64.zip
+        hash: cde51c5246518bc7a685b272b020184fdb6dce1df7a783da3c2f7abc7527ce59
+      - filename: tenv_v4.10.1_Windows_x86_64.zip
+        hash: 255431703c8655c7c52a92251c512619e0d2f90677ae514cfe642a568ac6d2ff
+    v4.11.1:
+      - filename: tenv_v4.11.1_Darwin_arm64.tar.gz
+        hash: 46ff176c4f6081d21e19ce3f8f865aa29304c788d9199509ca7c196bf66e7be3
+      - filename: tenv_v4.11.1_Darwin_x86_64.tar.gz
+        hash: 087c896770547eeccf700228226048c313777776f5cbdef50668edee9c728eb4
+      - filename: tenv_v4.11.1_Linux_arm64.tar.gz
+        hash: b73783958ca5dd7ef81a28ba30c8c1810d82135ead2979f45948709ec0638a3a
+      - filename: tenv_v4.11.1_Linux_armv6.tar.gz
+        hash: 66a851fc1b1b86e1c80041d9e22513bb1aeea1893e451d750579dfdd985ea5e9
+      - filename: tenv_v4.11.1_Linux_x86_64.tar.gz
+        hash: e8e7ce27c26935917a15bc736f0c4b646bd08cfcb7b3565da868a3562fc709e4
+      - filename: tenv_v4.11.1_Windows_arm64.zip
+        hash: 5b2d61f8263302f07594e3d78d984673d912f4e3f50a25428ebb16d0f55c3a05
+      - filename: tenv_v4.11.1_Windows_x86_64.zip
+        hash: eb7249c78730a52213c97f5911ecdaf5b6dc0ea5a059f43875639b4bfa0247b1
