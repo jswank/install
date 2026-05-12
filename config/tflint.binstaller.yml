@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: terraform-linters/tflint
-default_version: v0.60.0 # renovate: datasource=github-releases depName=terraform-linters/tflint
+default_version: v0.62.0 # renovate: datasource=github-releases depName=terraform-linters/tflint
 asset:
   template: tflint_${OS}_${ARCH}${EXT}
   default_extension: .zip
@@ -10,19 +10,36 @@ checksums:
   template: checksums.txt
   embedded_checksums:
     v0.60.0:
-    - filename: tflint_darwin_amd64.zip
-      hash: 256f70ad2c9963690bccc31ffda6be0159f1c5f857b46773b70d01d56b711280
-    - filename: tflint_darwin_arm64.zip
-      hash: 753a392b70e37b2970732bdaf0c9ad98b0f8ecb96026b21e91261e4e967c7f5e
-    - filename: tflint_linux_386.zip
-      hash: b25d41922b6dd4e30be74876d4691695b0d8de6f5b4cd93ddfd3706c3d285262
-    - filename: tflint_linux_amd64.zip
-      hash: 3476ceedcf0c4f9f2bed35e92988e1411bec2caa543c9387bffaa720df9efaf7
-    - filename: tflint_linux_arm.zip
-      hash: 59b6c1acf15f4faee2e28074a27214c78970b5427dff7ab16b9478f9d57fc2a8
-    - filename: tflint_linux_arm64.zip
-      hash: 8f01d273e58f44f6ed10e198fa1f5d0a8080b01869de64658528275e943ef47a
-    - filename: tflint_windows_386.zip
-      hash: 561a7c633009f4dcba82769742d7b1d14b64a5795a0868db5d3311ef19514998
-    - filename: tflint_windows_amd64.zip
-      hash: a6e08412ec6bf9041325d75a0b88846f8e3b8fb24e5dda105574fa7565235f4c
+      - filename: tflint_darwin_amd64.zip
+        hash: 256f70ad2c9963690bccc31ffda6be0159f1c5f857b46773b70d01d56b711280
+      - filename: tflint_darwin_arm64.zip
+        hash: 753a392b70e37b2970732bdaf0c9ad98b0f8ecb96026b21e91261e4e967c7f5e
+      - filename: tflint_linux_386.zip
+        hash: b25d41922b6dd4e30be74876d4691695b0d8de6f5b4cd93ddfd3706c3d285262
+      - filename: tflint_linux_amd64.zip
+        hash: 3476ceedcf0c4f9f2bed35e92988e1411bec2caa543c9387bffaa720df9efaf7
+      - filename: tflint_linux_arm.zip
+        hash: 59b6c1acf15f4faee2e28074a27214c78970b5427dff7ab16b9478f9d57fc2a8
+      - filename: tflint_linux_arm64.zip
+        hash: 8f01d273e58f44f6ed10e198fa1f5d0a8080b01869de64658528275e943ef47a
+      - filename: tflint_windows_386.zip
+        hash: 561a7c633009f4dcba82769742d7b1d14b64a5795a0868db5d3311ef19514998
+      - filename: tflint_windows_amd64.zip
+        hash: a6e08412ec6bf9041325d75a0b88846f8e3b8fb24e5dda105574fa7565235f4c
+    v0.62.0:
+      - filename: tflint_darwin_amd64.zip
+        hash: 6aa1defaac89eab227008301af399225afd9ee6f124d13e570323cf588491b8a
+      - filename: tflint_darwin_arm64.zip
+        hash: 56064a392e688f51c893a0d3bc1470fdf523f8d579080c718d026f1692613419
+      - filename: tflint_linux_386.zip
+        hash: 3a64842200c9792357336fd51cc8e2b75a85caefc831dc2a35e52f5fdb44d6be
+      - filename: tflint_linux_amd64.zip
+        hash: 000400d7f4c2236d9ed4b35fec3ee95617c3747571593cc6138169fc78cc226a
+      - filename: tflint_linux_arm.zip
+        hash: d864874e708236e9215e699ff983170a97f5a807a842717fe95d46aa1cfa4197
+      - filename: tflint_linux_arm64.zip
+        hash: 064206ec85adaf90f637c880eb3cd5a8e07ddce09e4da7c813eb362cb794f95f
+      - filename: tflint_windows_386.zip
+        hash: 093dc13b4e15aaebc17479a0b1129f6d0a7a066cc8019905a4daf66b5a6e3bce
+      - filename: tflint_windows_amd64.zip
+        hash: d2b28caf4f312805edd06c7aede494135d1babb301db32e9b68994d2038936e4
