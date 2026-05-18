@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: tofuutils/tenv
-default_version: v4.12.0 # renovate: datasource=github-releases depName=tofuutils/tenv
+default_version: v4.12.2 # renovate: datasource=github-releases depName=tofuutils/tenv
 asset:
   template: tenv_${TAG}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
@@ -85,3 +85,18 @@ checksums:
         hash: feca3cf84054d67afbf1af6ef81f64b8fecd3003a69e4af25bee44db4bf14e48
       - filename: tenv_v4.12.0_Windows_x86_64.zip
         hash: c43feb0daaa68c4fee893cc9c90b094387bca428c49caa7a4f307fdc1ec1eb33
+    v4.12.2:
+      - filename: tenv_v4.12.2_Darwin_arm64.tar.gz
+        hash: 5bc587bc3b462e3de5880baae8c291440faf6ed8d5b141e05c8ccfbf66e41d49
+      - filename: tenv_v4.12.2_Darwin_x86_64.tar.gz
+        hash: 20e4090d875791e52f32597400e60265fe46199fb2d74fa42b5f1c8bd830467c
+      - filename: tenv_v4.12.2_Linux_arm64.tar.gz
+        hash: 448f0edba714e794a104737bf1650d73bf87a5b277ba1ba5215e4056f5772e39
+      - filename: tenv_v4.12.2_Linux_armv6.tar.gz
+        hash: 498181070cd3c0cb126d6d7be877a79da7536584cd55f96773df5472383a11c0
+      - filename: tenv_v4.12.2_Linux_x86_64.tar.gz
+        hash: 5ac2aa654d23629a477db864bd73b087500da5bb8625aa14704674a3fbcba969
+      - filename: tenv_v4.12.2_Windows_arm64.zip
+        hash: ef5c5df1a1d7f68afc0ceda030e53704beddab65e0ce0368467cf9de17b4dcfa
+      - filename: tenv_v4.12.2_Windows_x86_64.zip
+        hash: fea4b419085270241f08d2d043f245c8ab5cf29c7d03168138bea07ea1486ee5
