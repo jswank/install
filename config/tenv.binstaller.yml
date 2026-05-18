@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: tofuutils/tenv
-default_version: v4.12.0 # renovate: datasource=github-releases depName=tofuutils/tenv
+default_version: v4.12.2 # renovate: datasource=github-releases depName=tofuutils/tenv
 asset:
   template: tenv_${TAG}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
