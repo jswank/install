@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/tofuutils/tenv/releases
-   If tag is missing, then v4.12.0 will be used.
+   If tag is missing, then v4.12.2 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -430,7 +430,14 @@ EMBEDDED_CHECKSUMS="
 4.12.0:tenv_v4.12.0_Linux_armv6.tar.gz:bb95146cdaa513d4c6f72bdaf75b281be343489a1eeb1d924715b3921d37f3b8
 4.12.0:tenv_v4.12.0_Linux_x86_64.tar.gz:7c846e8be40c91cfe76a35f43c51a27299267e7331b3632268f0401a3fd4297d
 4.12.0:tenv_v4.12.0_Windows_arm64.zip:feca3cf84054d67afbf1af6ef81f64b8fecd3003a69e4af25bee44db4bf14e48
-4.12.0:tenv_v4.12.0_Windows_x86_64.zip:c43feb0daaa68c4fee893cc9c90b094387bca428c49caa7a4f307fdc1ec1eb33"
+4.12.0:tenv_v4.12.0_Windows_x86_64.zip:c43feb0daaa68c4fee893cc9c90b094387bca428c49caa7a4f307fdc1ec1eb33
+4.12.2:tenv_v4.12.2_Darwin_arm64.tar.gz:5bc587bc3b462e3de5880baae8c291440faf6ed8d5b141e05c8ccfbf66e41d49
+4.12.2:tenv_v4.12.2_Darwin_x86_64.tar.gz:20e4090d875791e52f32597400e60265fe46199fb2d74fa42b5f1c8bd830467c
+4.12.2:tenv_v4.12.2_Linux_arm64.tar.gz:448f0edba714e794a104737bf1650d73bf87a5b277ba1ba5215e4056f5772e39
+4.12.2:tenv_v4.12.2_Linux_armv6.tar.gz:498181070cd3c0cb126d6d7be877a79da7536584cd55f96773df5472383a11c0
+4.12.2:tenv_v4.12.2_Linux_x86_64.tar.gz:5ac2aa654d23629a477db864bd73b087500da5bb8625aa14704674a3fbcba969
+4.12.2:tenv_v4.12.2_Windows_arm64.zip:ef5c5df1a1d7f68afc0ceda030e53704beddab65e0ce0368467cf9de17b4dcfa
+4.12.2:tenv_v4.12.2_Windows_x86_64.zip:fea4b419085270241f08d2d043f245c8ab5cf29c7d03168138bea07ea1486ee5"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -452,7 +459,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v4.12.0}"
+  TAG="${1:-v4.12.2}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
