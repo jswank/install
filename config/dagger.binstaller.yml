@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: dagger/dagger
+default_version: v0.20.8 # renovate: datasource=github-releases depName=dagger/dagger
+asset:
+  template: dagger_${TAG}_${OS}_${ARCH}${EXT}
+  default_extension: .tar.gz
+  rules:
+  - when:
+      os: windows
+    ext: .zip
+checksums:
+  algorithm: sha256
+  template: checksums.txt
+  embedded_checksums:
+    v0.20.8:
+    - filename: dagger_v0.20.8_darwin_amd64.tar.gz
+      hash: 4d8d78999660ff05efc3dd01c29ca6b02379d74deeb14c56a7c6f589620c9360
+    - filename: dagger_v0.20.8_darwin_arm64.tar.gz
+      hash: 44cbfe7ee8748895f851c3765c84fe023c7dcb6546f6d9cff81a912ae0ea9f25
+    - filename: dagger_v0.20.8_linux_amd64.tar.gz
+      hash: c0a46536fde641f6a4b45529382e1176220d22552c2f9ab0136deaf005e646db
+    - filename: dagger_v0.20.8_linux_arm64.tar.gz
+      hash: e49f3aa146f3af2c259f94bc335dffe154664eddff4db0adf445d650345e0056
+    - filename: dagger_v0.20.8_linux_armv7.tar.gz
+      hash: f1d357f4d421f58659607ccde44a464a344b5562e1f549a846ad9eaaf0bfefb5
+    - filename: dagger_v0.20.8_windows_amd64.zip
+      hash: bfb767f0cb8aa1383563974b72eb625bd9f1cf3429a5f1a651ffb3ec2e888e61
+    - filename: dagger_v0.20.8_windows_arm64.zip
+      hash: 056510d7eebbb0af6ecebf781681d5a4bf3ddaf9f706351f36fa3ee2dd5efc9c
