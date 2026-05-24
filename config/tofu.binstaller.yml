@@ -4,6 +4,9 @@ repo: opentofu/opentofu
 asset:
   template: tofu_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
+  binaries:
+    - name: tofu
+      path: ./tofu
 default_version: v1.11.6 # renovate: datasource=github-releases depName=opentofu/opentofu
 checksums:
   algorithm: sha256
