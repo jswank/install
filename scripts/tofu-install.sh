@@ -554,11 +554,11 @@ execute() {
     log_info "Extracting ${ASSET_FILENAME}..."
     (cd "${TMPDIR}" && untar "${ASSET_FILENAME}" "${STRIP_COMPONENTS}")
   fi
-  BINARY_NAME='opentofu'
+  BINARY_NAME='tofu'
   if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
-    BINARY_PATH="${TMPDIR}/opentofu"
+    BINARY_PATH="${TMPDIR}/./tofu"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
