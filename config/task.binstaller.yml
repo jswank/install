@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: go-task/task
-default_version: v3.50.0 # renovate: datasource=github-releases depName=go-task/task
+default_version: v3.51.1 # renovate: datasource=github-releases depName=go-task/task
 asset:
   template: task_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
