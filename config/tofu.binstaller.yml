@@ -70,3 +70,32 @@ checksums:
         hash: 8d269c9b3786720e26f20a520ef7f787a6a6c7d26037fc28917fc359e0943203
       - filename: tofu_1.11.6_windows_amd64.tar.gz
         hash: 27323f70c875b8251bfd7e61a4cffc3ebff4e56ed1e611b955016f0c7077367e
+    v1.12.1:
+      - filename: tofu_1.12.1_darwin_amd64.tar.gz
+        hash: cd99ab9686ae1af3e4b99e6aabbeb38332254f28fc4ae784b2a06d91a8741a13
+      - filename: tofu_1.12.1_darwin_arm64.tar.gz
+        hash: 7d5c26b3fe583ae7bdaae8d07eb92eeab5fbd43fb84d3414de417ba558c43649
+      - filename: tofu_1.12.1_freebsd_386.tar.gz
+        hash: d3906ecfb24d042b005e5af350f0240af93b0432756709a4750b3ac83da9b9a3
+      - filename: tofu_1.12.1_freebsd_amd64.tar.gz
+        hash: c0c3850beab52369c52684d79a48792933acde808bd854612bf160c61b468a17
+      - filename: tofu_1.12.1_freebsd_arm.tar.gz
+        hash: c99ddfcbdf4f1206cce30d57e859855277de3a6717745fa67dcf601ffa065929
+      - filename: tofu_1.12.1_linux_386.tar.gz
+        hash: 0aeed6937f36c2e94cc5513bc0a82907d83c860b0d87e9cc1f0490b544f3aacc
+      - filename: tofu_1.12.1_linux_amd64.tar.gz
+        hash: 8e818ca2f14bb4ee594231c908ca77ec3415c9e194302ab0c92c8947bd908670
+      - filename: tofu_1.12.1_linux_arm.tar.gz
+        hash: 8bfef7e88a06604805a2cb05bcd2ac1cfbb1ba950319e84f8c43b03f9d32cd93
+      - filename: tofu_1.12.1_linux_arm64.tar.gz
+        hash: fd3bb0dd81f8dcf38fc2e84c2381a1530a944a85e0fcfede900d56b4bd3a6a1c
+      - filename: tofu_1.12.1_openbsd_386.tar.gz
+        hash: 12856080c4d1baa52e964ddaa5139280b33f4ad42afa386fb5091089cea2bd0e
+      - filename: tofu_1.12.1_openbsd_amd64.tar.gz
+        hash: baae561065d7eb21a9e7ae066e24e13aea159372c6a6792a88078b7710263ade
+      - filename: tofu_1.12.1_solaris_amd64.tar.gz
+        hash: d04554b9228a1ce6ceb8cb324074d03df8a069c00fec0e046d944ad98924f0f7
+      - filename: tofu_1.12.1_windows_386.tar.gz
+        hash: 25703a6c7c7b6a6eb0e220760e859108e9577cc26674958b72a693b50239a248
+      - filename: tofu_1.12.1_windows_amd64.tar.gz
+        hash: 6b21b5bbd1def79f98364af42f89e4836a7acb4834dacc1929a34f2f4e7ab867
