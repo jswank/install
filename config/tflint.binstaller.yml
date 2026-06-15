@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: terraform-linters/tflint
-default_version: v0.62.1 # renovate: datasource=github-releases depName=terraform-linters/tflint
+default_version: v0.63.1 # renovate: datasource=github-releases depName=terraform-linters/tflint
 asset:
   template: tflint_${OS}_${ARCH}${EXT}
   default_extension: .zip
