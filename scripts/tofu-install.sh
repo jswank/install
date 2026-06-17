@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/opentofu/opentofu/releases
-   If tag is missing, then v1.11.6 will be used.
+   If tag is missing, then v1.12.1 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -437,7 +437,21 @@ EMBEDDED_CHECKSUMS="
 1.11.6:tofu_1.11.6_openbsd_amd64.tar.gz:f491b6eee04b35589faacc9ee4f950fef011fdbf137db14c5db1d57bf25e6dd4
 1.11.6:tofu_1.11.6_solaris_amd64.tar.gz:e9487351de7a4e0d03f89cc5f305407db8f21946e33b60cf641a00580e0846f4
 1.11.6:tofu_1.11.6_windows_386.tar.gz:8d269c9b3786720e26f20a520ef7f787a6a6c7d26037fc28917fc359e0943203
-1.11.6:tofu_1.11.6_windows_amd64.tar.gz:27323f70c875b8251bfd7e61a4cffc3ebff4e56ed1e611b955016f0c7077367e"
+1.11.6:tofu_1.11.6_windows_amd64.tar.gz:27323f70c875b8251bfd7e61a4cffc3ebff4e56ed1e611b955016f0c7077367e
+1.12.1:tofu_1.12.1_darwin_amd64.tar.gz:cd99ab9686ae1af3e4b99e6aabbeb38332254f28fc4ae784b2a06d91a8741a13
+1.12.1:tofu_1.12.1_darwin_arm64.tar.gz:7d5c26b3fe583ae7bdaae8d07eb92eeab5fbd43fb84d3414de417ba558c43649
+1.12.1:tofu_1.12.1_freebsd_386.tar.gz:d3906ecfb24d042b005e5af350f0240af93b0432756709a4750b3ac83da9b9a3
+1.12.1:tofu_1.12.1_freebsd_amd64.tar.gz:c0c3850beab52369c52684d79a48792933acde808bd854612bf160c61b468a17
+1.12.1:tofu_1.12.1_freebsd_arm.tar.gz:c99ddfcbdf4f1206cce30d57e859855277de3a6717745fa67dcf601ffa065929
+1.12.1:tofu_1.12.1_linux_386.tar.gz:0aeed6937f36c2e94cc5513bc0a82907d83c860b0d87e9cc1f0490b544f3aacc
+1.12.1:tofu_1.12.1_linux_amd64.tar.gz:8e818ca2f14bb4ee594231c908ca77ec3415c9e194302ab0c92c8947bd908670
+1.12.1:tofu_1.12.1_linux_arm.tar.gz:8bfef7e88a06604805a2cb05bcd2ac1cfbb1ba950319e84f8c43b03f9d32cd93
+1.12.1:tofu_1.12.1_linux_arm64.tar.gz:fd3bb0dd81f8dcf38fc2e84c2381a1530a944a85e0fcfede900d56b4bd3a6a1c
+1.12.1:tofu_1.12.1_openbsd_386.tar.gz:12856080c4d1baa52e964ddaa5139280b33f4ad42afa386fb5091089cea2bd0e
+1.12.1:tofu_1.12.1_openbsd_amd64.tar.gz:baae561065d7eb21a9e7ae066e24e13aea159372c6a6792a88078b7710263ade
+1.12.1:tofu_1.12.1_solaris_amd64.tar.gz:d04554b9228a1ce6ceb8cb324074d03df8a069c00fec0e046d944ad98924f0f7
+1.12.1:tofu_1.12.1_windows_386.tar.gz:25703a6c7c7b6a6eb0e220760e859108e9577cc26674958b72a693b50239a248
+1.12.1:tofu_1.12.1_windows_amd64.tar.gz:6b21b5bbd1def79f98364af42f89e4836a7acb4834dacc1929a34f2f4e7ab867"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -459,7 +473,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v1.11.6}"
+  TAG="${1:-v1.12.1}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
