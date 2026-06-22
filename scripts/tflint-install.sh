@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/terraform-linters/tflint/releases
-   If tag is missing, then v0.62.1 will be used.
+   If tag is missing, then v0.63.1 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -433,7 +433,15 @@ EMBEDDED_CHECKSUMS="
 0.62.1:tflint_linux_arm.zip:b4704bb7c06e64a9eb25a934f08d489dab7d23c55499e26ad110d27ab7a62412
 0.62.1:tflint_linux_arm64.zip:9f3bce43f7f58f05ddcf193f0bf1f7e7a9c7a79d7f46f72dd38e97f96fcaf14c
 0.62.1:tflint_windows_386.zip:47a0ada2060a6bcda9c2f40419bd82795a2bd4e2855832298f14ad2b7a0fe536
-0.62.1:tflint_windows_amd64.zip:bef472fd62dcbdb616bbdf67800f1bcf8db64598529c09610154686555180edd"
+0.62.1:tflint_windows_amd64.zip:bef472fd62dcbdb616bbdf67800f1bcf8db64598529c09610154686555180edd
+0.63.1:tflint_darwin_amd64.zip:1a22782473e4a01f0dd23edc649bed4420655a9e3459ffc06951e698eed7ad01
+0.63.1:tflint_darwin_arm64.zip:6aab157b22367dcab1635b370e98d6e791d9b40b021d4f9baef010d88f53e16b
+0.63.1:tflint_linux_386.zip:93b974bc9b4554ef5747b73c28d07b7c3f573385f92384d614a03a9c9886d96b
+0.63.1:tflint_linux_amd64.zip:8441a7d97df20431f19c9b9d27ff4c63e308c964e86660bc7cc0cf7bbe0725e8
+0.63.1:tflint_linux_arm.zip:4f4624c3b595d463ce88b13e0a539c048aa9465ef0259073b8e654e9d3e60883
+0.63.1:tflint_linux_arm64.zip:6d858ca7f11858c3fe3c5e29cc746823abccb55e2d2e2da130fa7ad7ea4eecb8
+0.63.1:tflint_windows_386.zip:401e97df8675d7b42e8dbfeafd1eb93a4152c19a6e305e6b94c8d7cda1b3d28c
+0.63.1:tflint_windows_amd64.zip:5fbfb643b83c4ad489bde15a0e0d46e53dc9aa8dfa76d25da3c4bd2698a41a19"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -455,7 +463,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v0.62.1}"
+  TAG="${1:-v0.63.1}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
