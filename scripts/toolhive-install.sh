@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/stacklok/toolhive/releases
-   If tag is missing, then v0.27.2 will be used.
+   If tag is missing, then v0.30.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -434,6 +434,12 @@ EMBEDDED_CHECKSUMS="
 0.27.2:toolhive_0.27.2_linux_arm64.tar.gz:52791f46a34802c63494222ec06cfeb6c36dbfdbdf41c0fe5fb1236541b6a979
 0.27.2:toolhive_0.27.2_windows_amd64.zip:0ee4ad2dde38a5af9380365562035839ee26a6cfe81d5fbceb22854f09a9b907
 0.27.2:toolhive_0.27.2_windows_arm64.zip:5858c4b6606411b57dfc8c0fe9256e968a6dadaab0d229bb3d2efd7814594900
+0.30.0:toolhive_0.30.0_darwin_amd64.tar.gz:015cb6a1e40d3f6ec6003ac296b981c823f3a567f977b864ae13d5f0a4af3818
+0.30.0:toolhive_0.30.0_darwin_arm64.tar.gz:d30d41ed3f763853a605a5c32dc9248e8eec2f1e1b0c4eac90156f2c2476e371
+0.30.0:toolhive_0.30.0_linux_amd64.tar.gz:b82a05160c98f3a43fe809876b1a0f1c41703b7e84973685d4f3e6b382cea156
+0.30.0:toolhive_0.30.0_linux_arm64.tar.gz:d9a35bd743bd31d0ee9cb730b37239baa92e6e1cf60e04f8439f60e2e073e6eb
+0.30.0:toolhive_0.30.0_windows_amd64.zip:f3004835f04d53a2d89575f0d63262dbf19a9ef0062c9a3cf72a053c8d3b2654
+0.30.0:toolhive_0.30.0_windows_arm64.zip:5f4e62092eb5d4be9ab971f8bb499b4640f5172072d044215619a51b5074f158
 0.7.2:toolhive_0.7.2_darwin_amd64.tar.gz:a32b18485d33acefc0d69641a8f99e43c9d91ed45c6279cf158f220763840ef5
 0.7.2:toolhive_0.7.2_darwin_arm64.tar.gz:20b3fd98df6abdbd4898c6aa1f2fa7d01f58901055f85c374cccf110a014be1d
 0.7.2:toolhive_0.7.2_linux_amd64.tar.gz:84a89a735f3c5d7eaa4fe0f4cba164eb2a04b83f2525c9709dc60dc86fc9dab1
@@ -473,7 +479,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v0.27.2}"
+  TAG="${1:-v0.30.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
