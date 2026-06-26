@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: tmux/tmux-builds
+default_version: v3.6b # renovate: datasource=github-releases depName=tmux/tmux-builds
+asset:
+  template: tmux-${VERSION}-${OS}-${ARCH}${EXT}
+  default_extension: .tar.gz
+  binaries:
+    - name: tmux
+      path: tmux
+  rules:
+  - when:
+      arch: amd64
+    arch: x86_64
+  - when:
+      os: darwin
+    os: macos
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v3.6b:
+    - filename: tmux-3.6b-linux-arm64.tar.gz
+      hash: fd4a2206c5e468dd2ee4e9a65f2d40e0762551965d7fdbe849c494ab14f513e9
+    - filename: tmux-3.6b-linux-x86_64.tar.gz
+      hash: 002a6f4fd52212600fa0d72d865dcf328e5b8b6e83c179788144d8587b75677a
+    - filename: tmux-3.6b-macos-arm64.tar.gz
+      hash: 88323402bd28d21103239caf009b130086ebf334807de485d4a1e1c7188ee810
+    - filename: tmux-3.6b-macos-x86_64.tar.gz
+      hash: 073f6e2c2baa7eb5d643563600ee6052ca8619f3ec5a0cfdf99c56397fb72c94
