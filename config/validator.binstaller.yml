@@ -1,32 +1,34 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: Boeing/config-file-validator
-default_version: v2.2.0 # renovate: datasource=github-releases depName=Boeing/config-file-validator
+default_version: v2.2.2 # renovate: datasource=github-releases depName=Boeing/config-file-validator
 asset:
   template: validator-v2.2-${OS}-${ARCH}${EXT}
   default_extension: .tar.gz
   binaries:
-  - name: validator
-    path: ./validator
+    - name: validator
+      path: ./validator
   rules:
-  - when:
-      os: windows
-    ext: .zip
+    - when:
+        os: windows
+      ext: .zip
 checksums:
   algorithm: sha256
+  template: SHA256SUMS
   embedded_checksums:
     v2.2.0:
-    - filename: validator-v2.2-darwin-amd64.tar.gz
-      hash: 641cc46e6aedf5a21bcf3c8be7d3a5ece785a0721b0f5d3fde525be73ff77a4d
-    - filename: validator-v2.2-darwin-arm64.tar.gz
-      hash: 89d78b62459d5eb80ad5693587cb4cd60918e109259d748c3d203e40f8ce5421
-    - filename: validator-v2.2-linux-386.tar.gz
-      hash: 5c17ecaaf5ed3c002d1a32a30824852060c7dad10c28b816d15dd5678496bcb0
-    - filename: validator-v2.2-linux-amd64.tar.gz
-      hash: 6b3f3168eee5a6a3b91067dc47b04e22c93d45b954564f7b6a329fed91d83f35
-    - filename: validator-v2.2-linux-arm64.tar.gz
-      hash: b658257c8ef01236f5a7f83a3c840f771f1cb9a1605083ca11e8dcfab76cec27
-    - filename: validator-v2.2-windows-386.zip
-      hash: d25cbf4b4bedfb983b8779418868e5af0cf396a2f3beabbc2cf96714afa0565f
-    - filename: validator-v2.2-windows-amd64.zip
-      hash: 6d0dff19c68648ddaac379f9c6402411b6b903713689d5db785f1a16de1f3a6d
+      - filename: validator-v2.2-darwin-amd64.tar.gz
+        hash: 641cc46e6aedf5a21bcf3c8be7d3a5ece785a0721b0f5d3fde525be73ff77a4d
+      - filename: validator-v2.2-darwin-arm64.tar.gz
+        hash: 89d78b62459d5eb80ad5693587cb4cd60918e109259d748c3d203e40f8ce5421
+      - filename: validator-v2.2-linux-386.tar.gz
+        hash: 5c17ecaaf5ed3c002d1a32a30824852060c7dad10c28b816d15dd5678496bcb0
+      - filename: validator-v2.2-linux-amd64.tar.gz
+        hash: 6b3f3168eee5a6a3b91067dc47b04e22c93d45b954564f7b6a329fed91d83f35
+      - filename: validator-v2.2-linux-arm64.tar.gz
+        hash: b658257c8ef01236f5a7f83a3c840f771f1cb9a1605083ca11e8dcfab76cec27
+      - filename: validator-v2.2-windows-386.zip
+        hash: d25cbf4b4bedfb983b8779418868e5af0cf396a2f3beabbc2cf96714afa0565f
+      - filename: validator-v2.2-windows-amd64.zip
+        hash: 6d0dff19c68648ddaac379f9c6402411b6b903713689d5db785f1a16de1f3a6d
+    v2.2.2: []
