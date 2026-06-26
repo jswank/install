@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: jdx/mise
-default_version: v2026.5.15 # renovate: datasource=github-releases depName=jdx/mise
+default_version: v2026.6.10 # renovate: datasource=github-releases depName=jdx/mise
 asset:
   template: mise-${TAG}-${OS}-${ARCH}-musl${EXT}
   default_extension: .tar.gz
@@ -34,3 +34,4 @@ checksums:
     v2026.5.11: []
     v2026.5.15: []
     v2026.5.5: []
+    v2026.6.10: []
