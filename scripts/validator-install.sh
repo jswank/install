@@ -416,14 +416,7 @@ EMBEDDED_CHECKSUMS="
 2.2.0:validator-v2.2-linux-amd64.tar.gz:6b3f3168eee5a6a3b91067dc47b04e22c93d45b954564f7b6a329fed91d83f35
 2.2.0:validator-v2.2-linux-arm64.tar.gz:b658257c8ef01236f5a7f83a3c840f771f1cb9a1605083ca11e8dcfab76cec27
 2.2.0:validator-v2.2-windows-386.zip:d25cbf4b4bedfb983b8779418868e5af0cf396a2f3beabbc2cf96714afa0565f
-2.2.0:validator-v2.2-windows-amd64.zip:6d0dff19c68648ddaac379f9c6402411b6b903713689d5db785f1a16de1f3a6d
-2.2.2:validator-v2.2-darwin-amd64.tar.gz:1667184b9ab0f81e69c036a1155549327725308446a08f9db810a07a9ea972ad
-2.2.2:validator-v2.2-darwin-arm64.tar.gz:59aab3ee86709548c0185feebf76400c8cf7cd649a113e574acb1baab6addc37
-2.2.2:validator-v2.2-linux-386.tar.gz:458607fad39a75743a7ae75d62066dc1a3a69a8dc46466a53fdfc9314f58f96f
-2.2.2:validator-v2.2-linux-amd64.tar.gz:7d9bb40f128d8c0944cdf00c78287ec3e17bdbbb0669a5a03d5eee32c964c887
-2.2.2:validator-v2.2-linux-arm64.tar.gz:ee5d69bbb7df89980f77d50844eeb8e7d65f87bdee5423ea86cfb458c38b1bdb
-2.2.2:validator-v2.2-windows-386.zip:14b99b39129125b13ee92e21fbb080e332a0e3fa9d24fe1548eef6191f435bad
-2.2.2:validator-v2.2-windows-amd64.zip:72a566702feef191dc2be362068ab9568159cbf42949f7e66c57898619607339"
+2.2.0:validator-v2.2-windows-amd64.zip:6d0dff19c68648ddaac379f9c6402411b6b903713689d5db785f1a16de1f3a6d"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
