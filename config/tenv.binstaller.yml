@@ -100,3 +100,18 @@ checksums:
         hash: ef5c5df1a1d7f68afc0ceda030e53704beddab65e0ce0368467cf9de17b4dcfa
       - filename: tenv_v4.12.2_Windows_x86_64.zip
         hash: fea4b419085270241f08d2d043f245c8ab5cf29c7d03168138bea07ea1486ee5
+    v4.14.8:
+      - filename: tenv_v4.14.8_Darwin_arm64.tar.gz
+        hash: d09590a063fbc2b83615667f935a34e42e3b61cfbd7b5d92415e80554fdd9fdf
+      - filename: tenv_v4.14.8_Darwin_x86_64.tar.gz
+        hash: 15120255eff8ac8f42a3ea541a215bfb561490bc8bb65b8483d76e30a9e88097
+      - filename: tenv_v4.14.8_Linux_arm64.tar.gz
+        hash: 1df2f02084e09616fdacd8688b244ba36755a6316be55efafbcb38174dbaaa90
+      - filename: tenv_v4.14.8_Linux_armv7.tar.gz
+        hash: ca920d521b9ba01b4424ca7fe699e3e484ac01930928fac3abe4baa5c4a0328d
+      - filename: tenv_v4.14.8_Linux_x86_64.tar.gz
+        hash: 7a1774a9422d2713ee2991fff17e615077f340993a086d8ef2c590982950f6b8
+      - filename: tenv_v4.14.8_Windows_arm64.zip
+        hash: 5fe0c13786409ce6641f3781b3c64461e837b69a6e7256e2d2715bcb1ecbdc6c
+      - filename: tenv_v4.14.8_Windows_x86_64.zip
+        hash: 6bafb4e2ccb4498b47659b8b39a0a644f44985fc63641fd2e43a1d12b89c7882
