@@ -64,3 +64,16 @@ checksums:
         hash: 95d4e896b120816edd0995a2df8adca26a8621b7bf62036a89b1d54a7b718a74
       - filename: trivy_0.71.0_windows-64bit.zip
         hash: 382250158fb9431ff9b87904205027b066a544234b8952b2dd764bd712d55387
+    v0.71.2:
+      - filename: trivy_0.71.2_Linux-64bit.tar.gz
+        hash: 0510e71e2fd39bf863856d499c8dc19feb4e7336546394c502a8f5cc7ab27460
+      - filename: trivy_0.71.2_Linux-ARM64.tar.gz
+        hash: fe1c7106e15a5365d485b098a8c338f91e3b7ba71cb0e4963b98a3a098763cfc
+      - filename: trivy_0.71.2_Linux-s390x.tar.gz
+        hash: 191a18ec1fd64728f8920490a349152addbb6b3d15e9290e09cac4792a0f4de5
+      - filename: trivy_0.71.2_macOS-64bit.tar.gz
+        hash: c27bcf4ddd281aecb7267eb5df804ec49ac0f8fa23fe018d33932e17f30a38bf
+      - filename: trivy_0.71.2_macOS-ARM64.tar.gz
+        hash: a9f585cad53542a54ef286b5fa4199d081e5a061f8894635bdf3ce2608ece7a9
+      - filename: trivy_0.71.2_windows-64bit.zip
+        hash: ea31c2a927382410cfa2b4eb5970aed62308cf28902e1d167ea36bbfa0515095
