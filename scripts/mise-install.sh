@@ -409,14 +409,7 @@ github_release() {
 }
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
-EMBEDDED_CHECKSUMS="
-2026.6.10:mise-v2026.6.10-linux-arm64-musl.tar.gz:775d6975d2a18a3f189671526c90a3082f1797b015ba8b35634c6283fc724a31
-2026.6.10:mise-v2026.6.10-linux-armv7-musl.tar.gz:aa7b605f2433124c269be63d8d980aa65a995f5171c15c71c4da97044e1d9bbc
-2026.6.10:mise-v2026.6.10-linux-x64-musl.tar.gz:e7e4e9f94fa02121e264c64f256a501ae0a85ef250259dfbc4a98a66905f8281
-2026.6.10:mise-v2026.6.10-macos-arm64.tar.gz:44ebccf53eab0843716f73be8c3e10c7b57706bc72f54f87146e5d7c91b4b0fd
-2026.6.10:mise-v2026.6.10-macos-x64.tar.gz:92f4d52e12a1ca12c9aa80bd2f01e8f832a580adc35e14bc292eb1421f4fb770
-2026.6.10:mise-v2026.6.10-windows-arm64.zip:c7c68b30c475bc5dafd4f692c18b9d73f3da12057839ee5703d7e22989d03dc2
-2026.6.10:mise-v2026.6.10-windows-x64.zip:cfdc9d11ceae211220bf68514c1d7fc67374a26cfbfb62ffeed10922cc1f6ec7"
+EMBEDDED_CHECKSUMS=""
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
