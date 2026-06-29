@@ -15,19 +15,38 @@ checksums:
   # Run `task embed-checksums BINARY=syft && task gen BINARY=syft` to activate.
   embedded_checksums:
     v1.43.0:
-    - filename: syft_1.43.0_darwin_amd64.tar.gz
-      hash: 08fd18f55037f999f50b2c2256a9285f0146978a0b16cdc58662ecdc85d0e3c0
-    - filename: syft_1.43.0_darwin_arm64.tar.gz
-      hash: 3640e2181c8be7a56377f3c96e520d5380c924dbafd115ee3c8d45fcbc89cac2
-    - filename: syft_1.43.0_linux_amd64.tar.gz
-      hash: 7b98251d2d08926bb5d4639b56b1f0996a58ef6667c5830e3fe3cd3ad5f4214a
-    - filename: syft_1.43.0_linux_arm64.tar.gz
-      hash: afe92510c467f952a009b994f2d998ff8f9dd266dc26eca55d14a0dd46fec7f2
-    - filename: syft_1.43.0_linux_ppc64le.tar.gz
-      hash: 8f1b2c1a8e4356c17f86b779908bb5d2e7c8256fab4a09edf7826e2eb6798289
-    - filename: syft_1.43.0_linux_s390x.tar.gz
-      hash: f812b6f36e7478f8c1ffd78352a38153bc3205310401f0a717c0e633b7a47a5f
-    - filename: syft_1.43.0_windows_amd64.zip
-      hash: c51695d171c61460369dabdd5c71b8f350ef8618466818356a30808d7105c710
-    - filename: syft_1.43.0_windows_arm64.zip
-      hash: 4cba6630f4ae27aeb63d10e2961b7ff8212781a8c7d9fe92127fb09881b14c99
+      - filename: syft_1.43.0_darwin_amd64.tar.gz
+        hash: 08fd18f55037f999f50b2c2256a9285f0146978a0b16cdc58662ecdc85d0e3c0
+      - filename: syft_1.43.0_darwin_arm64.tar.gz
+        hash: 3640e2181c8be7a56377f3c96e520d5380c924dbafd115ee3c8d45fcbc89cac2
+      - filename: syft_1.43.0_linux_amd64.tar.gz
+        hash: 7b98251d2d08926bb5d4639b56b1f0996a58ef6667c5830e3fe3cd3ad5f4214a
+      - filename: syft_1.43.0_linux_arm64.tar.gz
+        hash: afe92510c467f952a009b994f2d998ff8f9dd266dc26eca55d14a0dd46fec7f2
+      - filename: syft_1.43.0_linux_ppc64le.tar.gz
+        hash: 8f1b2c1a8e4356c17f86b779908bb5d2e7c8256fab4a09edf7826e2eb6798289
+      - filename: syft_1.43.0_linux_s390x.tar.gz
+        hash: f812b6f36e7478f8c1ffd78352a38153bc3205310401f0a717c0e633b7a47a5f
+      - filename: syft_1.43.0_windows_amd64.zip
+        hash: c51695d171c61460369dabdd5c71b8f350ef8618466818356a30808d7105c710
+      - filename: syft_1.43.0_windows_arm64.zip
+        hash: 4cba6630f4ae27aeb63d10e2961b7ff8212781a8c7d9fe92127fb09881b14c99
+    v1.45.1:
+      - filename: syft_1.45.1_darwin_amd64.tar.gz
+        hash: abe6e73b819f433b69ece755dc180a19c7694896062bf806f89d0e3ca5db710a
+      - filename: syft_1.45.1_darwin_arm64.tar.gz
+        hash: 2f79ccbba6236636125d1ece60a6dc71d4e4f91b9f580cc2afbbafc763ff353d
+      - filename: syft_1.45.1_linux_amd64.tar.gz
+        hash: 20c84195e24927f50a3b2269946be51f4c4abc9d2f145fee7388b4199149f716
+      - filename: syft_1.45.1_linux_arm64.tar.gz
+        hash: 7df9f45cba1f6358ecfc7fac349d43b4605137001f9646b41267abe15a7c6cd7
+      - filename: syft_1.45.1_linux_ppc64le.tar.gz
+        hash: 5712ac2c2b732d3d777e1734617a5887414493941f34d92efa1cf102c0aa50f4
+      - filename: syft_1.45.1_linux_riscv64.tar.gz
+        hash: 504e0c8f7bae364d1056b0976ffdbda4998eb38364cdd643c8221b4cedcd4083
+      - filename: syft_1.45.1_linux_s390x.tar.gz
+        hash: 08f053fc6da6e382a555da2d5c049e998c8bbe6d6b5476a57af0b97fffd5215d
+      - filename: syft_1.45.1_windows_amd64.zip
+        hash: a9d12c26521e09213745884b8b7dc361dff83188c3a1ada0da1af71012dbcd52
+      - filename: syft_1.45.1_windows_arm64.zip
+        hash: a95befd77b590a8c4a83adc7edac538a8fab5d23793bf678f4bc7f603e6a4cad
