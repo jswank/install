@@ -6,35 +6,54 @@ asset:
   template: gh_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .zip
   binaries:
-  - name: gh
-    path: gh_${VERSION}_${OS}_${ARCH}/bin/gh
+    - name: gh
+      path: gh_${VERSION}_${OS}_${ARCH}/bin/gh
   rules:
-  - when:
-      os: darwin
-    os: macOS
-  - when:
-      os: linux
-    ext: .tar.gz
+    - when:
+        os: darwin
+      os: macOS
+    - when:
+        os: linux
+      ext: .tar.gz
 checksums:
   algorithm: sha256
   template: gh_${VERSION}_checksums.txt
   embedded_checksums:
     v2.92.0:
-    - filename: gh_2.92.0_linux_386.tar.gz
-      hash: 65320dc8465c424fd3ae0a114a9753e815db89436ee2d0921641f30705af691d
-    - filename: gh_2.92.0_linux_amd64.tar.gz
-      hash: b57848131bdf0c229cd35e1f2a51aa718199858b2e728410b37e89a428943ec4
-    - filename: gh_2.92.0_linux_arm64.tar.gz
-      hash: c2248526dd0160c08d3fccca2332c3c1a07c15a78b23978e77735f1b5a18cfee
-    - filename: gh_2.92.0_linux_armv6.tar.gz
-      hash: 341d86af867f2622c03cdfda103826170f4851e59966bfeec70bb7c13745c1a4
-    - filename: gh_2.92.0_macOS_amd64.zip
-      hash: ae9bb327ab0d91071bdada79f8f14034a2a0f19b0e001835a782eafa519d2af0
-    - filename: gh_2.92.0_macOS_arm64.zip
-      hash: b11c54f6bd7d15ed6590475079e5b2fcf36f45d3991a80041b29c9d0cc1f1d07
-    - filename: gh_2.92.0_windows_386.zip
-      hash: 61beecc32f0febb3526891773739a737b73d50f560018b1ecaac973eacaa21c2
-    - filename: gh_2.92.0_windows_amd64.zip
-      hash: b6a8df3c8c6b9c80f290906387673bc4d272840f3789c5650e0e4e6e75522785
-    - filename: gh_2.92.0_windows_arm64.zip
-      hash: fa4da50182f6d37a0555b4b48e828c57b1b23cbbd1a7e3a9ce6b65513f13836c
+      - filename: gh_2.92.0_linux_386.tar.gz
+        hash: 65320dc8465c424fd3ae0a114a9753e815db89436ee2d0921641f30705af691d
+      - filename: gh_2.92.0_linux_amd64.tar.gz
+        hash: b57848131bdf0c229cd35e1f2a51aa718199858b2e728410b37e89a428943ec4
+      - filename: gh_2.92.0_linux_arm64.tar.gz
+        hash: c2248526dd0160c08d3fccca2332c3c1a07c15a78b23978e77735f1b5a18cfee
+      - filename: gh_2.92.0_linux_armv6.tar.gz
+        hash: 341d86af867f2622c03cdfda103826170f4851e59966bfeec70bb7c13745c1a4
+      - filename: gh_2.92.0_macOS_amd64.zip
+        hash: ae9bb327ab0d91071bdada79f8f14034a2a0f19b0e001835a782eafa519d2af0
+      - filename: gh_2.92.0_macOS_arm64.zip
+        hash: b11c54f6bd7d15ed6590475079e5b2fcf36f45d3991a80041b29c9d0cc1f1d07
+      - filename: gh_2.92.0_windows_386.zip
+        hash: 61beecc32f0febb3526891773739a737b73d50f560018b1ecaac973eacaa21c2
+      - filename: gh_2.92.0_windows_amd64.zip
+        hash: b6a8df3c8c6b9c80f290906387673bc4d272840f3789c5650e0e4e6e75522785
+      - filename: gh_2.92.0_windows_arm64.zip
+        hash: fa4da50182f6d37a0555b4b48e828c57b1b23cbbd1a7e3a9ce6b65513f13836c
+    v2.95.0:
+      - filename: gh_2.95.0_linux_386.tar.gz
+        hash: ccdab38f426cca3e3bb3087614ee979e3b7faac00c767f6abe2fb9c6d57066aa
+      - filename: gh_2.95.0_linux_amd64.tar.gz
+        hash: 25d1e4729e8808c9ed3d613e96ebd3f3e44446f2d368c89d878a71a36ddb3d8c
+      - filename: gh_2.95.0_linux_arm64.tar.gz
+        hash: d41e0b3b6218e5741c8bb4db39b16e53a59e0e06299a8489bd38f623ef7ebaae
+      - filename: gh_2.95.0_linux_armv6.tar.gz
+        hash: b345c22bf9aaf88dcedc6bcb65a3f9b229840a2ec069674f4be813265ad51cb5
+      - filename: gh_2.95.0_macOS_amd64.zip
+        hash: 985707e9ac60c95ed51cddd808c338b481abe69fffa77e9d6547c3750045f77e
+      - filename: gh_2.95.0_macOS_arm64.zip
+        hash: 3677f9c27965825f9c7d50395473c134edaea4b484373ef6b25de653570a0489
+      - filename: gh_2.95.0_windows_386.zip
+        hash: 6fd704aedfb00eb8f0db49d4f22084ffabe7b8eb1212f5bf52fa2dbd52e7c50c
+      - filename: gh_2.95.0_windows_amd64.zip
+        hash: 19a7154161ada9cfaa9e57edb752ecc679b75c391a62e4f7b586eea1df30b5bb
+      - filename: gh_2.95.0_windows_arm64.zip
+        hash: f7df0bf24275196b0fcbe853946e53ae80121c8a4ce4341bc9de1a35e33b4588

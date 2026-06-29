@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/cli/cli/releases
-   If tag is missing, then v2.92.0 will be used.
+   If tag is missing, then v2.95.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -418,7 +418,16 @@ EMBEDDED_CHECKSUMS="
 2.92.0:gh_2.92.0_macOS_arm64.zip:b11c54f6bd7d15ed6590475079e5b2fcf36f45d3991a80041b29c9d0cc1f1d07
 2.92.0:gh_2.92.0_windows_386.zip:61beecc32f0febb3526891773739a737b73d50f560018b1ecaac973eacaa21c2
 2.92.0:gh_2.92.0_windows_amd64.zip:b6a8df3c8c6b9c80f290906387673bc4d272840f3789c5650e0e4e6e75522785
-2.92.0:gh_2.92.0_windows_arm64.zip:fa4da50182f6d37a0555b4b48e828c57b1b23cbbd1a7e3a9ce6b65513f13836c"
+2.92.0:gh_2.92.0_windows_arm64.zip:fa4da50182f6d37a0555b4b48e828c57b1b23cbbd1a7e3a9ce6b65513f13836c
+2.95.0:gh_2.95.0_linux_386.tar.gz:ccdab38f426cca3e3bb3087614ee979e3b7faac00c767f6abe2fb9c6d57066aa
+2.95.0:gh_2.95.0_linux_amd64.tar.gz:25d1e4729e8808c9ed3d613e96ebd3f3e44446f2d368c89d878a71a36ddb3d8c
+2.95.0:gh_2.95.0_linux_arm64.tar.gz:d41e0b3b6218e5741c8bb4db39b16e53a59e0e06299a8489bd38f623ef7ebaae
+2.95.0:gh_2.95.0_linux_armv6.tar.gz:b345c22bf9aaf88dcedc6bcb65a3f9b229840a2ec069674f4be813265ad51cb5
+2.95.0:gh_2.95.0_macOS_amd64.zip:985707e9ac60c95ed51cddd808c338b481abe69fffa77e9d6547c3750045f77e
+2.95.0:gh_2.95.0_macOS_arm64.zip:3677f9c27965825f9c7d50395473c134edaea4b484373ef6b25de653570a0489
+2.95.0:gh_2.95.0_windows_386.zip:6fd704aedfb00eb8f0db49d4f22084ffabe7b8eb1212f5bf52fa2dbd52e7c50c
+2.95.0:gh_2.95.0_windows_amd64.zip:19a7154161ada9cfaa9e57edb752ecc679b75c391a62e4f7b586eea1df30b5bb
+2.95.0:gh_2.95.0_windows_arm64.zip:f7df0bf24275196b0fcbe853946e53ae80121c8a4ce4341bc9de1a35e33b4588"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -440,7 +449,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v2.92.0}"
+  TAG="${1:-v2.95.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
