@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: Boeing/config-file-validator
-default_version: v2.2.2 # renovate: datasource=github-releases depName=Boeing/config-file-validator
+default_version: v2.3.0 # renovate: datasource=github-releases depName=Boeing/config-file-validator
 asset:
   template: validator-v2.2-${OS}-${ARCH}${EXT}
   default_extension: .tar.gz
