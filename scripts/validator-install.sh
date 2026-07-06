@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/Boeing/config-file-validator/releases
-   If tag is missing, then v2.2.2 will be used.
+   If tag is missing, then v2.3.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -438,7 +438,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v2.2.2}"
+  TAG="${1:-v2.3.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then

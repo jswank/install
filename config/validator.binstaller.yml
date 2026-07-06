@@ -32,3 +32,4 @@ checksums:
       - filename: validator-v2.2-windows-amd64.zip
         hash: 6d0dff19c68648ddaac379f9c6402411b6b903713689d5db785f1a16de1f3a6d
     v2.2.2: []
+    v2.3.0: []
