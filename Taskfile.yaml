@@ -69,16 +69,33 @@ tasks:
       default_version from the config file is used. If neither is set, --version
       is omitted and binst uses its own default.
 
+      MODE is optional — defaults to download. If download mode fails, the task
+      automatically falls back to calculate mode and attempts to retrieve
+      GITHUB_TOKEN from the GitHub CLI if available.
+
       Invoke this task like:
         task embed-checksums BINARY=trufflehog
         task embed-checksums BINARY=trufflehog VERSION=v3.92.4
+        task embed-checksums BINARY=trufflehog MODE=calculate
     cmd: |
       VERSION={{.VERSION}}
       VERSION=${VERSION:-$(yq '.default_version // ""' {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml)}
       # Conditionally include --version if VERSION is set. If VERSION is empty,
       # VERSION_FLAG will be an empty string and won't affect the command.
       VERSION_FLAG="${VERSION:+--version $VERSION}"
-      binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml $VERSION_FLAG --mode download
+      MODE="{{.MODE}}"
+      MODE="${MODE:-download}"
+      if [ -z "$GITHUB_TOKEN" ] && command -v gh >/dev/null 2>&1; then
+        export GITHUB_TOKEN=$(gh auth token 2>/dev/null || true)
+      fi
+      if ! binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml $VERSION_FLAG --mode "$MODE"; then
+        if [ "$MODE" = "download" ]; then
+          echo "Failed to embed checksums using download mode. Automatically falling back to calculate mode..."
+          binst embed-checksums --config {{.CONFIG_DIR}}/{{.BINARY}}.binstaller.yml $VERSION_FLAG --mode calculate
+        else
+          exit 1
+        fi
+      fi
     requires:
       vars: ["BINARY"]
 
