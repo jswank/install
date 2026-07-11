@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/aquasecurity/trivy/releases
-   If tag is missing, then v0.71.2 will be used.
+   If tag is missing, then v0.72.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -433,7 +433,13 @@ EMBEDDED_CHECKSUMS="
 0.71.2:trivy_0.71.2_Linux-s390x.tar.gz:191a18ec1fd64728f8920490a349152addbb6b3d15e9290e09cac4792a0f4de5
 0.71.2:trivy_0.71.2_macOS-64bit.tar.gz:c27bcf4ddd281aecb7267eb5df804ec49ac0f8fa23fe018d33932e17f30a38bf
 0.71.2:trivy_0.71.2_macOS-ARM64.tar.gz:a9f585cad53542a54ef286b5fa4199d081e5a061f8894635bdf3ce2608ece7a9
-0.71.2:trivy_0.71.2_windows-64bit.zip:ea31c2a927382410cfa2b4eb5970aed62308cf28902e1d167ea36bbfa0515095"
+0.71.2:trivy_0.71.2_windows-64bit.zip:ea31c2a927382410cfa2b4eb5970aed62308cf28902e1d167ea36bbfa0515095
+0.72.0:trivy_0.72.0_Linux-64bit.tar.gz:bbb64b9695866ce4a7a8f5c9592002c5961cab378577fa3f8a040df362b9b2ea
+0.72.0:trivy_0.72.0_Linux-ARM64.tar.gz:2ca2c023109c2db6b2b77366b6717291452d4531167377d95c79547f0c8e3467
+0.72.0:trivy_0.72.0_Linux-s390x.tar.gz:8831ccdc13b805e1456a961b7f855d9479cb3fe697ac975a5401d4895a25df97
+0.72.0:trivy_0.72.0_macOS-64bit.tar.gz:ee5e60df8a98e5b89fd74a6d86f9e5c7e9a266a35002cb1e43291698b3bfee08
+0.72.0:trivy_0.72.0_macOS-ARM64.tar.gz:88f208680dc05da2b459e19b4f5aa2b4dc7c2117892ba4aab2ae63baba330016
+0.72.0:trivy_0.72.0_windows-64bit.zip:ed3cf122060f61818fe1f735fd97557954e16e10bc8b058af9852271cf2e91b3"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -455,7 +461,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v0.71.2}"
+  TAG="${1:-v0.72.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
