@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: aaif-goose/goose
-default_version: v1.41.0 # renovate: datasource=github-releases depName=aaif-goose/goose
+default_version: v1.47.0 # renovate: datasource=github-releases depName=aaif-goose/goose
 asset:
   template: goose-${ARCH}-${OS}${EXT}
   default_extension: .tar.bz2
