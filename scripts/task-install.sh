@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/go-task/task/releases
-   If tag is missing, then v3.52.0 will be used.
+   If tag is missing, then v3.53.1 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -480,7 +480,21 @@ EMBEDDED_CHECKSUMS="
 3.52.0:task_linux_riscv64.tar.gz:dba8d58957abd11f6465944d97d820d0510d1b6f058444282db020d6d844275a
 3.52.0:task_windows_386.zip:a00605760b121f006fe7ea7ec05ff831542bbf0cce8be5fcc9852b35d9bfe739
 3.52.0:task_windows_amd64.zip:e3bd4439b445f4f135758a2666ec8b33ccde789f7f615309c58f116b0e566e79
-3.52.0:task_windows_arm64.zip:3f3b5bbf23d10c73f8f11bc4a47d1465f3a61a30fa231fddf0a87edc52937237"
+3.52.0:task_windows_arm64.zip:3f3b5bbf23d10c73f8f11bc4a47d1465f3a61a30fa231fddf0a87edc52937237
+3.53.1:task_darwin_amd64.tar.gz:7f1a702d54a789cb818a636039a83df071f4179893133afafa4eba351a7e19ef
+3.53.1:task_darwin_arm64.tar.gz:85d2d96c2380b33d7855b07b3f7a20dc7ca0eda999a26efa0fb5f6f32b366cd7
+3.53.1:task_freebsd_386.tar.gz:445d2552d4db96f1070daae2c4ba6aa47ebd64cc22d090822e391114ecd68a25
+3.53.1:task_freebsd_amd64.tar.gz:cebbe970c1006646daa88a1db13a318456af8589a10ef81b1bef97472379d127
+3.53.1:task_freebsd_arm.tar.gz:20290d2fc255b4cb8ec9a093680681c5364c3e72e74650d0d85d4b500488da5c
+3.53.1:task_freebsd_arm64.tar.gz:12a12219b8a15a2c7e870d95ce4a1d0595e9e78a68b360793405859c172dd2ba
+3.53.1:task_linux_386.tar.gz:499264261ac7b5ba2c92a6ad1a70ba13bf88a50c8d10cba29b185773bc8e01eb
+3.53.1:task_linux_amd64.tar.gz:a54a408f6861ff921f6e87774180db31bacd8c1e7c944ca696db9fea49a82fc7
+3.53.1:task_linux_arm.tar.gz:49511a7025d9992f1f9a9946e7da1ed52ec95c83f3f601084d9f937f3c5df231
+3.53.1:task_linux_arm64.tar.gz:e3ad19101493a0112e1f22ae8ccc54bf03e533b1076a0ca1e6c782a09ad2e588
+3.53.1:task_linux_riscv64.tar.gz:743940f1d1e940ce1fd346b0c4db5d1bd8ec2f2c3f8730188ea1cd140e0a99fe
+3.53.1:task_windows_386.zip:2423e2b5168e84c8ee1232cffca08c7459ac04d8a134e15c29226f80eeb50f3a
+3.53.1:task_windows_amd64.zip:27c0cd248c12cba03d8958d954a3df981c900be885ec9ce5f6a3cdc4e9a19316
+3.53.1:task_windows_arm64.zip:4f7c32c0b5a09aabfd860bcf4ff5649f0483339c1f7f90ad5ee55692da7237b6"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -502,7 +516,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v3.52.0}"
+  TAG="${1:-v3.53.1}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
