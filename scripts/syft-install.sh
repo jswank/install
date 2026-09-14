@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/anchore/syft/releases
-   If tag is missing, then v1.51.0 will be used.
+   If tag is missing, then v1.51.1 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -426,7 +426,16 @@ EMBEDDED_CHECKSUMS="
 1.51.0:syft_1.51.0_linux_riscv64.tar.gz:92990725f926ec8c839a27f73d6be974c5c817bdf3bbfab64dba00ea94d008d7
 1.51.0:syft_1.51.0_linux_s390x.tar.gz:9d24f9adfcf558847ad134be1763aa7a44bf3e7be3b9271b9f2bd98538ba20d9
 1.51.0:syft_1.51.0_windows_amd64.zip:fc5ffaeffb993576ece9c791da5a688fb2c8969a1479bbfe58583672c64da336
-1.51.0:syft_1.51.0_windows_arm64.zip:3fd075e644e67d1a9ae63fbc67991c510fc623030a67b93f5de9e2fd2da5d3c2"
+1.51.0:syft_1.51.0_windows_arm64.zip:3fd075e644e67d1a9ae63fbc67991c510fc623030a67b93f5de9e2fd2da5d3c2
+1.51.1:syft_1.51.1_darwin_amd64.tar.gz:0e186ce1d4351ec276126851ca3ff258ed070e93e73574ed64858d4fc2339867
+1.51.1:syft_1.51.1_darwin_arm64.tar.gz:ac063af3b9874769deb7ea1e6d76841e68f9e3bb50cd654226fc977de65532c1
+1.51.1:syft_1.51.1_linux_amd64.tar.gz:8fcb33017a0dc1058298c923c436d19dfa68ae93968e0b423248542e3afb9fc3
+1.51.1:syft_1.51.1_linux_arm64.tar.gz:a7fd2b784e6664acd44719270574f6cd8c6864fc2b1700bf9099bd1cccda7d7f
+1.51.1:syft_1.51.1_linux_ppc64le.tar.gz:c8e2156581e95c7ce411d20e4dcb514ac4c4720993750b4a1032a4501e05751f
+1.51.1:syft_1.51.1_linux_riscv64.tar.gz:4fa8f91d737dc0c71a8f9d1a087dce010c998a9dda63e0c8b6a9e4ca2f7ea952
+1.51.1:syft_1.51.1_linux_s390x.tar.gz:e1464a35bdc973de2e7b145ce72b6764039f3e38f7e3f5be6184886ddc044fa9
+1.51.1:syft_1.51.1_windows_amd64.zip:5e4bc3e6b6344b4625de0f7aa5351aaa72856d11d78462972de0a101ee2c1c8f
+1.51.1:syft_1.51.1_windows_arm64.zip:fa735ee4c25b90b93d6795a15b90d6a0bae78eb5ad7d3d4591b3c10faa3463ad"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -448,7 +457,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v1.51.0}"
+  TAG="${1:-v1.51.1}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
