@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: anchore/syft
-default_version: v1.51.0 # renovate: datasource=github-releases depName=anchore/syft
+default_version: v1.51.1 # renovate: datasource=github-releases depName=anchore/syft
 asset:
   template: syft_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .tar.gz
@@ -50,3 +50,22 @@ checksums:
         hash: fc5ffaeffb993576ece9c791da5a688fb2c8969a1479bbfe58583672c64da336
       - filename: syft_1.51.0_windows_arm64.zip
         hash: 3fd075e644e67d1a9ae63fbc67991c510fc623030a67b93f5de9e2fd2da5d3c2
+    v1.51.1:
+      - filename: syft_1.51.1_darwin_amd64.tar.gz
+        hash: 0e186ce1d4351ec276126851ca3ff258ed070e93e73574ed64858d4fc2339867
+      - filename: syft_1.51.1_darwin_arm64.tar.gz
+        hash: ac063af3b9874769deb7ea1e6d76841e68f9e3bb50cd654226fc977de65532c1
+      - filename: syft_1.51.1_linux_amd64.tar.gz
+        hash: 8fcb33017a0dc1058298c923c436d19dfa68ae93968e0b423248542e3afb9fc3
+      - filename: syft_1.51.1_linux_arm64.tar.gz
+        hash: a7fd2b784e6664acd44719270574f6cd8c6864fc2b1700bf9099bd1cccda7d7f
+      - filename: syft_1.51.1_linux_ppc64le.tar.gz
+        hash: c8e2156581e95c7ce411d20e4dcb514ac4c4720993750b4a1032a4501e05751f
+      - filename: syft_1.51.1_linux_riscv64.tar.gz
+        hash: 4fa8f91d737dc0c71a8f9d1a087dce010c998a9dda63e0c8b6a9e4ca2f7ea952
+      - filename: syft_1.51.1_linux_s390x.tar.gz
+        hash: e1464a35bdc973de2e7b145ce72b6764039f3e38f7e3f5be6184886ddc044fa9
+      - filename: syft_1.51.1_windows_amd64.zip
+        hash: 5e4bc3e6b6344b4625de0f7aa5351aaa72856d11d78462972de0a101ee2c1c8f
+      - filename: syft_1.51.1_windows_arm64.zip
+        hash: fa735ee4c25b90b93d6795a15b90d6a0bae78eb5ad7d3d4591b3c10faa3463ad
