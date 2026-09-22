@@ -7,7 +7,7 @@ asset:
   binaries:
     - name: tofu
       path: ./tofu
-default_version: v1.12.3 # renovate: datasource=github-releases depName=opentofu/opentofu
+default_version: v1.12.6 # renovate: datasource=github-releases depName=opentofu/opentofu
 checksums:
   algorithm: sha256
   template: tofu_${VERSION}_SHA256SUMS
@@ -128,3 +128,32 @@ checksums:
         hash: 911e296136aab6587622e5f5ae4aacd9752986bba6cea3d2a7679e26b94227ad
       - filename: tofu_1.12.3_windows_amd64.tar.gz
         hash: 34ddbab9eb07a72ea5cf36d98d97ce1931242cb89693cbf5dce06d65ba37d8cc
+    v1.12.6:
+      - filename: tofu_1.12.6_darwin_amd64.tar.gz
+        hash: 44bb1855f372f17f365fb94517906e78da5001da10f4c98de57a39bf982f3a92
+      - filename: tofu_1.12.6_darwin_arm64.tar.gz
+        hash: f958ec5e511063be9feb180ca015a4cb7977566a9cf6a8550bba8c2a9b5aba74
+      - filename: tofu_1.12.6_freebsd_386.tar.gz
+        hash: 3cdf1993303451eca12fa5e33bdba65107b6001b56ded13cfc358fce73121e95
+      - filename: tofu_1.12.6_freebsd_amd64.tar.gz
+        hash: fc501a4b5bbf2e1c8550e503e0a3639b36d9373166bc21ec1bcd2e3dd01e2b30
+      - filename: tofu_1.12.6_freebsd_arm.tar.gz
+        hash: 03a3a8b9b52bcff6909a759b94bb3003d85cb8af73c61496630b0194fb439a6b
+      - filename: tofu_1.12.6_linux_386.tar.gz
+        hash: 97406f2e1b5c17060617f597c032ad2c91754cd696e66be0c400be5887143303
+      - filename: tofu_1.12.6_linux_amd64.tar.gz
+        hash: 50a6106fa4de523d09c87af85f3db1dd47535fc005727fdca6852146476b88ec
+      - filename: tofu_1.12.6_linux_arm.tar.gz
+        hash: b6193587b5453f30c7d8fc2675cb652d8a093763f9eaab2adbb4ad3411574f09
+      - filename: tofu_1.12.6_linux_arm64.tar.gz
+        hash: 9bd0228a81bcd0c88f7045c74378f45a815779f19897191dff7d9efba9976b9e
+      - filename: tofu_1.12.6_openbsd_386.tar.gz
+        hash: 2882cd3f6515741cf1767b790a1adfc86582334757a0bb051d4faed740967042
+      - filename: tofu_1.12.6_openbsd_amd64.tar.gz
+        hash: f45ee7adef55e972c6d911f217802a27a165d806a593ef9621e2acf7d93763a4
+      - filename: tofu_1.12.6_solaris_amd64.tar.gz
+        hash: 7831cebe38c487f5f8998868f1566dba05f0f56ee76d0b5b0d71d523cd5c3023
+      - filename: tofu_1.12.6_windows_386.tar.gz
+        hash: fed3bff9c96fbd25f567b103d1872466213e8381f328d62b9ac2c87c182873a9
+      - filename: tofu_1.12.6_windows_amd64.tar.gz
+        hash: bcbcd9ca744af6c4053e2d5e75dae79ff33ad7dc38d45e1233e693d096284538
