@@ -33,6 +33,7 @@ task install-trufflehog
 |------|------|---------|
 | [aichat](https://github.com/sigoden/aichat) | sigoden/aichat | `curl -sSL https://jswank.github.io/install/aichat-install.sh \| bash` |
 | [binstaller](https://github.com/binary-install/binstaller) | binary-install/binstaller | `curl -sSL https://jswank.github.io/install/binstaller-install.sh \| bash` |
+| [cfv](https://github.com/Boeing/config-file-validator) | Boeing/config-file-validator | `curl -sSL https://jswank.github.io/install/cfv-install.sh \| bash` |
 | [checkov](https://github.com/bridgecrewio/checkov) | — | `curl -sSL https://jswank.github.io/install/checkov-install.sh \| bash` |
 | [claude](https://claude.ai) | — | `curl -sSL https://jswank.github.io/install/claude-install.sh \| bash` |
 | [eksctl](https://github.com/eksctl-io/eksctl) | eksctl-io/eksctl | `curl -sSL https://jswank.github.io/install/eksctl-install.sh \| bash` |

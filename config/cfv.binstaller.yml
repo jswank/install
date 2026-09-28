@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+name: cfv
+repo: Boeing/config-file-validator
+default_version: v3.0.0-rc.3 # renovate: datasource=github-releases depName=Boeing/config-file-validator
+asset:
+  template: cfv-${VERSION}-${OS}-${ARCH}${EXT}
+  default_extension: .tar.gz
+  binaries:
+    - name: cfv
+      path: ./cfv
+  rules:
+    - when:
+        os: windows
+      ext: .zip
+checksums:
+  algorithm: sha256
+  template: SHA256SUMS
+  embedded_checksums:
+    v3.0.0-rc.3:
+    - filename: cfv-3.0.0-rc.3-darwin-amd64.tar.gz
+      hash: 057c68072df7c37c2c62f1bbe7e9eb25c9869247f49b8a54ab2e4c14410c8bbe
+    - filename: cfv-3.0.0-rc.3-darwin-arm64.tar.gz
+      hash: 285d6e7f01f87d9c41b4915d75a88d09c83da79f727b25bb467b3137d5a5c09c
+    - filename: cfv-3.0.0-rc.3-linux-386.tar.gz
+      hash: 593f7481dbf4e86090ec468d4f7e1a5eafde073877409150fc97ff0f4fd7e123
+    - filename: cfv-3.0.0-rc.3-linux-amd64.tar.gz
+      hash: b6003abc86151454853454beda20317af8ad36ec7a4ad5b9cd58063ccfd50b3a
+    - filename: cfv-3.0.0-rc.3-linux-arm64.tar.gz
+      hash: a9691f2d2f551d900912b80d0e7da5219fbf1f58f2fc02d7f3a0450d0f9428cb
+    - filename: cfv-3.0.0-rc.3-windows-386.zip
+      hash: bd7d9b18145d994ebb47033888edd4e6a988cb61da6569274c2e133c3c642254
+    - filename: cfv-3.0.0-rc.3-windows-amd64.zip
+      hash: 06bebe8b28050d64c97de11443ad188c5e63b3d45911cf8e0e35403ce913fa0a
