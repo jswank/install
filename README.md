@@ -37,6 +37,7 @@ task install-trufflehog
 | [checkov](https://github.com/bridgecrewio/checkov) | — | `curl -sSL https://jswank.github.io/install/checkov-install.sh \| bash` |
 | [claude](https://claude.ai) | — | `curl -sSL https://jswank.github.io/install/claude-install.sh \| bash` |
 | [eksctl](https://github.com/eksctl-io/eksctl) | eksctl-io/eksctl | `curl -sSL https://jswank.github.io/install/eksctl-install.sh \| bash` |
+| [fnox](https://github.com/jdx/fnox) | jdx/fnox | `curl -sSL https://jswank.github.io/install/fnox-install.sh \| bash` |
 | [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go) | ekalinin/github-markdown-toc.go | `curl -sSL https://jswank.github.io/install/gh-md-toc-install.sh \| bash` |
 | [gh-pmu](https://github.com/rubrical-studios/gh-pmu) | rubrical-studios/gh-pmu | `curl -sSL https://jswank.github.io/install/gh-pmu-install.sh \| bash` |
 | [opentofu](https://github.com/opentofu/opentofu) | opentofu/opentofu | `curl -sSL https://jswank.github.io/install/opentofu-install.sh \| bash` |

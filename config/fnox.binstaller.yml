@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
+schema: v1
+repo: jdx/fnox
+default_version: v1.46.0 # renovate: datasource=github-releases depName=jdx/fnox
+asset:
+  template: fnox-${ARCH}-${OS}${EXT}
+  default_extension: .tar.gz
+  rules:
+  - when:
+      arch: amd64
+    arch: x86_64
+  - when:
+      arch: arm64
+    arch: aarch64
+  - when:
+      os: darwin
+    os: apple-darwin
+  - when:
+      os: linux
+    os: unknown-linux-musl
+  - when:
+      os: windows
+    os: pc-windows-msvc
+  - when:
+      os: windows
+    ext: .zip
+checksums:
+  algorithm: sha256
+  embedded_checksums:
+    v1.46.0:
+    - filename: fnox-aarch64-apple-darwin.tar.gz
+      hash: d9d0c44c7a597d1745f6f40b987d2567ac3269b4aad444543a24547d3659b105
+    - filename: fnox-aarch64-pc-windows-msvc.zip
+      hash: 3ea2577b3744713bf59373aecfa82e8e85202b21ef67cc74ad0cbe18a2f40e99
+    - filename: fnox-aarch64-unknown-linux-musl.tar.gz
+      hash: e165ff9278ca29765e1b5ba28889bcaef0f6eb5b72da9b4457bde79766b647d5
+    - filename: fnox-x86_64-apple-darwin.tar.gz
+      hash: 1441b5f5ea0bf714291302df845df3740b3569274fc4d63003feef7141581028
+    - filename: fnox-x86_64-pc-windows-msvc.zip
+      hash: 1cdeb238348e1ceded8522296950ad4b5dba04221b462d64bf80662fae341960
+    - filename: fnox-x86_64-unknown-linux-musl.tar.gz
+      hash: a9ad5a04cb8b52cf424db871e136a42f1ac17aeb92e4c57df6234799b92db276
