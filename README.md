@@ -31,6 +31,7 @@ task install-trufflehog
 
 | Tool | Repo | Install |
 |------|------|---------|
+| [age](https://github.com/filosottile/age) | filosottile/age | `curl -sSL https://jswank.github.io/install/age-install.sh \| bash` |
 | [aichat](https://github.com/sigoden/aichat) | sigoden/aichat | `curl -sSL https://jswank.github.io/install/aichat-install.sh \| bash` |
 | [binstaller](https://github.com/binary-install/binstaller) | binary-install/binstaller | `curl -sSL https://jswank.github.io/install/binstaller-install.sh \| bash` |
 | [cfv](https://github.com/Boeing/config-file-validator) | Boeing/config-file-validator | `curl -sSL https://jswank.github.io/install/cfv-install.sh \| bash` |

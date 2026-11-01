@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: filosottile/age
-default_version: v1.3.1 # renovate: datasource=github-releases depName=filosottile/age
+default_version: v1.3.2 # renovate: datasource=github-releases depName=filosottile/age
 asset:
   template: age-${TAG}-${OS}-${ARCH}${EXT}
   default_extension: .tar.gz
@@ -14,6 +14,12 @@ asset:
       path: age/age-keygen
     - name: age-plugin-batchpass
       path: age/age-plugin-batchpass
+    - name: age-plugin-pq
+      path: age/age-plugin-pq
+    - name: age-plugin-tag
+      path: age/age-plugin-tag
+    - name: age-plugin-tagpq
+      path: age/age-plugin-tagpq
   rules:
   - when:
       os: windows
@@ -36,3 +42,20 @@ checksums:
       hash: c6878a324421b69e3e20b00ba17c04bc5c6dab0030cfe55bf8f68fa8d9e9093a
     - filename: age-v1.3.1-windows-amd64.zip
       hash: c56e8ce22f7e80cb85ad946cc82d198767b056366201d3e1a2b93d865be38154
+    v1.3.2:
+    - filename: age-v1.3.2-darwin-amd64.tar.gz
+      hash: 1d1e4bc66e1427edad7739ae7616157de0e79db8b6d2a1497d7d9925fb06a539
+    - filename: age-v1.3.2-darwin-arm64.tar.gz
+      hash: e2020b073c44f692685a24d6abc378817eb81ffaaf49fd0531ef8565f767f2f5
+    - filename: age-v1.3.2-freebsd-amd64.tar.gz
+      hash: d4687997d3ebfcc352ac529208e953edff68a652786de2701a03fec701a1e798
+    - filename: age-v1.3.2-linux-amd64.tar.gz
+      hash: cbe24006683f8eb669266162894b9a522a1af52f2665fbc63a4bb032ed26ac10
+    - filename: age-v1.3.2-linux-arm.tar.gz
+      hash: 0ceba62c92701b30b3336abf064714c1a6ea5fa0c75ee367ce36d4f9c0f8e6ce
+    - filename: age-v1.3.2-linux-arm64.tar.gz
+      hash: 6b8dc4333c53a5a57c9e5834e3a48f92605d7154014cd07269ff3327db5d37f4
+    - filename: age-v1.3.2-windows-amd64.zip
+      hash: f48d8f8f9ebe903ab5027ed067652f2cc1db94bc206976430133b905dcd8e8c7
+    - filename: age-v1.3.2-windows-arm64.zip
+      hash: fae351336c8d5f30f93cc3ccdec16d1ed7851d68cdd6656d41955cc31a447c9d

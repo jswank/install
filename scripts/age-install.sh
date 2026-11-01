@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/filosottile/age/releases
-   If tag is missing, then latest will be used.
+   If tag is missing, then v1.3.2 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -416,7 +416,15 @@ EMBEDDED_CHECKSUMS="
 1.3.1:age-v1.3.1-linux-amd64.tar.gz:bdc69c09cbdd6cf8b1f333d372a1f58247b3a33146406333e30c0f26e8f51377
 1.3.1:age-v1.3.1-linux-arm.tar.gz:0af5d0dd1664d43dda955938280a668fdd298ad0df90058b409067dfdec74ba3
 1.3.1:age-v1.3.1-linux-arm64.tar.gz:c6878a324421b69e3e20b00ba17c04bc5c6dab0030cfe55bf8f68fa8d9e9093a
-1.3.1:age-v1.3.1-windows-amd64.zip:c56e8ce22f7e80cb85ad946cc82d198767b056366201d3e1a2b93d865be38154"
+1.3.1:age-v1.3.1-windows-amd64.zip:c56e8ce22f7e80cb85ad946cc82d198767b056366201d3e1a2b93d865be38154
+1.3.2:age-v1.3.2-darwin-amd64.tar.gz:1d1e4bc66e1427edad7739ae7616157de0e79db8b6d2a1497d7d9925fb06a539
+1.3.2:age-v1.3.2-darwin-arm64.tar.gz:e2020b073c44f692685a24d6abc378817eb81ffaaf49fd0531ef8565f767f2f5
+1.3.2:age-v1.3.2-freebsd-amd64.tar.gz:d4687997d3ebfcc352ac529208e953edff68a652786de2701a03fec701a1e798
+1.3.2:age-v1.3.2-linux-amd64.tar.gz:cbe24006683f8eb669266162894b9a522a1af52f2665fbc63a4bb032ed26ac10
+1.3.2:age-v1.3.2-linux-arm.tar.gz:0ceba62c92701b30b3336abf064714c1a6ea5fa0c75ee367ce36d4f9c0f8e6ce
+1.3.2:age-v1.3.2-linux-arm64.tar.gz:6b8dc4333c53a5a57c9e5834e3a48f92605d7154014cd07269ff3327db5d37f4
+1.3.2:age-v1.3.2-windows-amd64.zip:f48d8f8f9ebe903ab5027ed067652f2cc1db94bc206976430133b905dcd8e8c7
+1.3.2:age-v1.3.2-windows-arm64.zip:fae351336c8d5f30f93cc3ccdec16d1ed7851d68cdd6656d41955cc31a447c9d"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -438,7 +446,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-latest}"
+  TAG="${1:-v1.3.2}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
@@ -647,6 +655,111 @@ execute() {
     BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
   else
     BINARY_PATH="${TMPDIR}/age/age-plugin-batchpass"
+  fi
+
+  if [ "${UNAME_OS}" = "windows" ]; then
+    case "${BINARY_NAME}" in *.exe) ;; *) BINARY_NAME="${BINARY_NAME}.exe" ;; esac
+    case "${BINARY_PATH}" in *.exe) ;; *) BINARY_PATH="${BINARY_PATH}.exe" ;; esac
+  fi
+
+  if [ ! -f "${BINARY_PATH}" ]; then
+    log_crit "Binary not found: ${BINARY_PATH}"
+    log_crit "Listing contents of ${TMPDIR} ..."
+    if command -v find >/dev/null 2>&1; then
+      cd "${TMPDIR}" && find .
+    else
+      cd "${TMPDIR}" && ls -R .
+    fi
+    return 1
+  fi
+
+  progress_clear
+  # Install the binary
+  INSTALL_PATH="${BINDIR}/${BINARY_NAME}"
+
+  if [ "$DRY_RUN" = "1" ]; then
+    log_info "[DRY RUN] ${BINARY_NAME} dry-run installation succeeded! (Would install to: ${INSTALL_PATH})"
+  else
+    log_info "Installing binary to ${INSTALL_PATH}"
+    test ! -d "${BINDIR}" && install -d "${BINDIR}"
+    install "${BINARY_PATH}" "${INSTALL_PATH}"
+    log_info "${BINARY_NAME} installation complete!"
+  fi
+  BINARY_NAME='age-plugin-pq'
+  if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
+    BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
+  else
+    BINARY_PATH="${TMPDIR}/age/age-plugin-pq"
+  fi
+
+  if [ "${UNAME_OS}" = "windows" ]; then
+    case "${BINARY_NAME}" in *.exe) ;; *) BINARY_NAME="${BINARY_NAME}.exe" ;; esac
+    case "${BINARY_PATH}" in *.exe) ;; *) BINARY_PATH="${BINARY_PATH}.exe" ;; esac
+  fi
+
+  if [ ! -f "${BINARY_PATH}" ]; then
+    log_crit "Binary not found: ${BINARY_PATH}"
+    log_crit "Listing contents of ${TMPDIR} ..."
+    if command -v find >/dev/null 2>&1; then
+      cd "${TMPDIR}" && find .
+    else
+      cd "${TMPDIR}" && ls -R .
+    fi
+    return 1
+  fi
+
+  progress_clear
+  # Install the binary
+  INSTALL_PATH="${BINDIR}/${BINARY_NAME}"
+
+  if [ "$DRY_RUN" = "1" ]; then
+    log_info "[DRY RUN] ${BINARY_NAME} dry-run installation succeeded! (Would install to: ${INSTALL_PATH})"
+  else
+    log_info "Installing binary to ${INSTALL_PATH}"
+    test ! -d "${BINDIR}" && install -d "${BINDIR}"
+    install "${BINARY_PATH}" "${INSTALL_PATH}"
+    log_info "${BINARY_NAME} installation complete!"
+  fi
+  BINARY_NAME='age-plugin-tag'
+  if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
+    BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
+  else
+    BINARY_PATH="${TMPDIR}/age/age-plugin-tag"
+  fi
+
+  if [ "${UNAME_OS}" = "windows" ]; then
+    case "${BINARY_NAME}" in *.exe) ;; *) BINARY_NAME="${BINARY_NAME}.exe" ;; esac
+    case "${BINARY_PATH}" in *.exe) ;; *) BINARY_PATH="${BINARY_PATH}.exe" ;; esac
+  fi
+
+  if [ ! -f "${BINARY_PATH}" ]; then
+    log_crit "Binary not found: ${BINARY_PATH}"
+    log_crit "Listing contents of ${TMPDIR} ..."
+    if command -v find >/dev/null 2>&1; then
+      cd "${TMPDIR}" && find .
+    else
+      cd "${TMPDIR}" && ls -R .
+    fi
+    return 1
+  fi
+
+  progress_clear
+  # Install the binary
+  INSTALL_PATH="${BINDIR}/${BINARY_NAME}"
+
+  if [ "$DRY_RUN" = "1" ]; then
+    log_info "[DRY RUN] ${BINARY_NAME} dry-run installation succeeded! (Would install to: ${INSTALL_PATH})"
+  else
+    log_info "Installing binary to ${INSTALL_PATH}"
+    test ! -d "${BINDIR}" && install -d "${BINDIR}"
+    install "${BINARY_PATH}" "${INSTALL_PATH}"
+    log_info "${BINARY_NAME} installation complete!"
+  fi
+  BINARY_NAME='age-plugin-tagpq'
+  if [ -z "${EXT}" ] || [ "${EXT}" = ".exe" ]; then
+    BINARY_PATH="${TMPDIR}/${ASSET_FILENAME}"
+  else
+    BINARY_PATH="${TMPDIR}/age/age-plugin-tagpq"
   fi
 
   if [ "${UNAME_OS}" = "windows" ]; then
