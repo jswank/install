@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/cli/cli/releases
-   If tag is missing, then v2.98.0 will be used.
+   If tag is missing, then v2.101.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -410,6 +410,15 @@ github_release() {
 
 # --- Embedded Checksums (Format: VERSION:FILENAME:HASH) ---
 EMBEDDED_CHECKSUMS="
+2.101.0:gh_2.101.0_linux_386.tar.gz:6d1fa543cf6890bdfe753549836966bd714af9af5cb4bc7c24f8d9986ca0371c
+2.101.0:gh_2.101.0_linux_amd64.tar.gz:9bca2d1c16825f109907a23307628a2f0698fbf99662b73a5cf0b020293072b8
+2.101.0:gh_2.101.0_linux_arm64.tar.gz:b57e8063f18862647c9d22727c32e9da1b963f8bf9db648fe123a6975695640f
+2.101.0:gh_2.101.0_linux_armv6.tar.gz:dfc12e3fb060c1513abe083839ae26d060487b71fde7bdad3c6e3870e84ec46c
+2.101.0:gh_2.101.0_macOS_amd64.zip:a6fd66c88e2f07d6e4e058173db341d07dd74d58cf8f19ae668293d2bb614ca3
+2.101.0:gh_2.101.0_macOS_arm64.zip:e4303e39d8f07141c4bad4b99b01079f05029c59b27076e8fbc825c985ecdd8b
+2.101.0:gh_2.101.0_windows_386.zip:582afded5ab57cd0713fecda2e680bc0a39c320181b35c8f024a95a4f695f93c
+2.101.0:gh_2.101.0_windows_amd64.zip:bc6c814367b193cd8e713611d61e36013c0ef843b8f516458fe3eda039192794
+2.101.0:gh_2.101.0_windows_arm64.zip:e6cbb2d4afdad3e70f3d38b8d1ebaa3a0870a897cfc0e4cf569826710b96b4fd
 2.92.0:gh_2.92.0_linux_386.tar.gz:65320dc8465c424fd3ae0a114a9753e815db89436ee2d0921641f30705af691d
 2.92.0:gh_2.92.0_linux_amd64.tar.gz:b57848131bdf0c229cd35e1f2a51aa718199858b2e728410b37e89a428943ec4
 2.92.0:gh_2.92.0_linux_arm64.tar.gz:c2248526dd0160c08d3fccca2332c3c1a07c15a78b23978e77735f1b5a18cfee
@@ -467,7 +476,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v2.98.0}"
+  TAG="${1:-v2.101.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
