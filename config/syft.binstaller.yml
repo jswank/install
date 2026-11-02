@@ -69,3 +69,22 @@ checksums:
         hash: 5e4bc3e6b6344b4625de0f7aa5351aaa72856d11d78462972de0a101ee2c1c8f
       - filename: syft_1.51.1_windows_arm64.zip
         hash: fa735ee4c25b90b93d6795a15b90d6a0bae78eb5ad7d3d4591b3c10faa3463ad
+    v1.55.0:
+      - filename: syft_1.55.0_darwin_amd64.tar.gz
+        hash: e2e5831cbabaec9a36fe65c34755c1113982c842a685edce3ce0b54a0ded8003
+      - filename: syft_1.55.0_darwin_arm64.tar.gz
+        hash: 1217c258bd5eb91ef3189cf22a82e02f9cac07e4ce934350f428e93aff674625
+      - filename: syft_1.55.0_linux_amd64.tar.gz
+        hash: bb65249542db5fedeeb4d3f9b018b75e7264dbfbbb10486f044581a92f90490d
+      - filename: syft_1.55.0_linux_arm64.tar.gz
+        hash: 929bd163db2d7cd2255d3bcb8967208079813d7b46b0c952f7b794d8e2c7d304
+      - filename: syft_1.55.0_linux_ppc64le.tar.gz
+        hash: 771e7c3b3e91cf9ded39079366ebe5693a16b4f2723cc72c8c6487e457726ea4
+      - filename: syft_1.55.0_linux_riscv64.tar.gz
+        hash: ad9d50073431bdb9f54a71648eb8ea173021b283b5191b899da392c9abcc3168
+      - filename: syft_1.55.0_linux_s390x.tar.gz
+        hash: 614aec958214cf9fc663b401ac648443c078c844603e16bde2733bee1f002b80
+      - filename: syft_1.55.0_windows_amd64.zip
+        hash: ada4c9b93af575f479ce80fce6629897272a2d41f300a14bc49bace020767ca2
+      - filename: syft_1.55.0_windows_arm64.zip
+        hash: f52f7796e41e4d1ae511c228c99239fd09887077336dcb7a8c2aa7046ed7c816
