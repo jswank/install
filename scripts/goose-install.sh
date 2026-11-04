@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/aaif-goose/goose/releases
-   If tag is missing, then v1.41.0 will be used.
+   If tag is missing, then v1.57.0 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -414,7 +414,12 @@ EMBEDDED_CHECKSUMS="
 1.41.0:goose-aarch64-unknown-linux-musl.tar.bz2:7021b0c57f17abc9fe2c7e66e3e0c75b968a61b8d5796c6579f8e62aeacacdf3
 1.41.0:goose-x86_64-apple-darwin.tar.bz2:b039fe30eecc54e85c7dca247cd96ed3064fa123551595e07b9f83b0cb7e8c15
 1.41.0:goose-x86_64-pc-windows-msvc-cuda.zip:be07cdd60cf2f13e154a0667386f8979369d81c705af9c27cfcf79d42365dd67
-1.41.0:goose-x86_64-unknown-linux-musl.tar.bz2:7f34060691a35a11c733cf771a9c572b73716e94d5ad9e57c97922d727b8527f"
+1.41.0:goose-x86_64-unknown-linux-musl.tar.bz2:7f34060691a35a11c733cf771a9c572b73716e94d5ad9e57c97922d727b8527f
+1.57.0:goose-aarch64-apple-darwin.tar.bz2:2fbafa227ab28654c47065f1c9ebcd12f527f017e30c08e618bc6fcf363d7935
+1.57.0:goose-aarch64-unknown-linux-musl.tar.bz2:26dc9be443e92760c4b74c85a0c9be327ac8b48f74cca0985398e8dfdbb7e0d4
+1.57.0:goose-x86_64-apple-darwin.tar.bz2:e48fe024891a4c272a89c74b9ae843d76a73229643c917b785b0680fef9c647a
+1.57.0:goose-x86_64-pc-windows-msvc-cuda.zip:2ba8a35d1bd90fc0def567cd5becc197fec90e95995cc6ea5fb22cb099924c16
+1.57.0:goose-x86_64-unknown-linux-musl.tar.bz2:90ac71084236e1a896098e26a4cb9c3e090de6eba30782886d64de839924a966"
 
 # Find embedded checksum for a given version and filename
 find_embedded_checksum() {
@@ -436,7 +441,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v1.41.0}"
+  TAG="${1:-v1.57.0}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
