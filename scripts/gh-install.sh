@@ -14,7 +14,7 @@ Usage: $this [-b bindir] [-d] [-q] [-n] [tag]
   -n turns on dry run mode
    [tag] is a tag from
    https://github.com/cli/cli/releases
-   If tag is missing, then v2.103.2 will be used.
+   If tag is missing, then v2.103.3 will be used.
 
 Environment variables:
   BINSTALLER_NO_PROGRESS=1   Disable progress indicators
@@ -428,6 +428,15 @@ EMBEDDED_CHECKSUMS="
 2.103.2:gh_2.103.2_windows_386.zip:45ca557df83cbe9dbf89aebbcbb16679e24a31a14cc40c50516470a760e0a251
 2.103.2:gh_2.103.2_windows_amd64.zip:fef9fcdd8fdabd0501ab8b3d99eac976f504ab55d01bef9e8ef428a5d900ddda
 2.103.2:gh_2.103.2_windows_arm64.zip:cefaaa3efcd110ef7bf71071a2242b85fd3d2ac26d7d62e1082de6a1e60a81d6
+2.103.3:gh_2.103.3_linux_386.tar.gz:fe105cd3cb52cde68623778f67a438d95a0b66b9372f1c0b707c07a0f045f71d
+2.103.3:gh_2.103.3_linux_amd64.tar.gz:4c806978ffce1cec70853302a56d70ac6da4f19bae7adca4e1a8ab00633dd91d
+2.103.3:gh_2.103.3_linux_arm64.tar.gz:ee32df2323c8847f5fac6cb6b4b69ca75828e9329a8f22f677021f7b3306ce63
+2.103.3:gh_2.103.3_linux_armv6.tar.gz:57f56848b069cad21f4fa72f2cc38c2ac01f5f69f443159213a42183a73c89ea
+2.103.3:gh_2.103.3_macOS_amd64.zip:a2f86418f4350ae6e9ec60d5000bdf7665728436946a97fc27fe50e6ae752682
+2.103.3:gh_2.103.3_macOS_arm64.zip:d700207eae9ae98fe2b89535c2c087c07823d4628c56364695a5a07ef311c062
+2.103.3:gh_2.103.3_windows_386.zip:e18001aaa03da36635626b3557947a886704d67f532292577c5945ad0535f6eb
+2.103.3:gh_2.103.3_windows_amd64.zip:98d0cfa794721665d7973dd728c78aff7bd836d58f10f6d7a03568eccb0a22e0
+2.103.3:gh_2.103.3_windows_arm64.zip:197211c98687d7770ac331fe8a3b6c198c389108c1536cdbedf659fe4703e484
 2.92.0:gh_2.92.0_linux_386.tar.gz:65320dc8465c424fd3ae0a114a9753e815db89436ee2d0921641f30705af691d
 2.92.0:gh_2.92.0_linux_amd64.tar.gz:b57848131bdf0c229cd35e1f2a51aa718199858b2e728410b37e89a428943ec4
 2.92.0:gh_2.92.0_linux_arm64.tar.gz:c2248526dd0160c08d3fccca2332c3c1a07c15a78b23978e77735f1b5a18cfee
@@ -485,7 +494,7 @@ parse_args() {
     esac
   done
   shift $((OPTIND - 1))
-  TAG="${1:-v2.103.2}"
+  TAG="${1:-v2.103.3}"
 }
 tag_to_version() {
   if [ "$TAG" = "latest" ]; then
