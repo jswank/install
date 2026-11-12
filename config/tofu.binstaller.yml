@@ -157,3 +157,32 @@ checksums:
         hash: fed3bff9c96fbd25f567b103d1872466213e8381f328d62b9ac2c87c182873a9
       - filename: tofu_1.12.6_windows_amd64.tar.gz
         hash: bcbcd9ca744af6c4053e2d5e75dae79ff33ad7dc38d45e1233e693d096284538
+    v1.13.8:
+      - filename: tofu_1.13.8_darwin_amd64.tar.gz
+        hash: 1e829e672127cef6c712496adb161c22d5b85775a96f3ae1b3749151ea55e9fb
+      - filename: tofu_1.13.8_darwin_arm64.tar.gz
+        hash: dc53f79995cb235a3f68e87d3856f37179a091a9c75ff4eaf1d5ebf0006e4cf4
+      - filename: tofu_1.13.8_freebsd_386.tar.gz
+        hash: a4b241e80e6d6a4e0a5f2e8ae9a39d76291a4b07155399a8c7303ba3fcb86e43
+      - filename: tofu_1.13.8_freebsd_amd64.tar.gz
+        hash: 79f639f2d918595445e1040ffa9299f159fa873e00313bcde23027a56a180b35
+      - filename: tofu_1.13.8_freebsd_arm.tar.gz
+        hash: 402e9a28a74f02a9670a42610fe9eb4b88c501d01a38af65cc97f8ee290e8735
+      - filename: tofu_1.13.8_linux_386.tar.gz
+        hash: 01c64075d33519498346f6a6ae87c63c44e24f4a06620568b7914d222ab01bf8
+      - filename: tofu_1.13.8_linux_amd64.tar.gz
+        hash: dab8135df87343ce143e1bef1a6174d7b82035950818bde17950658ff9a72697
+      - filename: tofu_1.13.8_linux_arm.tar.gz
+        hash: 2ab7adfb437df11ff16b0376c57ef9f4e2bcdf8bf05bf6a6ccccc576e5ebd1b4
+      - filename: tofu_1.13.8_linux_arm64.tar.gz
+        hash: fb4a3cbae5eba5a07f16e53bdf61493d2da81b4a559f645b39761409a7abc2ea
+      - filename: tofu_1.13.8_openbsd_amd64.tar.gz
+        hash: bb4239cdbf66fe01b88ae7ab34144fab9306a8ddd29e352990021354b3b0be22
+      - filename: tofu_1.13.8_solaris_amd64.tar.gz
+        hash: 698537c7c49e33af06f0c0d3e67ef318a0d0c8415168ce05e823f9ad31025df5
+      - filename: tofu_1.13.8_windows_386.tar.gz
+        hash: d877cf11bd62e631fd07df01c1ee188c10b9561baa638885dc01547c94322bef
+      - filename: tofu_1.13.8_windows_amd64.tar.gz
+        hash: f395fda86d4a7e94db88a4da1a40e34e4b381e8f6a0cdf1fe9b1ca01db612d71
+      - filename: tofu_1.13.8_windows_arm64.tar.gz
+        hash: bf3d1a4106902c02c6650d2d08496b43e8e58801a85cc648fbd392a519fd6b61
