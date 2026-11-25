@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/binary-install/binstaller/main/schema/InstallSpec.json
 schema: v1
 repo: cli/cli
-default_version: v2.103.2 # renovate: datasource=github-releases depName=cli/cli
+default_version: v2.103.3 # renovate: datasource=github-releases depName=cli/cli
 asset:
   template: gh_${VERSION}_${OS}_${ARCH}${EXT}
   default_extension: .zip
@@ -57,6 +57,25 @@ checksums:
         hash: fef9fcdd8fdabd0501ab8b3d99eac976f504ab55d01bef9e8ef428a5d900ddda
       - filename: gh_2.103.2_windows_arm64.zip
         hash: cefaaa3efcd110ef7bf71071a2242b85fd3d2ac26d7d62e1082de6a1e60a81d6
+    v2.103.3:
+      - filename: gh_2.103.3_linux_386.tar.gz
+        hash: fe105cd3cb52cde68623778f67a438d95a0b66b9372f1c0b707c07a0f045f71d
+      - filename: gh_2.103.3_linux_amd64.tar.gz
+        hash: 4c806978ffce1cec70853302a56d70ac6da4f19bae7adca4e1a8ab00633dd91d
+      - filename: gh_2.103.3_linux_arm64.tar.gz
+        hash: ee32df2323c8847f5fac6cb6b4b69ca75828e9329a8f22f677021f7b3306ce63
+      - filename: gh_2.103.3_linux_armv6.tar.gz
+        hash: 57f56848b069cad21f4fa72f2cc38c2ac01f5f69f443159213a42183a73c89ea
+      - filename: gh_2.103.3_macOS_amd64.zip
+        hash: a2f86418f4350ae6e9ec60d5000bdf7665728436946a97fc27fe50e6ae752682
+      - filename: gh_2.103.3_macOS_arm64.zip
+        hash: d700207eae9ae98fe2b89535c2c087c07823d4628c56364695a5a07ef311c062
+      - filename: gh_2.103.3_windows_386.zip
+        hash: e18001aaa03da36635626b3557947a886704d67f532292577c5945ad0535f6eb
+      - filename: gh_2.103.3_windows_amd64.zip
+        hash: 98d0cfa794721665d7973dd728c78aff7bd836d58f10f6d7a03568eccb0a22e0
+      - filename: gh_2.103.3_windows_arm64.zip
+        hash: 197211c98687d7770ac331fe8a3b6c198c389108c1536cdbedf659fe4703e484
     v2.92.0:
       - filename: gh_2.92.0_linux_386.tar.gz
         hash: 65320dc8465c424fd3ae0a114a9753e815db89436ee2d0921641f30705af691d
